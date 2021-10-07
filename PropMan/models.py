@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Użytkownicy systemu
 class Users(models.Model):
     # Fields
@@ -74,3 +75,34 @@ class HousingAssociation(models.Model):
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
         return self.id, self.name, self.address, self.postalcode, self.city, self.phone, self.email, self.comments
+
+
+# Najemcy
+class Tenants(models.Model):
+    # Fields
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=45, help_text='Tenant first name')
+    surname = models.CharField(max_length=45, help_text='Tenant last name')
+    address = models.CharField(max_length=198, help_text='Tenant address')
+    postalcode = models.CharField(max_length=6, help_text='Tenant postalcode')
+    city = models.CharField(max_length=45, help_text='Tenant city')
+    phone = models.CharField(max_length=12, help_text='Tenant phone number')
+    email = models.EmailField(max_length=254, help_text='Tenant email address')
+    comments = models.TextField(max_length=1000, help_text='Comments')
+    # Dodać Foreign key housingAssociation
+
+    # Metadata
+    class Meta:
+        ordering = ['id']
+
+    # Methods
+    #def get_absolute_url(self):
+    #    """Returns the url to access a particular instance of MyModelName."""
+    #    return reverse('model-detail-view', args=[str(self.id)])
+
+    def __str__(self):
+        """String for representing the MyModelName object (in Admin site etc.)."""
+        return self.id, self.name, self.surname, self.address, self.postalcode, \
+               self.city, self.phone, self.email, self.comments
+
+
