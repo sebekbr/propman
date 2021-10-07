@@ -4,7 +4,11 @@ class Users(models.Model):
     """A typical class defining a model, derived from the Model class."""
 
     # Fields
-    my_field_name = models.CharField(max_length=20, help_text='Enter field documentation')
+    login = models.CharField(max_length=45, help_text='User login')
+    password = models.CharField(max_length=198, help_text='User password')
+    name = models.CharField(max_length=45, help_text='User first name')
+    surname = models.CharField(max_length=45, help_text='User last name')
+    type = models.CharField(max_length=1, help_text='Account type: 0 - user, 1 - admin')
 
     # Metadata
     class Meta:
