@@ -114,7 +114,8 @@ class Property(models.Model):
     postalcode = models.CharField(max_length=6, help_text='Property postalcode')
     city = models.CharField(max_length=45, help_text='Property city')
     kw_number = models.CharField(max_length=15, help_text='Numer KW')
-    houseassociation = models.ForeignKey(HousingAssociation, on_delete=models.CASCADE)
+    # Foreign Keys
+    house_association = models.ForeignKey(HousingAssociation, on_delete=models.CASCADE)
 
     # Metadata
     class Meta:
@@ -130,7 +131,7 @@ class Property(models.Model):
         return self.id, self.name, self.address, self.postalcode, self.city, self.kw_number
 
 
-# Umowy najmu
+# Umowy najmu - FK
 class LeaseAgreement(models.Model):
     # Fields
     id = models.AutoField(primary_key=True)
@@ -139,7 +140,9 @@ class LeaseAgreement(models.Model):
     value = models.DecimalField(max_digits=19, decimal_places=2, help_text='Lease agreement value')
     comments = models.TextField(max_length=1000, help_text='Comments')
     type = models.CharField(max_length=1, help_text='Lease agreement type: 0 - normal, 1 - notarial')
-    # Dodać Foreign key housingAssociation
+    # Foreign Keys
+    property = models.ForeignKey(Property, on_delete=models.CASCADE)
+
 
     # Metadata
     class Meta:
@@ -192,7 +195,9 @@ class Bills(models.Model):
     end = models.DateField(auto_now=False, auto_now_add=False, help_text='Agreement ending date')
     phone = models.CharField(max_length=12, help_text='Landlords phone number')
     email = models.EmailField(max_length=254, help_text='Landlords email address')
-    # Dodać Foreign key housingAssociation
+    # Foreign Keys
+    bill_vendor = models.ForeignKey(BillVendors, on_delete=models.CASCADE)
+    property = models.ForeignKey(Property, on_delete=models.CASCADE)
 
     # Metadata
     class Meta:
