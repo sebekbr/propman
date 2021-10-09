@@ -25,31 +25,6 @@ class Users(models.Model):
         return self.id, self.login, self.password, self.name, self.surname, self.type
 
 
-# Nieruchomości
-class Property(models.Model):
-    # Fields
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=45, help_text='Property name')
-    address = models.CharField(max_length=198, help_text='Property address')
-    postalcode = models.CharField(max_length=6, help_text='Property postalcode')
-    city = models.CharField(max_length=45, help_text='Property city')
-    kw_number = models.CharField(max_length=15, help_text='Numer KW')
-    # Dodać Foreign key housingAssociation
-
-    # Metadata
-    class Meta:
-        ordering = ['id']
-
-    # Methods
-    #def get_absolute_url(self):
-    #    """Returns the url to access a particular instance of MyModelName."""
-    #    return reverse('model-detail-view', args=[str(self.id)])
-
-    def __str__(self):
-        """String for representing the MyModelName object (in Admin site etc.)."""
-        return self.id, self.name, self.address, self.postalcode, self.city, self.kw_number
-
-
 # Spółdzielnie/Wspólnoty mieszkaniowe
 class HousingAssociation(models.Model):
     # Fields
@@ -106,6 +81,55 @@ class Tenants(models.Model):
                self.city, self.phone, self.email, self.comments
 
 
+# Właściciele
+class Landlords(models.Model):
+    # Fields
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=45, help_text='Landlords first name')
+    surname = models.CharField(max_length=45, help_text='Landlords last name')
+    phone = models.CharField(max_length=12, help_text='Landlords phone number')
+    email = models.EmailField(max_length=254, help_text='Landlords email address')
+    # Dodać Foreign key housingAssociation
+
+    # Metadata
+    class Meta:
+        ordering = ['id']
+
+    # Methods
+    #def get_absolute_url(self):
+    #    """Returns the url to access a particular instance of MyModelName."""
+    #    return reverse('model-detail-view', args=[str(self.id)])
+
+    def __str__(self):
+        """String for representing the MyModelName object (in Admin site etc.)."""
+        return self.id, self.name, self.surname, self.phone, self.email
+
+
+# Nieruchomości
+class Property(models.Model):
+    # Fields
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=45, help_text='Property name')
+    address = models.CharField(max_length=198, help_text='Property address')
+    postalcode = models.CharField(max_length=6, help_text='Property postalcode')
+    city = models.CharField(max_length=45, help_text='Property city')
+    kw_number = models.CharField(max_length=15, help_text='Numer KW')
+    houseassociation = models.ForeignKey(HousingAssociation, on_delete=models.CASCADE)
+
+    # Metadata
+    class Meta:
+        ordering = ['id']
+
+    # Methods
+    #def get_absolute_url(self):
+    #    """Returns the url to access a particular instance of MyModelName."""
+    #    return reverse('model-detail-view', args=[str(self.id)])
+
+    def __str__(self):
+        """String for representing the MyModelName object (in Admin site etc.)."""
+        return self.id, self.name, self.address, self.postalcode, self.city, self.kw_number
+
+
 # Umowy najmu
 class LeaseAgreement(models.Model):
     # Fields
@@ -131,14 +155,16 @@ class LeaseAgreement(models.Model):
         return self.id, self.start, self.end, self.value, self.comments, self.type
 
 
-# Właściciele
-class Landlords(models.Model):
+# Dostawcy rachunków
+class BillVendors(models.Model):
     # Fields
     id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=45, help_text='Landlords first name')
-    surname = models.CharField(max_length=45, help_text='Landlords last name')
-    phone = models.CharField(max_length=12, help_text='Landlords phone number')
-    email = models.EmailField(max_length=254, help_text='Landlords email address')
+    name = models.CharField(max_length=45, help_text='Vendors first name')
+    address = models.CharField(max_length=45, help_text='Vendors address')
+    postalcode = models.CharField(max_length=45, help_text="Vendors postalcode")
+    city = models.CharField(max_length=45, help_text="Vendors city")
+    phone = models.CharField(max_length=12, help_text='Vendors phone number')
+    email = models.EmailField(max_length=254, help_text='Vendors email address')
     # Dodać Foreign key housingAssociation
 
     # Metadata
@@ -152,7 +178,7 @@ class Landlords(models.Model):
 
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
-        return self.id, self.name, self.surname, self.phone, self.email
+        return self.id, self.name, self.address, self.postalcode, self.city, self.phone, self.email
 
 
 # Rachunki i umowy
@@ -181,30 +207,4 @@ class Bills(models.Model):
         """String for representing the MyModelName object (in Admin site etc.)."""
         return self.id, self.name, self.agreement_number, self.start, \
                self.duration, self.end, self.phone, self.email
-
-
-# Dostawcy rachunków
-class BillVendors(models.Model):
-    # Fields
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=45, help_text='Vendors first name')
-    address = models.CharField(max_length=45, help_text='Vendors address')
-    postalcode = models.CharField(max_length=45, help_text="Vendors postalcode")
-    city = models.CharField(max_length=45, help_text="Vendors city")
-    phone = models.CharField(max_length=12, help_text='Vendors phone number')
-    email = models.EmailField(max_length=254, help_text='Vendors email address')
-    # Dodać Foreign key housingAssociation
-
-    # Metadata
-    class Meta:
-        ordering = ['id']
-
-    # Methods
-    #def get_absolute_url(self):
-    #    """Returns the url to access a particular instance of MyModelName."""
-    #    return reverse('model-detail-view', args=[str(self.id)])
-
-    def __str__(self):
-        """String for representing the MyModelName object (in Admin site etc.)."""
-        return self.id, self.name, self.address, self.postalcode, self.city, self.phone, self.email
 
