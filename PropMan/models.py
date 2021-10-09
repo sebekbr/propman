@@ -131,7 +131,7 @@ class Property(models.Model):
         return self.id, self.name, self.address, self.postalcode, self.city, self.kw_number
 
 
-# Umowy najmu - FK
+# Umowy najmu
 class LeaseAgreement(models.Model):
     # Fields
     id = models.AutoField(primary_key=True)
@@ -142,6 +142,8 @@ class LeaseAgreement(models.Model):
     type = models.CharField(max_length=1, help_text='Lease agreement type: 0 - normal, 1 - notarial')
     # Foreign Keys
     property = models.ForeignKey(Property, on_delete=models.CASCADE)
+    landlords = models.ForeignKey(Landlords, on_delete=models.CASCADE)
+    tenants = models.ForeignKey(Tenants, on_delete=models.CASCADE)
 
 
     # Metadata
