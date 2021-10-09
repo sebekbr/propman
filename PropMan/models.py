@@ -16,7 +16,7 @@ class Users(models.Model):
         ordering = ['id']
 
     # Methods
-    #def get_absolute_url(self):
+    # def get_absolute_url(self):
     #    """Returns the url to access a particular instance of MyModelName."""
     #    return reverse('model-detail-view', args=[str(self.id)])
 
@@ -36,14 +36,13 @@ class HousingAssociation(models.Model):
     phone = models.CharField(max_length=12, help_text='HA phone number')
     email = models.EmailField(max_length=254)
     comments = models.TextField(max_length=1000, help_text='Comments')
-    # Dodać Foreign key housingAssociation
 
     # Metadata
     class Meta:
         ordering = ['id']
 
     # Methods
-    #def get_absolute_url(self):
+    # def get_absolute_url(self):
     #    """Returns the url to access a particular instance of MyModelName."""
     #    return reverse('model-detail-view', args=[str(self.id)])
 
@@ -64,14 +63,13 @@ class Tenants(models.Model):
     phone = models.CharField(max_length=12, help_text='Tenant phone number')
     email = models.EmailField(max_length=254, help_text='Tenant email address')
     comments = models.TextField(max_length=1000, help_text='Comments')
-    # Dodać Foreign key housingAssociation
 
     # Metadata
     class Meta:
         ordering = ['id']
 
     # Methods
-    #def get_absolute_url(self):
+    # def get_absolute_url(self):
     #    """Returns the url to access a particular instance of MyModelName."""
     #    return reverse('model-detail-view', args=[str(self.id)])
 
@@ -89,14 +87,13 @@ class Landlords(models.Model):
     surname = models.CharField(max_length=45, help_text='Landlords last name')
     phone = models.CharField(max_length=12, help_text='Landlords phone number')
     email = models.EmailField(max_length=254, help_text='Landlords email address')
-    # Dodać Foreign key housingAssociation
 
     # Metadata
     class Meta:
         ordering = ['id']
 
     # Methods
-    #def get_absolute_url(self):
+    # def get_absolute_url(self):
     #    """Returns the url to access a particular instance of MyModelName."""
     #    return reverse('model-detail-view', args=[str(self.id)])
 
@@ -122,7 +119,7 @@ class Property(models.Model):
         ordering = ['id']
 
     # Methods
-    #def get_absolute_url(self):
+    # def get_absolute_url(self):
     #    """Returns the url to access a particular instance of MyModelName."""
     #    return reverse('model-detail-view', args=[str(self.id)])
 
@@ -145,13 +142,12 @@ class LeaseAgreement(models.Model):
     landlords = models.ForeignKey(Landlords, on_delete=models.CASCADE)
     tenants = models.ForeignKey(Tenants, on_delete=models.CASCADE)
 
-
     # Metadata
     class Meta:
         ordering = ['id']
 
     # Methods
-    #def get_absolute_url(self):
+    # def get_absolute_url(self):
     #    """Returns the url to access a particular instance of MyModelName."""
     #    return reverse('model-detail-view', args=[str(self.id)])
 
@@ -170,14 +166,13 @@ class BillVendors(models.Model):
     city = models.CharField(max_length=45, help_text="Vendors city")
     phone = models.CharField(max_length=12, help_text='Vendors phone number')
     email = models.EmailField(max_length=254, help_text='Vendors email address')
-    # Dodać Foreign key housingAssociation
 
     # Metadata
     class Meta:
         ordering = ['id']
 
     # Methods
-    #def get_absolute_url(self):
+    # def get_absolute_url(self):
     #    """Returns the url to access a particular instance of MyModelName."""
     #    return reverse('model-detail-view', args=[str(self.id)])
 
@@ -198,7 +193,7 @@ class Bills(models.Model):
     phone = models.CharField(max_length=12, help_text='Landlords phone number')
     email = models.EmailField(max_length=254, help_text='Landlords email address')
     # Foreign Keys
-    bill_vendor = models.ForeignKey(BillVendors, on_delete=models.CASCADE)
+    bill_vendor = models.OneToOneField(BillVendors, on_delete=models.CASCADE)
     property = models.ForeignKey(Property, on_delete=models.CASCADE)
 
     # Metadata
@@ -206,7 +201,7 @@ class Bills(models.Model):
         ordering = ['id']
 
     # Methods
-    #def get_absolute_url(self):
+    # def get_absolute_url(self):
     #    """Returns the url to access a particular instance of MyModelName."""
     #    return reverse('model-detail-view', args=[str(self.id)])
 
