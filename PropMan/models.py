@@ -106,3 +106,26 @@ class Tenants(models.Model):
                self.city, self.phone, self.email, self.comments
 
 
+# Umowy najmu
+class LeaseAgreement(models.Model):
+    # Fields
+    id = models.AutoField(primary_key=True)
+    start = models.DateField(auto_now=False, auto_now_add=False, help_text='Lease agreement beginning date')
+    end = models.DateField(auto_now=False, auto_now_add=False, help_text='Lease agreement ending date')
+    value = models.DecimalField(max_digits=19, decimal_places=2, help_text='Lease agreement value')
+    comments = models.TextField(max_length=1000, help_text='Comments')
+    type = models.CharField(max_length=1, help_text='Lease agreement type: 0 - normal, 1 - notarial')
+    # Dodać Foreign key housingAssociation
+
+    # Metadata
+    class Meta:
+        ordering = ['id']
+
+    # Methods
+    #def get_absolute_url(self):
+    #    """Returns the url to access a particular instance of MyModelName."""
+    #    return reverse('model-detail-view', args=[str(self.id)])
+
+    def __str__(self):
+        """String for representing the MyModelName object (in Admin site etc.)."""
+        return self.id, self.start, self.end, self.value, self.comments, self.type
