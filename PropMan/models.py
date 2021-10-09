@@ -129,3 +129,29 @@ class LeaseAgreement(models.Model):
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
         return self.id, self.start, self.end, self.value, self.comments, self.type
+
+
+# Najemcy
+class LandLords(models.Model):
+    # Fields
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=45, help_text='Landlords first name')
+    surname = models.CharField(max_length=45, help_text='Landlords last name')
+    phone = models.CharField(max_length=12, help_text='Landlords phone number')
+    email = models.EmailField(max_length=254, help_text='Landlords email address')
+    # Dodać Foreign key housingAssociation
+
+    # Metadata
+    class Meta:
+        ordering = ['id']
+
+    # Methods
+    #def get_absolute_url(self):
+    #    """Returns the url to access a particular instance of MyModelName."""
+    #    return reverse('model-detail-view', args=[str(self.id)])
+
+    def __str__(self):
+        """String for representing the MyModelName object (in Admin site etc.)."""
+        return self.id, self.name, self.surname, self.phone, self.email
+
+
