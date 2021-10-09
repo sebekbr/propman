@@ -187,10 +187,12 @@ class Bills(models.Model):
 class BillVendors(models.Model):
     # Fields
     id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=45, help_text='Landlords first name')
-    surname = models.CharField(max_length=45, help_text='Landlords last name')
-    phone = models.CharField(max_length=12, help_text='Landlords phone number')
-    email = models.EmailField(max_length=254, help_text='Landlords email address')
+    name = models.CharField(max_length=45, help_text='Vendors first name')
+    address = models.CharField(max_length=45, help_text='Vendors address')
+    postalcode = models.CharField(max_length=45, help_text="Vendors postalcode")
+    city = models.CharField(max_length=45, help_text="Vendors city")
+    phone = models.CharField(max_length=12, help_text='Vendors phone number')
+    email = models.EmailField(max_length=254, help_text='Vendors email address')
     # Dodać Foreign key housingAssociation
 
     # Metadata
@@ -204,4 +206,5 @@ class BillVendors(models.Model):
 
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
-        return self.id, self.name, self.surname, self.phone, self.email
+        return self.id, self.name, self.address, self.postalcode, self.city, self.phone, self.email
+
