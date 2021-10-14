@@ -7,9 +7,12 @@
 {% if user.is_authenticated %}
   <p>Hi {{ user.username }}!</p>
   <p>Testowanie obsługi bazy danych:</p>
-  
+
+  <a href="{% url 'form_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus">+++</span></a>
+  <button type="button" name="button"><a href="{% url 'logout' %}">Wyloguj</a></button>
+
 {% else %}
   <p>You are not logged in</p>
-  <a href="{% url 'login' %}">Log In</a>
+  <button type="button" name="button"><a href="{% url 'login' %}">Zaloguj</a></button>
 {% endif %}
 {% endblock %}
