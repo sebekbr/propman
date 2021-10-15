@@ -9,6 +9,6 @@ def index(request):
 
 # Widok nowego wpisu
 def housingassociation_form_new(request):
-    form_new = HousingAssociationForm()
-    return render(request, 'registration/insert_test.html', {'form': form_new})
+    form = HousingAssociationForm()
+    return render(request, 'registration/insert_test.html', {'form': form})
 
