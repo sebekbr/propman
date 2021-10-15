@@ -1,6 +1,5 @@
 from django import forms
 from .models import HousingAssociation
-from .models import Users
 from .models import Tenants
 from .models import Landlords
 from .models import Property
@@ -9,11 +8,11 @@ from .models import BillVendors
 from .models import Bills
 
 
-# Użytkownicy systemu
-class UsersForm(forms.ModelForm):
-    class Meta:
-        model = Users
-        fields = ['login', 'password', 'name', 'surname', 'type']
+# # Użytkownicy systemu
+# class UsersForm(forms.ModelForm):
+#     class Meta:
+#         model = Users
+#         fields = ['login', 'password', 'name', 'surname', 'type']
 
 
 # Spółdzielnie/Wspólnoty mieszkaniowe
