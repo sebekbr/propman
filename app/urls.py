@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('forms/new', views.form_new, name='form_new'),
+    path('forms/new', views.housingassociation_form_new, name='form_new'), # definicja adresu URL nowego wpisu
 ]

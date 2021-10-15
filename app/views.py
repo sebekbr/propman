@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import HousingAssociationForm
+from .forms import *
 
 
 def index(request):
@@ -7,7 +7,8 @@ def index(request):
     return render(request, 'registration/index.html')
 
 
-def form_new(request):
-    form = HousingAssociationForm()
-    return render(request, 'front/insert_test.html', {'form': form})
+# Widok nowego wpisu
+def housingassociation_form_new(request):
+    form_new = HousingAssociationForm()
+    return render(request, 'registration/insert_test.html', {'form': form_new})
 
