@@ -1,11 +1,5 @@
 from django import forms
-from .models import HousingAssociation
-from .models import Tenants
-from .models import Landlords
-from .models import Property
-from .models import LeaseAgreement
-from .models import BillVendors
-from .models import Bills
+from .models import *
 
 
 # # Użytkownicy systemu
