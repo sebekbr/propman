@@ -29,13 +29,13 @@ from django.db import models
 class HousingAssociation(models.Model):
     # Fields
     id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=45, help_text='HA name')
-    address = models.CharField(max_length=198, help_text='HA address')
-    postalcode = models.CharField(max_length=6, help_text='HA postalcode')
-    city = models.CharField(max_length=45, help_text='HA city')
-    phone = models.CharField(max_length=12, help_text='HA phone number')
+    name = models.CharField(max_length=45, blank=False) # HA name
+    address = models.CharField(max_length=198, blank=False) # HA address
+    postalcode = models.CharField(max_length=6, blank=False) # HA postalcode
+    city = models.CharField(max_length=45, blank=False) # HA city
+    phone = models.CharField(max_length=12) # HA phone number
     email = models.EmailField(max_length=254)
-    comments = models.TextField(max_length=1000, help_text='Comments')
+    comments = models.TextField(max_length=1000) # Comments
 
     # Metadata
     class Meta:
@@ -55,14 +55,14 @@ class HousingAssociation(models.Model):
 class Tenants(models.Model):
     # Fields
     id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=45, help_text='Tenant first name')
-    surname = models.CharField(max_length=45, help_text='Tenant last name')
-    address = models.CharField(max_length=198, help_text='Tenant address')
-    postalcode = models.CharField(max_length=6, help_text='Tenant postalcode')
-    city = models.CharField(max_length=45, help_text='Tenant city')
-    phone = models.CharField(max_length=12, help_text='Tenant phone number')
-    email = models.EmailField(max_length=254, help_text='Tenant email address')
-    comments = models.TextField(max_length=1000, help_text='Comments')
+    name = models.CharField(max_length=45, blank=False) # Tenant first name
+    surname = models.CharField(max_length=45, blank=False) # Tenant last name
+    address = models.CharField(max_length=198, blank=False) # Tenant address
+    postalcode = models.CharField(max_length=6, blank=False) # Tenant postalcode
+    city = models.CharField(max_length=45, blank=False) # Tenant city
+    phone = models.CharField(max_length=12) # Tenant phone number
+    email = models.EmailField(max_length=254) # Tenant email address
+    comments = models.TextField(max_length=1000) # Comments
 
     # Metadata
     class Meta:
@@ -83,10 +83,10 @@ class Tenants(models.Model):
 class Landlords(models.Model):
     # Fields
     id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=45, help_text='Landlords first name')
-    surname = models.CharField(max_length=45, help_text='Landlords last name')
-    phone = models.CharField(max_length=12, help_text='Landlords phone number')
-    email = models.EmailField(max_length=254, help_text='Landlords email address')
+    name = models.CharField(max_length=45, blank=False) # Landlords first name
+    surname = models.CharField(max_length=45, blank=False) # Landlords last name
+    phone = models.CharField(max_length=12) # Landlords phone number
+    email = models.EmailField(max_length=254) # Landlords email address
 
     # Metadata
     class Meta:
@@ -106,11 +106,11 @@ class Landlords(models.Model):
 class Property(models.Model):
     # Fields
     id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=45, help_text='Property name')
-    address = models.CharField(max_length=198, help_text='Property address')
-    postalcode = models.CharField(max_length=6, help_text='Property postalcode')
-    city = models.CharField(max_length=45, help_text='Property city')
-    kw_number = models.CharField(max_length=15, help_text='Numer KW')
+    name = models.CharField(max_length=45) # Property name
+    address = models.CharField(max_length=198, blank=False) # Property address
+    postalcode = models.CharField(max_length=6, blank=False) # Property postalcode
+    city = models.CharField(max_length=45, blank=False) # Property city
+    kw_number = models.CharField(max_length=15) # Numer KW
     # Foreign Keys
     house_association = models.ForeignKey(HousingAssociation, on_delete=models.CASCADE)
 
@@ -132,11 +132,11 @@ class Property(models.Model):
 class LeaseAgreement(models.Model):
     # Fields
     id = models.AutoField(primary_key=True)
-    start = models.DateField(auto_now=False, auto_now_add=False, help_text='Lease agreement beginning date')
-    end = models.DateField(auto_now=False, auto_now_add=False, help_text='Lease agreement ending date')
-    value = models.DecimalField(max_digits=19, decimal_places=2, help_text='Lease agreement value')
-    comments = models.TextField(max_length=1000, help_text='Comments')
-    type = models.CharField(max_length=1, help_text='Lease agreement type: 0 - normal, 1 - notarial')
+    start = models.DateField(auto_now=False, auto_now_add=False, blank=False) # Lease agreement beginning date
+    end = models.DateField(auto_now=False, auto_now_add=False, blank=False) # Lease agreement ending date
+    value = models.DecimalField(max_digits=19, decimal_places=2, blank=False) # Lease agreement value
+    comments = models.TextField(max_length=1000) # Comments
+    type = models.CharField(max_length=1, blank=False) # Lease agreement type: 0 - normal, 1 - notarial
     # Foreign Keys
     property = models.ForeignKey(Property, on_delete=models.CASCADE)
     landlords = models.ForeignKey(Landlords, on_delete=models.CASCADE)
@@ -160,12 +160,12 @@ class LeaseAgreement(models.Model):
 class BillVendors(models.Model):
     # Fields
     id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=45, help_text='Vendors first name')
-    address = models.CharField(max_length=45, help_text='Vendors address')
-    postalcode = models.CharField(max_length=45, help_text="Vendors postalcode")
-    city = models.CharField(max_length=45, help_text="Vendors city")
-    phone = models.CharField(max_length=12, help_text='Vendors phone number')
-    email = models.EmailField(max_length=254, help_text='Vendors email address')
+    name = models.CharField(max_length=45, blank=False) # Vendors first name
+    address = models.CharField(max_length=45, blank=False) # Vendors address
+    postalcode = models.CharField(max_length=45, blank=False) # Vendors postalcode
+    city = models.CharField(max_length=45, blank=False) # Vendors city
+    phone = models.CharField(max_length=12) # Vendors phone number
+    email = models.EmailField(max_length=254) # Vendors email address
 
     # Metadata
     class Meta:
@@ -185,13 +185,11 @@ class BillVendors(models.Model):
 class Bills(models.Model):
     # Fields
     id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=198, help_text='Bills name')
-    agreement_number = models.CharField(max_length=45, help_text='Agreement number')
-    start = models.DateField(auto_now=False, auto_now_add=False, help_text='Agreement beginning date')
-    duration = models.IntegerField(help_text="Duration in months")
-    end = models.DateField(auto_now=False, auto_now_add=False, help_text='Agreement ending date')
-    phone = models.CharField(max_length=12, help_text='Landlords phone number')
-    email = models.EmailField(max_length=254, help_text='Landlords email address')
+    name = models.CharField(max_length=198, blank=False) # Bills name
+    agreement_number = models.CharField(max_length=45, blank=False) # Agreement number
+    start = models.DateField(auto_now=False, auto_now_add=False, blank=False) # Agreement beginning date
+    duration = models.IntegerField(blank=False) # Duration in months
+    end = models.DateField(auto_now=False, auto_now_add=False, blank=False) # Agreement ending date
     # Foreign Keys
     bill_vendor = models.OneToOneField(BillVendors, on_delete=models.CASCADE)
     property = models.ForeignKey(Property, on_delete=models.CASCADE)
@@ -208,5 +206,5 @@ class Bills(models.Model):
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
         return self.id, self.name, self.agreement_number, self.start, \
-               self.duration, self.end, self.phone, self.email
+               self.duration, self.end
 

@@ -55,4 +55,4 @@ class BillVendorsForm(forms.ModelForm):
 class BillsForm(forms.ModelForm):
     class Meta:
         model = Bills
-        fields = ('name', 'agreement_number', 'start', 'duration', 'end', 'phone', 'email')
+        fields = ('name', 'agreement_number', 'start', 'duration', 'end')
