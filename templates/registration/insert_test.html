@@ -1,7 +1,7 @@
 <!-- templates/registration/home.html -->
 {% extends 'registration/base.html' %}
 
-<form method="post" action="{% url 'login' %}">
+<!-- <form method="post" action="{% url 'login' %}">
   {% csrf_token %}
   <table>
     <tr>
@@ -15,4 +15,10 @@
   </table>
   <input type="submit" value="dodaj" />
   <input type="hidden" name="next" value="{{ next }}" />
+</form> -->
+
+<form action = "" method = "post">
+	{% csrf_token %}
+	{{form }}
+	<input type="submit" value=Submit">
 </form>
