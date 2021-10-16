@@ -4,7 +4,6 @@ from django.shortcuts import redirect
 from .models import *
 
 
-
 # Spółdzielnie/Wspólnoty mieszkaniowe - przekazywanie pól do wyświetlania
 class HousingAssociationForm(forms.ModelForm):
     class Meta:
@@ -12,7 +11,7 @@ class HousingAssociationForm(forms.ModelForm):
         fields = ('name', 'address', 'postalcode', 'city', 'phone', 'email', 'comments')
 
 # Zapisywanie formularza
-class HousingAssociationForm(request):
+def entry_new(request):
     if request.method == "POST":
         form = HousingAssociationForm(request.POST)
         if form.is_valid():
@@ -21,6 +20,7 @@ class HousingAssociationForm(request):
             return redirect('form_detail', pk=entry.pk)
         else:
             form = HousingAssociationForm()
+        return render(request, 'registration/form_edit.html', {'form': form})
 
 
 # Najemcy
