@@ -1,6 +1,6 @@
 from django import forms
 from django.http import request
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from .models import *
 
 
