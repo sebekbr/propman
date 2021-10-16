@@ -1,5 +1,4 @@
 from django import forms
-from django.http import request
 from django.shortcuts import redirect, render
 from .models import *
 
@@ -9,6 +8,7 @@ class HousingAssociationForm(forms.ModelForm):
     class Meta:
         model = HousingAssociation
         fields = ('name', 'address', 'postalcode', 'city', 'phone', 'email', 'comments')
+
 
 # Zapisywanie formularza
 def entry_new(request):
