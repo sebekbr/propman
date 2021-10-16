@@ -1,19 +1,26 @@
 from django import forms
+from django.http import request
+from django.shortcuts import redirect
 from .models import *
 
 
-# # Użytkownicy systemu
-# class UsersForm(forms.ModelForm):
-#     class Meta:
-#         model = Users
-#         fields = ['login', 'password', 'name', 'surname', 'type']
 
-
-# Spółdzielnie/Wspólnoty mieszkaniowe
+# Spółdzielnie/Wspólnoty mieszkaniowe - przekazywanie pól do wyświetlania
 class HousingAssociationForm(forms.ModelForm):
     class Meta:
         model = HousingAssociation
         fields = ('name', 'address', 'postalcode', 'city', 'phone', 'email', 'comments')
+
+# Zapisywanie formularza
+class HousingAssociationForm(request):
+    if request.method == "POST":
+        form = HousingAssociationForm(request.POST)
+        if form.is_valid():
+            entry = form.save(commit=False)
+            entry.save()
+            return redirect('form_detail', pk=entry.pk)
+        else:
+            form = HousingAssociationForm()
 
 
 # Najemcy
