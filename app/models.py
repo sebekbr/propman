@@ -47,7 +47,8 @@ class HousingAssociation(models.Model):
 
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
-        return self.id, self.name, self.address, self.postalcode, self.city, self.phone, self.email, self.comments
+        # return [self.id, self.name, self.address, self.postalcode, self.city, self.phone, self.email, self.comments]
+        return self.name
 
 
 # Najemcy
