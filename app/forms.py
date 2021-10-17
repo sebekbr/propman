@@ -6,7 +6,7 @@ from app.models import *
 class HousingAssociationForm(forms.ModelForm):
     class Meta:
         model = HousingAssociation
-        fields = ('id', 'name', 'address', 'postalcode', 'city', 'phone', 'email', 'comments')
+        fields = ('name', 'address', 'postalcode', 'city', 'phone', 'email', 'comments')
 
 
 # Najemcy
