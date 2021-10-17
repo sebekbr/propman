@@ -7,7 +7,7 @@ def index(request):
     return render(request, 'registration/index.html')
 
 
-# # Widok nowego wpisu
+# Widok nowego wpisu
 # def housingassociation_form_new(request):
 #     form = HousingAssociationForm()
 #     return render(request, 'registration/form_edit.html', {'form': form})

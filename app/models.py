@@ -33,9 +33,9 @@ class HousingAssociation(models.Model):
     address = models.CharField(max_length=198, blank=False) # HA address
     postalcode = models.CharField(max_length=6, blank=False) # HA postalcode
     city = models.CharField(max_length=45, blank=False) # HA city
-    phone = models.CharField(max_length=12) # HA phone number
-    email = models.EmailField(max_length=254)
-    comments = models.TextField(max_length=1000) # Comments
+    phone = models.CharField(max_length=12, blank=True) # HA phone number
+    email = models.EmailField(max_length=254, blank=True)
+    comments = models.TextField(max_length=1000, blank=True) # Comments
 
     # Metadata
     class Meta:
