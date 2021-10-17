@@ -13,6 +13,11 @@ def index(request):
 #     return render(request, 'registration/form_edit.html', {'form': form})
 
 
+def form_list(request):
+    # form = get_object_or_404(HousingAssociationForm, pk=pk)
+    return render(request, 'registration/ha_list.html')
+
+
 def form_detail(request, pk):
     form = get_object_or_404(HousingAssociationForm, pk=pk)
     return render(request, 'registration/form_detail.html', {'form': form})
