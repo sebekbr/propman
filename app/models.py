@@ -47,7 +47,7 @@ class HousingAssociation(models.Model):
 
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
-        # return [self.id, self.name, self.address, self.postalcode, self.city, self.phone, self.email, self.comments]
+        # return self.name, self.address, self.postalcode, self.city, self.phone, self.email, self.comments
         return self.name
 
 
@@ -74,9 +74,9 @@ class Tenants(models.Model):
 
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
-        return self.id, self.name, self.surname, self.address, self.postalcode, \
-               self.city, self.phone, self.email, self.comments
-
+        # return self.id, self.name, self.surname, self.address, self.postalcode, \
+        #        self.city, self.phone, self.email, self.comments
+        return self.name
 
 # Właściciele
 class Landlords(models.Model):
@@ -97,8 +97,8 @@ class Landlords(models.Model):
 
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
-        return self.id, self.name, self.surname, self.phone, self.email
-
+        # return self.id, self.name, self.surname, self.phone, self.email
+        return self.name
 
 # Nieruchomości
 class Property(models.Model):
@@ -122,7 +122,8 @@ class Property(models.Model):
 
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
-        return self.id, self.name, self.address, self.postalcode, self.city, self.kw_number
+        # return self.id, self.name, self.address, self.postalcode, self.city, self.kw_number
+        return self.name
 
 
 # Umowy najmu
@@ -173,7 +174,8 @@ class BillVendors(models.Model):
 
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
-        return self.id, self.name, self.address, self.postalcode, self.city, self.phone, self.email
+        # return self.id, self.name, self.address, self.postalcode, self.city, self.phone, self.email
+        return self.name
 
 
 # Rachunki i umowy
@@ -199,6 +201,6 @@ class Bills(models.Model):
 
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
-        return self.id, self.name, self.agreement_number, self.start, \
-               self.duration, self.end
-
+        # return self.id, self.name, self.agreement_number, self.start, \
+               # self.duration, self.end
+        return self.name
