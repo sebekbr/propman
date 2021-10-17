@@ -42,9 +42,8 @@ class HousingAssociation(models.Model):
         ordering = ['id']
 
     # Methods
-    # def get_absolute_url(self):
-    #    """Returns the url to access a particular instance of MyModelName."""
-    #    return reverse('model-detail-view', args=[str(self.id)])
+    def add(self):
+        self.save()
 
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
@@ -69,9 +68,8 @@ class Tenants(models.Model):
         ordering = ['id']
 
     # Methods
-    # def get_absolute_url(self):
-    #    """Returns the url to access a particular instance of MyModelName."""
-    #    return reverse('model-detail-view', args=[str(self.id)])
+    def add(self):
+        self.save()
 
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
@@ -93,9 +91,8 @@ class Landlords(models.Model):
         ordering = ['id']
 
     # Methods
-    # def get_absolute_url(self):
-    #    """Returns the url to access a particular instance of MyModelName."""
-    #    return reverse('model-detail-view', args=[str(self.id)])
+    def add(self):
+        self.save()
 
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
@@ -119,9 +116,8 @@ class Property(models.Model):
         ordering = ['id']
 
     # Methods
-    # def get_absolute_url(self):
-    #    """Returns the url to access a particular instance of MyModelName."""
-    #    return reverse('model-detail-view', args=[str(self.id)])
+    def add(self):
+        self.save()
 
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
@@ -147,9 +143,8 @@ class LeaseAgreement(models.Model):
         ordering = ['id']
 
     # Methods
-    # def get_absolute_url(self):
-    #    """Returns the url to access a particular instance of MyModelName."""
-    #    return reverse('model-detail-view', args=[str(self.id)])
+    def add(self):
+        self.save()
 
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
@@ -172,9 +167,8 @@ class BillVendors(models.Model):
         ordering = ['id']
 
     # Methods
-    # def get_absolute_url(self):
-    #    """Returns the url to access a particular instance of MyModelName."""
-    #    return reverse('model-detail-view', args=[str(self.id)])
+    def add(self):
+        self.save()
 
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
@@ -199,9 +193,8 @@ class Bills(models.Model):
         ordering = ['id']
 
     # Methods
-    # def get_absolute_url(self):
-    #    """Returns the url to access a particular instance of MyModelName."""
-    #    return reverse('model-detail-view', args=[str(self.id)])
+    def add(self):
+        self.save()
 
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
