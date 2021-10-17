@@ -59,9 +59,9 @@ class Tenants(models.Model):
     address = models.CharField(max_length=198, blank=False) # Tenant address
     postalcode = models.CharField(max_length=6, blank=False) # Tenant postalcode
     city = models.CharField(max_length=45, blank=False) # Tenant city
-    phone = models.CharField(max_length=12) # Tenant phone number
-    email = models.EmailField(max_length=254) # Tenant email address
-    comments = models.TextField(max_length=1000) # Comments
+    phone = models.CharField(max_length=12, blank=True) # Tenant phone number
+    email = models.EmailField(max_length=254, blank=True) # Tenant email address
+    comments = models.TextField(max_length=1000, blank=True) # Comments
 
     # Metadata
     class Meta:
@@ -83,8 +83,8 @@ class Landlords(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=45, blank=False) # Landlords first name
     surname = models.CharField(max_length=45, blank=False) # Landlords last name
-    phone = models.CharField(max_length=12) # Landlords phone number
-    email = models.EmailField(max_length=254) # Landlords email address
+    phone = models.CharField(max_length=12, blank=True) # Landlords phone number
+    email = models.EmailField(max_length=254, blank=True) # Landlords email address
 
     # Metadata
     class Meta:
@@ -103,11 +103,11 @@ class Landlords(models.Model):
 class Property(models.Model):
     # Fields
     id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=45) # Property name
+    name = models.CharField(max_length=45, blank=False) # Property name
     address = models.CharField(max_length=198, blank=False) # Property address
     postalcode = models.CharField(max_length=6, blank=False) # Property postalcode
     city = models.CharField(max_length=45, blank=False) # Property city
-    kw_number = models.CharField(max_length=15) # Numer KW
+    kw_number = models.CharField(max_length=15, blank=True) # Numer KW
     # Foreign Keys
     house_association = models.ForeignKey(HousingAssociation, on_delete=models.CASCADE)
 
@@ -131,7 +131,7 @@ class LeaseAgreement(models.Model):
     start = models.DateField(auto_now=False, auto_now_add=False, blank=False) # Lease agreement beginning date
     end = models.DateField(auto_now=False, auto_now_add=False, blank=False) # Lease agreement ending date
     value = models.DecimalField(max_digits=19, decimal_places=2, blank=False) # Lease agreement value
-    comments = models.TextField(max_length=1000) # Comments
+    comments = models.TextField(max_length=1000, blank=True) # Comments
     type = models.CharField(max_length=1, blank=False) # Lease agreement type: 0 - normal, 1 - notarial
     # Foreign Keys
     property = models.ForeignKey(Property, on_delete=models.CASCADE)
@@ -159,8 +159,8 @@ class BillVendors(models.Model):
     address = models.CharField(max_length=45, blank=False) # Vendors address
     postalcode = models.CharField(max_length=45, blank=False) # Vendors postalcode
     city = models.CharField(max_length=45, blank=False) # Vendors city
-    phone = models.CharField(max_length=12) # Vendors phone number
-    email = models.EmailField(max_length=254) # Vendors email address
+    phone = models.CharField(max_length=12, blank=True) # Vendors phone number
+    email = models.EmailField(max_length=254, blank=True) # Vendors email address
 
     # Metadata
     class Meta:
