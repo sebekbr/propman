@@ -76,7 +76,8 @@ class Tenants(models.Model):
         """String for representing the MyModelName object (in Admin site etc.)."""
         # return self.id, self.name, self.surname, self.address, self.postalcode, \
         #        self.city, self.phone, self.email, self.comments
-        return self.name
+        return " ".join((self.name, self.surname))
+
 
 # Właściciele
 class Landlords(models.Model):
@@ -98,7 +99,8 @@ class Landlords(models.Model):
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
         # return self.id, self.name, self.surname, self.phone, self.email
-        return self.name
+        return " ".join((self.name, self.surname))
+
 
 # Nieruchomości
 class Property(models.Model):
