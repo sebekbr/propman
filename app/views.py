@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render, get_object_or_404
 from .forms import *
 
 
@@ -7,8 +7,25 @@ def index(request):
     return render(request, 'registration/index.html')
 
 
-# Widok nowego wpisu
+# # Widok nowego wpisu
+# def housingassociation_form_new(request):
+#     form = HousingAssociationForm()
+#     return render(request, 'registration/form_edit.html', {'form': form})
+
+
+def form_detail(request, pk):
+    form = get_object_or_404(HousingAssociationForm, pk=pk)
+    return render(request, 'registration/form_detail.html', {'form': form})
+
+
+# Zapisywanie formularza
 def housingassociation_form_new(request):
-    form = HousingAssociationForm()
-    return render(request, 'registration/form_edit.html', {'form': form})
+    if request.method == "POST":
+        form = HousingAssociationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('form_detail', pk=HousingAssociation.id)
+        else:
+            form = HousingAssociationForm()
+        return render(request, 'registration/form_edit.html', {'form': form})
 
