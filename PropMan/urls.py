@@ -21,5 +21,5 @@ urlpatterns = [
     path('app/', include('app.urls')), # Podłączenie zewnętrznego widoku
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')), # Moduł autentykacji do logowania użytkownika
-    path('', TemplateView.as_view(template_name='registration/home.html'), name='home'),
+    path('', TemplateView.as_view(template_name='propman/home.html'), name='home'),
 ]

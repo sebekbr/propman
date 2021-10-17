@@ -4,7 +4,7 @@ from .forms import *
 
 def index(request):
     # return HttpResponse("Hello, world. This is PropMan.")
-    return render(request, 'registration/index.html')
+    return render(request, 'propman/index.html')
 
 
 # Widok nowego wpisu
@@ -15,12 +15,12 @@ def index(request):
 
 def form_list(request):
     # form = get_object_or_404(HousingAssociationForm, pk=pk)
-    return render(request, 'registration/ha_list.html')
+    return render(request, 'propman/ha_list.html')
 
 
 def form_detail(request, pk):
     form = get_object_or_404(HousingAssociationForm, pk=pk)
-    return render(request, 'registration/form_detail.html', {'form': form})
+    return render(request, 'propman/form_detail.html', {'form': form})
 
 
 # Zapisywanie formularza
@@ -32,5 +32,5 @@ def housingassociation_form_new(request):
             return redirect('form_detail', pk=HousingAssociation.id)
         else:
             form = HousingAssociationForm()
-        return render(request, 'registration/form_edit.html', {'form': form})
+        return render(request, 'propman/form_edit.html', {'form': form})
 
