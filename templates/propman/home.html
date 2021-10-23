@@ -1,0 +1,25 @@
+<!-- templates/registration/home.html -->
+{% extends 'registration/base.html' %}
+
+{% block title %}Home - PropMan{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  <p>Hi {{ user.username }}!</p>
+  <p>Testowanie obsługi bazy danych:</p>
+
+  <button type="button" name="button">
+    <a href="{% url 'form_new' %}" class="top-menu">
+      <span class="glyphicon glyphicon-plus">
+        Nowa spółdzielnia
+      </span>
+    </a>
+  </button>
+
+  <button type="button" name="button"><a href="{% url 'logout' %}">Wyloguj</a></button>
+
+{% else %}
+  <p>You are not logged in</p>
+  <button type="button" name="button"><a href="{% url 'login' %}">Zaloguj</a></button>
+{% endif %}
+{% endblock %}
