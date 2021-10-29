@@ -30,7 +30,7 @@ def housingassociation_form_new(request):
         if form.is_valid():
             form.save()
             return redirect('form_detail', pk=HousingAssociation.id)
-        else:
-            form = HousingAssociationForm()
+    else:
+        form = HousingAssociationForm()
         return render(request, 'registration/form_new.html', {'form': form})
 
