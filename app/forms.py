@@ -49,3 +49,4 @@ class BillsForm(forms.ModelForm):
     class Meta:
         model = Bills
         fields = ('name', 'agreement_number', 'start', 'duration', 'end')
+
