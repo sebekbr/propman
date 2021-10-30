@@ -1,7 +1,13 @@
 {% extends 'registration/base.html' %}
 
 {% block content %}
-
-{{form_list}}
+<p>Lista spółdzielni:</p>
+<ul>
+  {% for key, value in HousingAssociation %}
+    <li>{{ key }}: {{ value }}</li>
+  {% empty %}
+    <li>Brak wpisów</li>
+  {% endfor %}
+</ul>
 
 {% endblock %}
