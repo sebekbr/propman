@@ -1,0 +1,17 @@
+{% extends 'registration/base.html' %}
+
+{% block content %}
+  <h2>Utworzono</h2>
+  <form method="POST" class="post-form">
+    <h1>Utworzono</h1>
+    <ul>
+      {% for key, value in HousingAssociation.id({{ pk }}) %}
+        <label>{{ key }}: {{ value }}</label>
+      {% empty %}
+        <label>Brak wpisów</label>
+      {% endfor %}
+    </ul>
+     <!-- <a href="/">logout</a> -->
+    <!-- <button type="submit" class="save btn btn-default">Save</button> -->
+  </form>
+{% endblock %}
