@@ -34,3 +34,8 @@ def housingassociation_form_new(request):
         form = HousingAssociationForm()
         return render(request, 'registration/ha_new.html', {'housingassociation_new': form})
 
+
+def housingassociation_view_all(request):
+    ha_all = HousingAssociation.objects.all()
+    return render(request, 'registration/ha_list.html', {'ha_all': ha_all})
+
