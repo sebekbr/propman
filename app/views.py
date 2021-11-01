@@ -19,8 +19,8 @@ def form_list(request):
 
 
 def housingassociation_detail(request, pk):
-    form = get_object_or_404(HousingAssociation, pk=pk)
-    return render(request, 'registration/ha_detail.html', {'ha_detail': form})
+    ha_detail = get_object_or_404(HousingAssociation, pk=pk)
+    return render(request, 'registration/ha_detail.html', {'ha_detail': ha_detail})
 
 
 # Zapisywanie formularza
