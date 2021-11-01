@@ -3,11 +3,11 @@
 {% block content %}
 <p>Lista spółdzielni:</p>
 <ul>
-  {% for key, value in HousingAssociation %}
-    <li>{{ key }}: {{ value }}</li>
-  {% empty %}
-    <li>Brak wpisów</li>
+  {% for item in ha_all %}
+    <li>{{ item.name }}</li>
   {% endfor %}
 </ul>
+
+{{ ha_all }}
 
 {% endblock %}
