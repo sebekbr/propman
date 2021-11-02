@@ -14,8 +14,8 @@ def index(request):
 
 
 def form_list(request):
-    # form = get_object_or_404(HousingAssociationForm, pk=pk)
-    return render(request, 'registration/ha_list.html')
+    ha_all = HousingAssociation.objects.all()
+    return render(request, 'registration/ha_list.html', {'ha_all': ha_all})
 
 
 def housingassociation_detail(request, pk):
@@ -33,9 +33,4 @@ def housingassociation_form_new(request):
     else:
         form = HousingAssociationForm()
         return render(request, 'registration/ha_new.html', {'housingassociation_new': form})
-
-
-def housingassociation_view_all(request):
-    ha_all = HousingAssociation.objects.all()
-    return render(request, 'registration/ha_list.html', {'ha_all': ha_all})
 
