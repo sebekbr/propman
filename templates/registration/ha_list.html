@@ -3,11 +3,11 @@
 {% block content %}
 <p>Lista spółdzielni:</p>
 <ul>
-  {% for item in ha_all %}
-    <li>{{ item.name }}</li>
+  {% for ha in ha_all %}
+    <li>
+      <a href="/app/forms/housingassociation/item/{{ ha.id }}">{{ ha.name }}</a>
+    </li>
   {% endfor %}
 </ul>
-
-{{ ha_all }}
 
 {% endblock %}
