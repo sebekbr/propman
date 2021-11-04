@@ -1,16 +1,11 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from .forms import *
+from django.urls import reverse
 
 
 def index(request):
     # return HttpResponse("Hello, world. This is PropMan.")
     return render(request, 'registration/index.html')
-
-
-# Widok nowego wpisu
-# def housingassociation_form_new(request):
-#     form = HousingAssociationForm()
-#     return render(request, 'registration/form_edit.html', {'form': form})
 
 
 def form_list(request):
@@ -29,8 +24,22 @@ def housingassociation_form_new(request):
         form = HousingAssociationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('housingassociation_detail', pk=HousingAssociation.id)
+            return redirect('ha_detail', pk=form.pk)
+            # return redirect(reverse('ha_detail'), kwargs={'form': form.id})
     else:
         form = HousingAssociationForm()
         return render(request, 'registration/ha_new.html', {'housingassociation_new': form})
 
+
+# Edycja wpisu
+# def housingassociation_form_edit(request):
+#     ha_detail = get_object_or_404(HousingAssociation, pk=pk)
+#     if request.method == "POST":
+#         form = HousingAssociationForm(request.POST, instance=ha_detail)
+#         if form.is_valid():
+#             ha_detail = form.save(commit=False)
+#             ha_detail.name =
+#             return redirect('housingassociation_detail', pk=HousingAssociation.pk)
+#     else:
+#         form = HousingAssociationForm()
+#         return render(request, 'registration/ha_new.html', {'housingassociation_new': form})
