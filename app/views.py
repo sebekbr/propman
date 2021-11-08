@@ -1,11 +1,9 @@
 from django.shortcuts import redirect, render, get_object_or_404
-from django.contrib import messages
 from .forms import *
 from django.urls import reverse
 
 
 def index(request):
-    # return HttpResponse("Hello, world. This is PropMan.")
     return render(request, 'registration/index.html')
 
 
@@ -25,13 +23,8 @@ def housingassociation_form_new(request):
         form = HousingAssociationForm(request.POST)
         if form.is_valid():
             form.save()
-            # form_id = HousingAssociation.objects.latest('pk')
-            # return redirect('ha_detail', pk=form.id)
-            # return redirect('ha_detail', pk=form_id)
-            # return redirect(reverse('ha_detail'), kwargs={'form': form.id})
             # messages.success(request, 'Pomyślnie utworzono!')
             return render(request, 'registration/success.html')
-            # return redirect('ha_detail')
     else:
         form = HousingAssociationForm()
         return render(request, 'registration/ha_new.html', {'housingassociation_new': form})
