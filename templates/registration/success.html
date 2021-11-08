@@ -1,24 +1,4 @@
 <!-- templates/propman/home.html -->
 {% extends 'registration/base.html' %}
 
-<!-- <form method="post" action="{% url 'login' %}">
-  {% csrf_token %}
-  <table>
-    <tr>
-      <td>{{ form.username.label_tag }}</td>
-      <td>{{ form.username }}</td>
-    </tr>
-    <tr>
-      <td>{{ form.password.label_tag }}</td>
-      <td>{{ form.password }}</td>
-    </tr>
-  </table>
-  <input type="submit" value="dodaj" />
-  <input type="hidden" name="next" value="{{ next }}" />
-</form> -->
-
-<form action = "" method = "post">
-	{% csrf_token %}
-	{{form }}
-	<input type="submit" value=Submit">
-</form>
+<p>Pomyślnie utworzono</p>
