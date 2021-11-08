@@ -1,4 +1,5 @@
 from django.shortcuts import redirect, render, get_object_or_404
+from django.contrib import messages
 from .forms import *
 from django.urls import reverse
 
@@ -24,11 +25,12 @@ def housingassociation_form_new(request):
         form = HousingAssociationForm(request.POST)
         if form.is_valid():
             form.save()
-            form_id = HousingAssociation.objects.latest('pk')
+            # form_id = HousingAssociation.objects.latest('pk')
             # return redirect('ha_detail', pk=form.id)
-            return redirect('ha_detail', pk=form_id)
+            # return redirect('ha_detail', pk=form_id)
             # return redirect(reverse('ha_detail'), kwargs={'form': form.id})
-            # return redirect('success')
+            # messages.success(request, 'Pomyślnie utworzono!')
+            return render(request, 'registration/success.html')
             # return redirect('ha_detail')
     else:
         form = HousingAssociationForm()
