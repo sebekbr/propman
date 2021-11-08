@@ -24,11 +24,20 @@ def housingassociation_form_new(request):
         form = HousingAssociationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('ha_detail', pk=form.pk)
+            form_id = HousingAssociation.objects.latest('pk')
+            # return redirect('ha_detail', pk=form.id)
+            return redirect('ha_detail', pk=form_id)
             # return redirect(reverse('ha_detail'), kwargs={'form': form.id})
+            # return redirect('success')
+            # return redirect('ha_detail')
     else:
         form = HousingAssociationForm()
         return render(request, 'registration/ha_new.html', {'housingassociation_new': form})
+
+
+def housingassociation_success(request):
+    # ha_detail = get_object_or_404(HousingAssociation, pk=pk)
+    return render(request, 'registration/ha_success.html', {'ha_success': housingassociation_success})
 
 
 # Edycja wpisu
