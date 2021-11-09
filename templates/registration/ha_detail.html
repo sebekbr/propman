@@ -8,4 +8,6 @@
       <li>{{ ha_detail.postalcode }}</li>
       <li>{{ ha_detail.city }}</li>
     </ul>
+
+    <a class="btn btn-default" href="{% url 'ha_edit' pk=form.pk %}">EDYTUJ</a>
 {% endblock %}
