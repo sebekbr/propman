@@ -3,12 +3,9 @@
 {% block content %}
   <h2>{{ ha_detail.name }} - Edycja</h2>
   <form method="POST" class="post-form">
-    <ul>
-      <li>{{ ha_detail.pk}}</li>
-      <li>{{ ha_detail.address }}</li>
-      <li>{{ ha_detail.postalcode }}</li>
-      <li>{{ ha_detail.city }}</li>
-    </ul>
+    {% csrf_token %}
+
+    {{ ha_edit.as_p }}
 
     <button type="submit" class="save btn btn-default">Save</button>
   </form>
