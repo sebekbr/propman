@@ -3,10 +3,11 @@
 {% block content %}
   <h2>{{ ha_detail.name }} - Edycja</h2>
   <form method="POST" class="post-form">
-    {% csrf_token %}
-
-    {{ ha_edit.as_p }}
+      {% csrf_token %}
+      <input type="text" name="address" placeholder="Adres" value="{{ ha_detail.address }}">
+      <input type="text" name="address" placeholder="Adres" value="{{ ha_detail.postalcode }}">
+      <input type="text" name="address" placeholder="Adres" value="{{ ha_detail.city }}">
+    </form>
 
     <button type="submit" class="save btn btn-default">Save</button>
-  </form>
 {% endblock %}
