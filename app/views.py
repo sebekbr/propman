@@ -37,7 +37,9 @@ def housingassociation_form_edit(request, pk):
         if form.is_valid():
             form.save()
             return redirect('ha_edit')
-        return render(request, 'registration/ha_edit.html', {'ha_edit': form})
+    else:
+        form = HousingAssociationForm(instance=detail)
+    return render(request, 'registration/ha_edit.html', {'ha_edit': form})
 
 
 def housingassociation_success(request):
