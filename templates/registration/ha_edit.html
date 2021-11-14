@@ -5,7 +5,8 @@
   <form method="POST" class="post-form">
       {% csrf_token %}
       {{ ha_edit.as_p }}
-    </form>
 
-    <button type="submit" class="save btn btn-default">Save</button>
+      <button type="submit" class="save btn btn-default">Save</button>
+      <a href="/app/forms/housingassociation/item/{{ ha_detail.id }}" class="btn btn-primary" role="button">Anuluj</a>
+  </form>
 {% endblock %}

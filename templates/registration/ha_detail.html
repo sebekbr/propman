@@ -9,12 +9,6 @@
       <li>{{ ha_detail.city }}</li>
     </ul>
 
-  <form method="POST" class="post-form">
-    {% csrf_token %}
-    {{ ha_detail.as_p }}
-    <button type="submit" class="save btn btn-default">Save</button>
-  </form>
-
     <a class="btn btn-default" href="{% url 'ha_edit' pk=ha_detail.pk %}">EDYTUJ</a>
     <a class="btn btn-default" href="{% url 'ha_list' %}">LISTA</a>
 {% endblock %}

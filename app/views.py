@@ -23,7 +23,7 @@ def housingassociation_form_new(request):
         form = HousingAssociationForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'registration/success.html')
+            return render(request, 'registration/success.html') # Render strony po pomyślnym utworzeniu
     else:
         form = HousingAssociationForm()
         return render(request, 'registration/ha_new.html', {'housingassociation_new': form})
@@ -36,7 +36,7 @@ def housingassociation_form_edit(request, pk):
         form = HousingAssociationForm(request.POST, instance=detail)
         if form.is_valid():
             form.save()
-            return redirect('ha_edit')
+            return render(request, 'registration/success.html') # Render strony po pomyślnym zapisaniu
     else:
         form = HousingAssociationForm(instance=detail)
     return render(request, 'registration/ha_edit.html', {'ha_edit': form})

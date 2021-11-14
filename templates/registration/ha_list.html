@@ -1,6 +1,7 @@
 {% extends 'registration/base.html' %}
 
 {% block content %}
+<button type="button" name="button"><a href="{% url 'housingassociation_new' %}">Nowa</a></button>
 <p>Lista spółdzielni:</p>
 <ul>
   {% for ha in ha_all %}
