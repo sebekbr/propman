@@ -252,6 +252,7 @@ def billvendor_form_edit(request, pk):
 def billvendor_success(request):
     return render(request, 'registration/billvendor_success.html', {'billvendor_success': billvendor_success})
 
+
 ##############
 # Bill methods
 def bill_list(request):
