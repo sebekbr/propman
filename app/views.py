@@ -7,6 +7,7 @@ def index(request):
     return render(request, 'registration/index.html')
 
 
+#############################
 # Housing Association methods
 def ha_list(request):
     form = HousingAssociation.objects.all()
@@ -47,6 +48,7 @@ def housingassociation_success(request):
     return render(request, 'registration/ha_success.html', {'ha_success': housingassociation_success})
 
 
+#################
 # Tenants methods
 def tenant_list(request):
     form = Tenants.objects.all()
@@ -66,7 +68,7 @@ def tenant_form_new(request):
             form.save()
             return render(request, 'registration/tenant_new_success.html') # Render strony po pomyślnym utworzeniu
     else:
-        form = HousingAssociationForm()
+        form = TenantsForm()
         return render(request, 'registration/tenant_new.html', {'tenant_new': form})
 
 
@@ -85,3 +87,208 @@ def tenant_form_edit(request, pk):
 
 def tenant_success(request):
     return render(request, 'registration/tenant_success.html', {'tenant_success': tenant_success})
+
+
+##################
+# Landlord methods
+def landlord_list(request):
+    form = Landlords.objects.all()
+    return render(request, 'registration/landlord_list.html', {'landlord_all': form})
+
+
+def landlord_detail(request, pk):
+    form = get_object_or_404(Landlords, pk=pk)
+    return render(request, 'registration/landlord_detail.html', {'landlord_detail': form})
+
+
+# Zapisywanie formularza
+def landlord_form_new(request):
+    if request.method == "POST":
+        form = LandlordsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'registration/landlord_new_success.html') # Render strony po pomyślnym utworzeniu
+    else:
+        form = LandlordsForm()
+        return render(request, 'registration/landlord_new.html', {'landlord_new': form})
+
+
+# Edycja wpisu
+def landlord_form_edit(request, pk):
+    detail = get_object_or_404(Landlords, pk=pk)
+    if request.method == "POST":
+        form = LandlordsForm(request.POST, instance=detail)
+        if form.is_valid():
+            form.save()
+            return render(request, 'registration/landlord_edit_success.html') # Render strony po pomyślnym zapisaniu
+    else:
+        form = LandlordsForm(instance=detail)
+    return render(request, 'registration/landlord_edit.html', {'landlord_edit': form})
+
+
+def landlord_success(request):
+    return render(request, 'registration/landlord_success.html', {'landlord_success': landlord_success})
+
+
+##################
+# Property methods
+def property_list(request):
+    form = Property.objects.all()
+    return render(request, 'registration/property_list.html', {'property_all': form})
+
+
+def property_detail(request, pk):
+    form = get_object_or_404(Property, pk=pk)
+    return render(request, 'registration/property_detail.html', {'property_detail': form})
+
+
+# Zapisywanie formularza
+def property_form_new(request):
+    if request.method == "POST":
+        form = PropertyForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'registration/property_new_success.html') # Render strony po pomyślnym utworzeniu
+    else:
+        form = PropertyForm()
+        return render(request, 'registration/property_new.html', {'property_new': form})
+
+
+# Edycja wpisu
+def property_form_edit(request, pk):
+    detail = get_object_or_404(Property, pk=pk)
+    if request.method == "POST":
+        form = PropertyForm(request.POST, instance=detail)
+        if form.is_valid():
+            form.save()
+            return render(request, 'registration/property_edit_success.html') # Render strony po pomyślnym zapisaniu
+    else:
+        form = PropertyForm(instance=detail)
+    return render(request, 'registration/property_edit.html', {'property_edit': form})
+
+
+def property_success(request):
+    return render(request, 'registration/property_success.html', {'property_success': property_success})
+
+
+#########################
+# Lease Agreement methods
+def leaseagreement_list(request):
+    form = LeaseAgreement.objects.all()
+    return render(request, 'registration/la_list.html', {'la_all': form})
+
+
+def leaseagreement_detail(request, pk):
+    form = get_object_or_404(LeaseAgreement, pk=pk)
+    return render(request, 'registration/la_detail.html', {'la_detail': form})
+
+
+# Zapisywanie formularza
+def leaseagreement_form_new(request):
+    if request.method == "POST":
+        form = LeaseAgreementForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'registration/la_new_success.html') # Render strony po pomyślnym utworzeniu
+    else:
+        form = LeaseAgreementForm()
+        return render(request, 'registration/la_new.html', {'la_new': form})
+
+
+# Edycja wpisu
+def leaseagreement_form_edit(request, pk):
+    detail = get_object_or_404(LeaseAgreement, pk=pk)
+    if request.method == "POST":
+        form = LeaseAgreementForm(request.POST, instance=detail)
+        if form.is_valid():
+            form.save()
+            return render(request, 'registration/la_edit_success.html') # Render strony po pomyślnym zapisaniu
+    else:
+        form = LeaseAgreementForm(instance=detail)
+    return render(request, 'registration/la_edit.html', {'la_edit': form})
+
+
+def leaseagreement_success(request):
+    return render(request, 'registration/la_success.html', {'la_success': leaseagreement_success})
+
+
+#####################
+# Bill Vendor methods
+def billvendor_list(request):
+    form = BillVendors.objects.all()
+    return render(request, 'registration/billvendors_list.html', {'billvendors_all': form})
+
+
+def billvendor_detail(request, pk):
+    form = get_object_or_404(BillVendors, pk=pk)
+    return render(request, 'registration/billvendor_detail.html', {'billvendor_detail': form})
+
+
+# Zapisywanie formularza
+def billvendor_form_new(request):
+    if request.method == "POST":
+        form = BillVendorsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'registration/billvendor_new_success.html') # Render strony po pomyślnym utworzeniu
+    else:
+        form = BillVendorsForm()
+        return render(request, 'registration/billvendor_new.html', {'billvendor_new': form})
+
+
+# Edycja wpisu
+def billvendor_form_edit(request, pk):
+    detail = get_object_or_404(BillVendors, pk=pk)
+    if request.method == "POST":
+        form = BillVendorsForm(request.POST, instance=detail)
+        if form.is_valid():
+            form.save()
+            return render(request, 'registration/billvendor_edit_success.html') # Render strony po pomyślnym zapisaniu
+    else:
+        form = BillVendorsForm(instance=detail)
+    return render(request, 'registration/billvendor_edit.html', {'billvendor_edit': form})
+
+
+def billvendor_success(request):
+    return render(request, 'registration/billvendor_success.html', {'billvendor_success': billvendor_success})
+
+##############
+# Bill methods
+def bill_list(request):
+    form = Bills.objects.all()
+    return render(request, 'registration/bills_list.html', {'bills_all': form})
+
+
+def bill_detail(request, pk):
+    form = get_object_or_404(Bills, pk=pk)
+    return render(request, 'registration/bill_detail.html', {'bill_detail': form})
+
+
+# Zapisywanie formularza
+def bill_form_new(request):
+    if request.method == "POST":
+        form = BillsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'registration/bill_new_success.html') # Render strony po pomyślnym utworzeniu
+    else:
+        form = BillsForm()
+        return render(request, 'registration/bill_new.html', {'bill_new': form})
+
+
+# Edycja wpisu
+def bill_form_edit(request, pk):
+    detail = get_object_or_404(Bills, pk=pk)
+    if request.method == "POST":
+        form = BillsForm(request.POST, instance=detail)
+        if form.is_valid():
+            form.save()
+            return render(request, 'registration/bill_edit_success.html') # Render strony po pomyślnym zapisaniu
+    else:
+        form = BillsForm(instance=detail)
+    return render(request, 'registration/bill_edit.html', {'bill_edit': form})
+
+
+def bill_success(request):
+    return render(request, 'registration/bill_success.html', {'bill_success': bill_success})
+
