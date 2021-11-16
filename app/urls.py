@@ -16,8 +16,8 @@ urlpatterns = [
     path('forms/housingassociation/success', views.housingassociation_success, name='ha_success'),
 
     # Tenants
-    path('forms/tenant/list', views.tenant_list, name='tenant_list'),
-    path('forms/tenant/list/', views.tenant_list, name='tenant_list'),
+    path('forms/tenant/list', views.tenant_list, name='tenant_all'),
+    path('forms/tenant/list/', views.tenant_list, name='tenant_all'),
     path('forms/tenant/new', views.tenant_form_new, name='tenant_new'), # definicja adresu URL nowego wpisu
     path('forms/tenant/new/', views.tenant_form_new, name='tenant_new'),
     path('forms/tenant/item/<int:pk>', views.tenant_detail, name='tenant_detail'),
