@@ -1,12 +1,12 @@
 {% extends 'registration/base.html' %}
 
 {% block content %}
-  <h2>{{ ha_detail.name }} - Edycja</h2>
+  <p>{{ landlord_edit.name }} {{ landlord_edit.surname }} - Edycja</p>
   <form method="POST" class="post-form">
       {% csrf_token %}
-      {{ ha_edit.as_p }}
+      {{ landlord_edit.as_p }}
 
-      <button type="submit" class="save btn btn-default">Save</button>
-      <a href="/app/forms/housingassociation/item/{{ ha_detail.id }}" class="btn btn-primary" role="button">Anuluj</a>
+      <button type="submit" class="save btn btn-default">Zapisz</button>
+      <a href="/app/forms/landlord/item/{{ landlord_detail.id }}" class="btn btn-primary" role="button">Anuluj</a>
   </form>
 {% endblock %}
