@@ -131,7 +131,7 @@ def tenant_form_edit(request, pk):
             return render(request, 'registration/tenants/tenant_edit_success.html') # Render strony po pomyślnym zapisaniu
     else:
         form = TenantsForm(instance=detail)
-    return render(request, 'registration/tenants/tenant_edit.html', {'ha_edit': form})
+    return render(request, 'registration/tenants/tenant_edit.html', {'tenant_edit': form})
 
 
 def tenant_success(request):
