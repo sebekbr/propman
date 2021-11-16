@@ -1,13 +1,63 @@
 from django.shortcuts import redirect, render, get_object_or_404
+from django.http import HttpResponseRedirect
+from django.views import View
+
 from .forms import *
 
 
 def index(request):
-    return render(request, 'registration/index.html')
+    return render(request, 'registration/home.html')
 
 
 #############################
 # Housing Association methods
+# class HousingAssociationView(View):
+#     def get(self, request, *args, **kwargs):
+#         form = self.HousingAssociation(initial=self.initial)
+#         return render(request, self.template_name, {'form': form})
+#
+#     def post(self, request, *args, **kwargs):
+#         form = self.form_class(request.POST)
+#         if form.is_valid():
+#             # <process form cleaned data>
+#             return HttpResponseRedirect('/success/')
+#
+#         return render(request, self.template_name, {'form': form})
+#
+#     def list(self, request):
+#         form = HousingAssociation.objects.all()
+#         return render(request, 'registration/ha/ha_list.html', {'ha_all': form})
+#
+#     def detail(self, request, pk):
+#         self.form = get_object_or_404(HousingAssociation, pk=pk)
+#         return render(request, 'registration/ha/ha_detail.html', {'ha_detail': self.form})
+#
+#     # Zapisywanie formularza
+#     def new(self, request):
+#         if request.method == "POST":
+#             form = HousingAssociationForm(request.POST)
+#             if form.is_valid():
+#                 form.save()
+#                 return render(request, 'registration/ha/success.html')  # Render strony po pomyślnym utworzeniu
+#         else:
+#             form = HousingAssociationForm()
+#             return render(request, 'registration/ha/ha_new.html', {'housingassociation_new': form})
+#
+#     # Edycja wpisu
+#     def edit(self, request, pk):
+#         detail = get_object_or_404(HousingAssociation, pk=pk)
+#         if request.method == "POST":
+#             form = HousingAssociationForm(request.POST, instance=detail)
+#             if form.is_valid():
+#                 form.save()
+#                 return render(request, 'registration/ha/success.html')  # Render strony po pomyślnym zapisaniu
+#         else:
+#             form = HousingAssociationForm(instance=detail)
+#         return render(request, 'registration/ha/ha_edit.html', {'ha_edit': form})
+#
+#     def success(self, request):
+#         return render(request, 'registration/ha/success.html', {'ha_success': self.success})
+
 def ha_list(request):
     form = HousingAssociation.objects.all()
     return render(request, 'registration/ha/ha_list.html', {'ha_all': form})
@@ -65,7 +115,7 @@ def tenant_form_new(request):
         form = TenantsForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'registration/tenants/tenant_new_success.html') # Render strony po pomyślnym utworzeniu
+            return render(request, 'registration/tenants/success.html') # Render strony po pomyślnym utworzeniu
     else:
         form = TenantsForm()
         return render(request, 'registration/tenants/tenant_new.html', {'tenant_new': form})
