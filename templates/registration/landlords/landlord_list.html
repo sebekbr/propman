@@ -1,12 +1,12 @@
 {% extends 'registration/base.html' %}
 
 {% block content %}
-<button type="button" name="button"><a href="{% url 'housingassociation_new' %}">Nowa</a></button>
-<p>Lista spółdzielni:</p>
+<button type="button" name="button"><a href="{% url 'landlord_new' %}">Nowy</a></button>
+<p>Lista właścicieli:</p>
 <ul>
-  {% for ha in ha_all %}
+  {% for l in landlord_all %}
     <li>
-      <a href="/app/forms/housingassociation/item/{{ ha.id }}">{{ ha.name }}</a>
+      <a href="/app/forms/landlord/item/{{ l.id }}">{{ l.name }} {{ l.surname }}</a>
     </li>
   {% endfor %}
 </ul>
