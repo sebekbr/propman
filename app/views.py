@@ -156,7 +156,7 @@ def landlord_form_new(request):
         form = LandlordsForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'registration/landlord/landlord_new_success.html') # Render strony po pomyślnym utworzeniu
+            return render(request, 'registration/landlord/success.html') # Render strony po pomyślnym utworzeniu
     else:
         form = LandlordsForm()
         return render(request, 'registration/landlord/landlord_new.html', {'landlord_new': form})
