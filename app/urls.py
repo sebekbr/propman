@@ -51,8 +51,8 @@ urlpatterns = [
     # Lease Agreements
     path('forms/leaseagreement/list', views.leaseagreement_list, name='leaseagreement_list'),
     path('forms/leaseagreement/list/', views.leaseagreement_list, name='leaseagreement_list'),
-    path('forms/leaseagreement/new', views.leaseagreement_form_new(), name='leaseagreement_new'), # definicja adresu URL nowego wpisu
-    path('forms/leaseagreement/new/', views.leaseagreement_form_new(), name='leaseagreement_new'),
+    path('forms/leaseagreement/new', views.leaseagreement_form_new, name='leaseagreement_new'), # definicja adresu URL nowego wpisu
+    path('forms/leaseagreement/new/', views.leaseagreement_form_new, name='leaseagreement_new'),
     path('forms/leaseagreement/item/<int:pk>', views.leaseagreement_detail, name='leaseagreement_detail'),
     path('forms/leaseagreement/item/<int:pk>/', views.leaseagreement_detail, name='leaseagreement_detail'),
     path('forms/leaseagreement/item/<int:pk>/edit', views.leaseagreement_form_edit, name='leaseagreement_edit'),
@@ -79,7 +79,7 @@ urlpatterns = [
     path('forms/bill/item/<int:pk>/', views.bill_detail, name='bill_detail'),
     path('forms/bill/item/<int:pk>/edit', views.bill_form_edit, name='bill_edit'),
     path('forms/bill/item/<int:pk>/edit/', views.bill_form_edit, name='bill_edit'),
-    path('forms/billtenant/success', views.bill_success, name='bill_success')
+    path('forms/bill/success', views.bill_success, name='bill_success')
 
     #
     # path('login/',auth_views.LoginView.as_view(template_name='accounts/login.html'), name='login'),

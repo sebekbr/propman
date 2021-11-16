@@ -1,6 +1,5 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from .forms import *
-from django.urls import reverse
 
 
 def index(request):
