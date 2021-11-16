@@ -142,12 +142,12 @@ def tenant_success(request):
 # Landlord methods
 def landlord_list(request):
     form = Landlords.objects.all()
-    return render(request, 'registration/landlord/landlord_list.html', {'landlord_all': form})
+    return render(request, 'registration/landlords/landlord_list.html', {'landlord_all': form})
 
 
 def landlord_detail(request, pk):
     form = get_object_or_404(Landlords, pk=pk)
-    return render(request, 'registration/landlord/landlord_detail.html', {'landlord_detail': form})
+    return render(request, 'registration/landlords/landlord_detail.html', {'landlord_detail': form})
 
 
 # Zapisywanie formularza
@@ -156,10 +156,10 @@ def landlord_form_new(request):
         form = LandlordsForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'registration/landlord/success.html') # Render strony po pomyślnym utworzeniu
+            return render(request, 'registration/landlords/success.html') # Render strony po pomyślnym utworzeniu
     else:
         form = LandlordsForm()
-        return render(request, 'registration/landlord/landlord_new.html', {'landlord_new': form})
+        return render(request, 'registration/landlords/landlord_new.html', {'landlord_new': form})
 
 
 # Edycja wpisu
@@ -169,14 +169,14 @@ def landlord_form_edit(request, pk):
         form = LandlordsForm(request.POST, instance=detail)
         if form.is_valid():
             form.save()
-            return render(request, 'registration/landlord/landlord_edit_success.html') # Render strony po pomyślnym zapisaniu
+            return render(request, 'registration/landlords/landlord_edit_success.html') # Render strony po pomyślnym zapisaniu
     else:
         form = LandlordsForm(instance=detail)
-    return render(request, 'registration/landlord/landlord_edit.html', {'landlord_edit': form})
+    return render(request, 'registration/landlords/landlord_edit.html', {'landlord_edit': form})
 
 
 def landlord_success(request):
-    return render(request, 'registration/landlord/success.html', {'landlord_success': landlord_success})
+    return render(request, 'registration/landlords/success.html', {'landlord_success': landlord_success})
 
 
 ##################
