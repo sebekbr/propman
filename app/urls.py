@@ -27,8 +27,8 @@ urlpatterns = [
     path('forms/tenant/success', views.tenant_success, name='tenant_success'),
 
     # Landlords
-    path('forms/landlord/list', views.landlord_list, name='landlord_list'),
-    path('forms/landlord/list/', views.landlord_list, name='landlord_list'),
+    path('forms/landlord/list', views.landlord_list, name='landlord_all'),
+    path('forms/landlord/list/', views.landlord_list, name='landlord_all'),
     path('forms/landlord/new', views.landlord_form_new, name='landlord_new'), # definicja adresu URL nowego wpisu
     path('forms/landlord/new/', views.landlord_form_new, name='landlord_new'),
     path('forms/landlord/item/<int:pk>', views.landlord_detail, name='landlord_detail'),
@@ -38,8 +38,8 @@ urlpatterns = [
     path('forms/landlord/success', views.landlord_success, name='landlord_success'),
 
     # Property
-    path('forms/property/list', views.property_list, name='property_list'),
-    path('forms/property/list/', views.property_list, name='property_list'),
+    path('forms/property/list', views.property_list, name='property_all'),
+    path('forms/property/list/', views.property_list, name='property_all'),
     path('forms/property/new', views.property_form_new, name='property_new'), # definicja adresu URL nowego wpisu
     path('forms/property/new/', views.property_form_new, name='property_new'),
     path('forms/property/item/<int:pk>', views.property_detail, name='property_detail'),
@@ -49,8 +49,8 @@ urlpatterns = [
     path('forms/property/success', views.property_success, name='property_success'),
 
     # Lease Agreements
-    path('forms/leaseagreement/list', views.leaseagreement_list, name='leaseagreement_list'),
-    path('forms/leaseagreement/list/', views.leaseagreement_list, name='leaseagreement_list'),
+    path('forms/leaseagreement/list', views.leaseagreement_list, name='leaseagreement_all'),
+    path('forms/leaseagreement/list/', views.leaseagreement_list, name='leaseagreement_all'),
     path('forms/leaseagreement/new', views.leaseagreement_form_new, name='leaseagreement_new'), # definicja adresu URL nowego wpisu
     path('forms/leaseagreement/new/', views.leaseagreement_form_new, name='leaseagreement_new'),
     path('forms/leaseagreement/item/<int:pk>', views.leaseagreement_detail, name='leaseagreement_detail'),
@@ -60,8 +60,8 @@ urlpatterns = [
     path('forms/leaseagreement/success', views.leaseagreement_success, name='leaseagreement_success'),
 
     # Bill Vendors
-    path('forms/billven/list', views.billvendor_list, name='billvendor_list'),
-    path('forms/billven/list/', views.billvendor_list, name='billvendor_list'),
+    path('forms/billven/list', views.billvendor_list, name='billvendor_all'),
+    path('forms/billven/list/', views.billvendor_list, name='billvendor_all'),
     path('forms/billven/new', views.billvendor_form_new, name='billvendor_new'), # definicja adresu URL nowego wpisu
     path('forms/billven/new/', views.billvendor_form_new, name='billvendor_new'),
     path('forms/billven/item/<int:pk>', views.billvendor_detail, name='billvendor_detail'),
@@ -71,8 +71,8 @@ urlpatterns = [
     path('forms/billven/success', views.billvendor_success, name='billvendor_success'),
 
     # Bills
-    path('forms/bill/list', views.bill_list, name='bill_list'),
-    path('forms/bill/list/', views.bill_list, name='bill_list'),
+    path('forms/bill/list', views.bill_list, name='bill_all'),
+    path('forms/bill/list/', views.bill_list, name='bill_all'),
     path('forms/bill/new', views.bill_form_new, name='bill_new'), # definicja adresu URL nowego wpisu
     path('forms/bill/new/', views.bill_form_new, name='bill_new'),
     path('forms/bill/item/<int:pk>', views.bill_detail, name='bill_detail'),
