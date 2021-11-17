@@ -183,12 +183,12 @@ def landlord_success(request):
 # Property methods
 def property_list(request):
     form = Property.objects.all()
-    return render(request, 'registration/prop/property_list.html', {'property_all': form})
+    return render(request, 'registration/prop/prop_list.html', {'property_all': form})
 
 
 def property_detail(request, pk):
     form = get_object_or_404(Property, pk=pk)
-    return render(request, 'registration/prop/property_detail.html', {'property_detail': form})
+    return render(request, 'registration/prop/prop_detail.html', {'property_detail': form})
 
 
 # Zapisywanie formularza
@@ -197,10 +197,10 @@ def property_form_new(request):
         form = PropertyForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'registration/prop/property_new_success.html') # Render strony po pomyślnym utworzeniu
+            return render(request, 'registration/prop/success.html') # Render strony po pomyślnym utworzeniu
     else:
         form = PropertyForm()
-        return render(request, 'registration/prop/property_new.html', {'property_new': form})
+        return render(request, 'registration/prop/prop_new.html', {'property_new': form})
 
 
 # Edycja wpisu
@@ -210,10 +210,10 @@ def property_form_edit(request, pk):
         form = PropertyForm(request.POST, instance=detail)
         if form.is_valid():
             form.save()
-            return render(request, 'registration/prop/property_edit_success.html') # Render strony po pomyślnym zapisaniu
+            return render(request, 'registration/prop/success.html') # Render strony po pomyślnym zapisaniu
     else:
         form = PropertyForm(instance=detail)
-    return render(request, 'registration/prop/property_edit.html', {'property_edit': form})
+    return render(request, 'registration/prop/prop_edit.html', {'property_edit': form})
 
 
 def property_success(request):
