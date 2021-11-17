@@ -27,7 +27,7 @@ class LandlordsForm(forms.ModelForm):
 class PropertyForm(forms.ModelForm):
     class Meta:
         model = Property
-        fields = ('name', 'address', 'postalcode', 'city', 'kw_number')
+        fields = ('name', 'address', 'postalcode', 'city', 'ha_choice', 'kw_number')
 
 
 # Umowy najmu
