@@ -111,9 +111,8 @@ class Property(models.Model):
     postalcode = models.CharField(max_length=6, blank=False) # Property postalcode
     city = models.CharField(max_length=45, blank=False) # Property city
     kw_number = models.CharField(max_length=15, blank=True) # Numer KW
-    ha_choice = models.ChoiceField(label="Spółdzielnia",
-                      choices=[(i.pk, i.name) for i in HousingAssociation.objects.all()],
-                      required=True)
+    ha_choice = models.CharField(max_length=2,
+                                 choices=[(i.pk, i.name) for i in HousingAssociation.objects.all()], default=1)
     # Foreign Keys
     house_association = models.ForeignKey(HousingAssociation, on_delete=models.CASCADE)
 
