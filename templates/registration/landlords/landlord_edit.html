@@ -1,11 +1,11 @@
 {% extends 'registration/base.html' %}
 
 {% block content %}
-  <p>{{ landlord_edit.name }} {{ landlord_edit.surname }} - Edycja</p>
+  <h2>{{ landlord.name }} {{ landlord.surname }} - Edycja</h2>
   <form method="POST" class="post-form">
       {% csrf_token %}
       {{ landlord_edit.as_p }}
-
+      
       <button type="submit" class="save btn btn-default">Zapisz</button>
       <a href="/app/forms/landlord/item/{{ landlord_detail.id }}" class="btn btn-primary" role="button">Anuluj</a>
   </form>
