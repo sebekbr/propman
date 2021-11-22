@@ -113,7 +113,9 @@ class Property(models.Model):
     kw_number = models.CharField(max_length=15, blank=True) # Numer KW
     ha_choice = models.CharField(max_length=2,
                                  choices=[(i.pk, i.name) for i in HousingAssociation.objects.all()], default=1)
+    # ha_choice = models.CharField(max_length=2, choices=HousingAssociation.choices)
     # Foreign Keys
+    
     house_association = models.ForeignKey(HousingAssociation, on_delete=models.CASCADE)
 
     # Metadata

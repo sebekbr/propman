@@ -77,7 +77,7 @@ def housingassociation_form_new(request):
             return render(request, 'registration/ha/success.html') # Render strony po pomyślnym utworzeniu
     else:
         form = HousingAssociationForm()
-        return render(request, 'registration/ha/ha_new.html', {'housingassociation_new': form})
+    return render(request, 'registration/ha/ha_new.html', {'housingassociation_new': form})
 
 
 # Edycja wpisu
@@ -118,7 +118,7 @@ def tenant_form_new(request):
             return render(request, 'registration/tenants/success.html') # Render strony po pomyślnym utworzeniu
     else:
         form = TenantsForm()
-        return render(request, 'registration/tenants/tenant_new.html', {'tenant_new': form})
+    return render(request, 'registration/tenants/tenant_new.html', {'tenant_new': form})
 
 
 # Edycja wpisu
@@ -159,7 +159,7 @@ def landlord_form_new(request):
             return render(request, 'registration/landlords/success.html') # Render strony po pomyślnym utworzeniu
     else:
         form = LandlordsForm()
-        return render(request, 'registration/landlords/landlord_new.html', {'landlord_new': form})
+    return render(request, 'registration/landlords/landlord_new.html', {'landlord_new': form})
 
 
 # Edycja wpisu
@@ -200,7 +200,7 @@ def property_form_new(request):
             return render(request, 'registration/prop/success.html') # Render strony po pomyślnym utworzeniu
     else:
         form = PropertyForm()
-        return render(request, 'registration/prop/prop_new.html', {'property_new': form})
+    return render(request, 'registration/prop/prop_new.html', {'property_new': form})
 
 
 # Edycja wpisu
@@ -241,7 +241,7 @@ def leaseagreement_form_new(request):
             return render(request, 'registration/lease/success.html') # Render strony po pomyślnym utworzeniu
     else:
         form = LeaseAgreementForm()
-        return render(request, 'registration/lease/la_new.html', {'la_new': form})
+    return render(request, 'registration/lease/la_new.html', {'la_new': form})
 
 
 # Edycja wpisu
@@ -282,7 +282,7 @@ def billvendor_form_new(request):
             return render(request, 'registration/vendor/vendor_new_success.html') # Render strony po pomyślnym utworzeniu
     else:
         form = BillVendorsForm()
-        return render(request, 'registration/vendor/vendor_new.html', {'billvendor_new': form})
+    return render(request, 'registration/vendor/vendor_new.html', {'billvendor_new': form})
 
 
 # Edycja wpisu
@@ -323,7 +323,7 @@ def bill_form_new(request):
             return render(request, 'registration/bill/bill_new_success.html') # Render strony po pomyślnym utworzeniu
     else:
         form = BillsForm()
-        return render(request, 'registration/bill/bill_new.html', {'bill_new': form})
+    return render(request, 'registration/bill/bill_new.html', {'bill_new': form})
 
 
 # Edycja wpisu
