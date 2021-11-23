@@ -6,9 +6,15 @@
 {% block content %}
 {% if user.is_authenticated %}
   <p>Witaj {{ user.username }}!</p>
-
-
   <button type="button" name="button"><a href="{% url 'logout' %}">Wyloguj</a></button>
+
+  <button type="button" name="button"><a href="{% url 'ha_list' %}">Spółdzielnie</a></button>
+  <button type="button" name="button"><a href="{% url 'property_all' %}">Nieruchomości</a></button>
+  <button type="button" name="button"><a href="{% url 'landlord_all' %}">Właściciele</a></button>
+  <button type="button" name="button"><a href="{% url 'tenant_all' %}">Najemcy</a></button>
+  <button type="button" name="button"><a href="{% url 'leaseagreement_all' %}">Umowy najmu</a></button>
+  <button type="button" name="button"><a href="{% url 'billvendor_all' %}">Dostawcy</a></button>
+  <button type="button" name="button"><a href="{% url 'bill_all' %}">Rachunki/Umowy</a></button>
 
 {% else %}
   <p>You are not logged in</p>
