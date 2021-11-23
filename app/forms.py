@@ -34,7 +34,7 @@ class PropertyForm(forms.ModelForm):
 class LeaseAgreementForm(forms.ModelForm):
     class Meta:
         model = LeaseAgreement
-        fields = ('start', 'end', 'value', 'comments', 'type')
+        fields = ('start', 'end', 'value', 'comments', 'type', 'property', 'landlords', 'tenants')
 
 
 # Dostawcy rachunków
@@ -48,5 +48,5 @@ class BillVendorsForm(forms.ModelForm):
 class BillsForm(forms.ModelForm):
     class Meta:
         model = Bills
-        fields = ('name', 'agreement_number', 'start', 'duration', 'end')
+        fields = ('name', 'agreement_number', 'bill_vendor', 'property', 'start', 'duration', 'end')
 
