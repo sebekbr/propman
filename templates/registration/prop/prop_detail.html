@@ -3,12 +3,14 @@
 {% block content %}
   <h2>{{ ha_detail.name }}</h2>
     <ul>
-      <li>{{ ha_detail.pk}}</li>
-      <li>{{ ha_detail.address }}</li>
-      <li>{{ ha_detail.postalcode }}</li>
-      <li>{{ ha_detail.city }}</li>
+      <li>{{ property_detail.name }}</li>
+      <li>{{ property_detail.address }}</li>
+      <li>{{ property_detail.postalcode }}</li>
+      <li>{{ property_detail.city }}</li>
+      <li>{{ property_detail.housing_association }}</li>
+      <li>{{ property_detail.kw_number }}</li>
     </ul>
 
-    <a class="btn btn-default" href="{% url 'ha_edit' pk=ha_detail.pk %}">EDYTUJ</a>
-    <a class="btn btn-default" href="{% url 'ha_list' %}">LISTA</a>
+    <a class="btn btn-default" href="{% url 'property_edit' pk=ha_detail.pk %}">EDYTUJ</a>
+    <a class="btn btn-default" href="{% url 'property_list' %}">LISTA</a>
 {% endblock %}
