@@ -4,7 +4,7 @@
 <button type="button" name="button"><a href="{% url 'property_new' %}">Nowa</a></button>
 <p>Lista nieruchomości:</p>
 <ul>
-  {% for prop in prop_all %}
+  {% for prop in property_all %}
     <li>
       <a href="/app/forms/property/item/{{ prop.id }}">{{ prop.name }}</a>
     </li>
