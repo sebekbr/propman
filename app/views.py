@@ -128,7 +128,7 @@ def tenant_form_edit(request, pk):
         form = TenantsForm(request.POST, instance=detail)
         if form.is_valid():
             form.save()
-            return render(request, 'registration/tenants/tenant_edit_success.html') # Render strony po pomyślnym zapisaniu
+            return render(request, 'registration/tenants/success.html') # Render strony po pomyślnym zapisaniu
     else:
         form = TenantsForm(instance=detail)
     return render(request, 'registration/tenants/tenant_edit.html', {'tenant_edit': form})
@@ -169,7 +169,7 @@ def landlord_form_edit(request, pk):
         form = LandlordsForm(request.POST, instance=detail)
         if form.is_valid():
             form.save()
-            return render(request, 'registration/landlords/landlord_edit_success.html') # Render strony po pomyślnym zapisaniu
+            return render(request, 'registration/landlords/success.html') # Render strony po pomyślnym zapisaniu
     else:
         form = LandlordsForm(instance=detail)
     return render(request, 'registration/landlords/landlord_edit.html', {'landlord_edit': form})
@@ -251,7 +251,7 @@ def leaseagreement_form_edit(request, pk):
         form = LeaseAgreementForm(request.POST, instance=detail)
         if form.is_valid():
             form.save()
-            return render(request, 'registration/lease/la_edit_success.html') # Render strony po pomyślnym zapisaniu
+            return render(request, 'registration/lease/success.html') # Render strony po pomyślnym zapisaniu
     else:
         form = LeaseAgreementForm(instance=detail)
     return render(request, 'registration/lease/la_edit.html', {'la_edit': form})
@@ -279,7 +279,7 @@ def billvendor_form_new(request):
         form = BillVendorsForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'registration/vendor/vendor_new_success.html') # Render strony po pomyślnym utworzeniu
+            return render(request, 'registration/vendor/success.html') # Render strony po pomyślnym utworzeniu
     else:
         form = BillVendorsForm()
     return render(request, 'registration/vendor/vendor_new.html', {'billvendor_new': form})
@@ -292,7 +292,7 @@ def billvendor_form_edit(request, pk):
         form = BillVendorsForm(request.POST, instance=detail)
         if form.is_valid():
             form.save()
-            return render(request, 'registration/vendor/vendor_edit_success.html') # Render strony po pomyślnym zapisaniu
+            return render(request, 'registration/vendor/success.html') # Render strony po pomyślnym zapisaniu
     else:
         form = BillVendorsForm(instance=detail)
     return render(request, 'registration/vendor/vendor_edit.html', {'billvendor_edit': form})
@@ -320,7 +320,7 @@ def bill_form_new(request):
         form = BillsForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'registration/bill/bill_new_success.html') # Render strony po pomyślnym utworzeniu
+            return render(request, 'registration/bill/success.html') # Render strony po pomyślnym utworzeniu
     else:
         form = BillsForm()
     return render(request, 'registration/bill/bill_new.html', {'bill_new': form})
@@ -333,7 +333,7 @@ def bill_form_edit(request, pk):
         form = BillsForm(request.POST, instance=detail)
         if form.is_valid():
             form.save()
-            return render(request, 'registration/bill/bill_edit_success.html') # Render strony po pomyślnym zapisaniu
+            return render(request, 'registration/bill/success.html') # Render strony po pomyślnym zapisaniu
     else:
         form = BillsForm(instance=detail)
     return render(request, 'registration/bill/bill_edit.html', {'bill_edit': form})
