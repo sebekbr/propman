@@ -1,17 +1,11 @@
 {% extends 'registration/base.html' %}
 
 {% block content %}
-  <h2>Nowa spółdzielnia</h2>
+  <h2>Nowy dostawca</h2>
   <form method="POST" class="post-form">
     {% csrf_token %}
-    {{ housingassociation_new.as_p }}
-    <!-- <input type="text" name="name" placeholder="Nazwa">
-    <input type="text" name="address" placeholder="Adres">
-    <input type="text" name="postalcode" placeholder="Kod pocztowy">
-    <input type="text" name="city" placeholder="Miasto">
-    <input type="text" name="phone" placeholder="Telefon">
-    <input type="email" name="email" placeholder="E-mail">
-    <input type="text" name="comments" placeholder="Uwagi"> -->
+    {{ billvendor_new.as_p }}
+
     <button type="submit" class="save btn btn-default">Save</button>
   </form>
 {% endblock %}
