@@ -1,5 +1,6 @@
 from django import forms
 from app.models import *
+from django.utils.translation import ugettext_lazy as _
 
 
 # Spółdzielnie/Wspólnoty mieszkaniowe - przekazywanie pól do wyświetlania
@@ -35,6 +36,24 @@ class LeaseAgreementForm(forms.ModelForm):
     class Meta:
         model = LeaseAgreement
         fields = ('start', 'end', 'value', 'comments', 'type', 'property', 'landlords', 'tenants')
+        labels = {
+            'start': _('Data początkowa'),
+            'end': _('Data końcowa'),
+            'value': _('Czynsz'),
+            'comments': _('Uwagi'),
+            'type': _('Typ'),
+            'property': _('Nieruchomość'),
+            'landlords': _('Właściciel'),
+            'tenants': _('Najemca')
+        }
+        help_texts = {
+            'value': _('Wpisz umówioną kwotę czynszu'),
+        }
+        # error_messages = {
+        #     'type': {
+        #         'max_length': _("Zbyt duża ilość znaków."),
+        #     },
+        # }
 
 
 # Dostawcy rachunków
