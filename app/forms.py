@@ -8,6 +8,25 @@ class HousingAssociationForm(forms.ModelForm):
     class Meta:
         model = HousingAssociation
         fields = ('name', 'address', 'postalcode', 'city', 'phone', 'email', 'comments')
+        labels = {
+            'name': _('Nazwa'),
+            'address': _('Adres'),
+            'postalcode': _('Kod pocztowy'),
+            'city': _('Miasto'),
+            'phone': _('Telefon'),
+            'email': _('E-mail'),
+            'comments': _('Uwagi')
+        }
+        # help_texts = {
+        #     'start': _('W formacie RRRR-MM-DD'),
+        #     'end': _('W formacie RRRR-MM-DD'),
+        #     'value': _('Wpisz umówioną kwotę czynszu')
+        # }
+        # error_messages = {
+        #     'type': {
+        #         'max_length': _("Zbyt duża ilość znaków."),
+        #     },
+        # }
 
 
 # Najemcy
@@ -15,6 +34,26 @@ class TenantsForm(forms.ModelForm):
     class Meta:
         model = Tenants
         fields = ('name', 'surname', 'address', 'postalcode', 'city', 'phone', 'email', 'comments')
+        labels = {
+            'name': _('Imię'),
+            'surname': _('Nazwisko'),
+            'address': _('Adres'),
+            'postalcode': _('Kod pocztowy'),
+            'city': _('Miasto'),
+            'phone': _('Telefon'),
+            'email': _('E-mail'),
+            'comments': _('Uwagi')
+        }
+        # help_texts = {
+        #     'start': _('W formacie RRRR-MM-DD'),
+        #     'end': _('W formacie RRRR-MM-DD'),
+        #     'value': _('Wpisz umówioną kwotę czynszu')
+        # }
+        # error_messages = {
+        #     'type': {
+        #         'max_length': _("Zbyt duża ilość znaków."),
+        #     },
+        # }
 
 
 # Właściciele
@@ -22,6 +61,22 @@ class LandlordsForm(forms.ModelForm):
     class Meta:
         model = Landlords
         fields = ('name', 'surname', 'phone', 'email')
+        labels = {
+            'name': _('Imię'),
+            'surname': _('Nazwisko'),
+            'phone': _('Telefon'),
+            'email': _('E-mail')
+        }
+        # help_texts = {
+        #     'start': _('W formacie RRRR-MM-DD'),
+        #     'end': _('W formacie RRRR-MM-DD'),
+        #     'value': _('Wpisz umówioną kwotę czynszu')
+        # }
+        # error_messages = {
+        #     'type': {
+        #         'max_length': _("Zbyt duża ilość znaków."),
+        #     },
+        # }
 
 
 # Nieruchomości
@@ -29,6 +84,24 @@ class PropertyForm(forms.ModelForm):
     class Meta:
         model = Property
         fields = ('name', 'address', 'postalcode', 'city', 'house_association', 'kw_number')
+        labels = {
+            'name': _('Nazwa'),
+            'address': _('Adres'),
+            'postalcode': _('Kod pocztowy'),
+            'city': _('Miasto'),
+            'house_association': _('Spółdzielnia/wspólnota'),
+            'kw_number': _('Numer księgi wieczystej')
+        }
+        # help_texts = {
+        #     'start': _('W formacie RRRR-MM-DD'),
+        #     'end': _('W formacie RRRR-MM-DD'),
+        #     'value': _('Wpisz umówioną kwotę czynszu')
+        # }
+        # error_messages = {
+        #     'type': {
+        #         'max_length': _("Zbyt duża ilość znaków."),
+        #     },
+        # }
 
 
 # Umowy najmu
@@ -71,11 +144,11 @@ class BillVendorsForm(forms.ModelForm):
             'phone': _('Numer telefonu'),
             'email': _('E-mail')
         }
-        help_texts = {
-            'start': _('W formacie RRRR-MM-DD'),
-            'end': _('W formacie RRRR-MM-DD'),
-            'value': _('Wpisz umówioną kwotę czynszu')
-        }
+        # help_texts = {
+        #     'start': _('W formacie RRRR-MM-DD'),
+        #     'end': _('W formacie RRRR-MM-DD'),
+        #     'value': _('Wpisz umówioną kwotę czynszu')
+        # }
         # error_messages = {
         #     'type': {
         #         'max_length': _("Zbyt duża ilość znaków."),
