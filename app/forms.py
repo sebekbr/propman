@@ -63,6 +63,24 @@ class BillVendorsForm(forms.ModelForm):
     class Meta:
         model = BillVendors
         fields = ('name', 'address', 'postalcode', 'city', 'phone', 'email')
+        labels = {
+            'name': _('Nazwa'),
+            'address': _('Adres'),
+            'postalcode': _('Kod pocztowy'),
+            'city': _('Miasto'),
+            'phone': _('Numer telefonu'),
+            'email': _('E-mail')
+        }
+        help_texts = {
+            'start': _('W formacie RRRR-MM-DD'),
+            'end': _('W formacie RRRR-MM-DD'),
+            'value': _('Wpisz umówioną kwotę czynszu')
+        }
+        # error_messages = {
+        #     'type': {
+        #         'max_length': _("Zbyt duża ilość znaków."),
+        #     },
+        # }
 
 
 # Rachunki i umowy
