@@ -47,7 +47,9 @@ class LeaseAgreementForm(forms.ModelForm):
             'tenants': _('Najemca')
         }
         help_texts = {
-            'value': _('Wpisz umówioną kwotę czynszu'),
+            'start': _('W formacie RRRR-MM-DD'),
+            'end': _('W formacie RRRR-MM-DD'),
+            'value': _('Wpisz umówioną kwotę czynszu')
         }
         # error_messages = {
         #     'type': {
@@ -68,4 +70,22 @@ class BillsForm(forms.ModelForm):
     class Meta:
         model = Bills
         fields = ('name', 'agreement_number', 'bill_vendor', 'property', 'start', 'duration', 'end')
+        labels = {
+            'start': _('Data początkowa'),
+            'end': _('Data końcowa'),
+            'agreement_number': _('Numer mowy'),
+            'name': _('Nazwa'),
+            'bill_vendor': _('Dostawca'),
+            'property': _('Nieruchomość'),
+            'duration': _('Czas trwania')
+        }
+        help_texts = {
+            'start': _('W formacie RRRR-MM-DD'),
+            'end': _('W formacie RRRR-MM-DD'),
+        }
+        # error_messages = {
+        #     'type': {
+        #         'max_length': _("Zbyt duża ilość znaków."),
+        #     },
+        # }
 
