@@ -177,7 +177,6 @@ class BillVendors(models.Model):
 
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
-        # return self.id, self.name, self.address, self.postalcode, self.city, self.phone, self.email
         return self.name
 
 
