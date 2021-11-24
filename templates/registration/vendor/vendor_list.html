@@ -4,9 +4,9 @@
 <button type="button" name="button"><a href="{% url 'billvendor_new' %}">Nowy</a></button>
 <p>Lista dostawców:</p>
 <ul>
-  {% for ha in ha_all %}
+  {% for item in billvendor_all %}
     <li>
-      <a href="/app/forms/billven/item/{{ ha.id }}">{{ ha.name }}</a>
+      <a href="/app/forms/billven/item/{{ item.id }}">{{ item.name }}</a>
     </li>
   {% endfor %}
 </ul>

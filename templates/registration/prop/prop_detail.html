@@ -11,6 +11,6 @@
       <li>{{ property_detail.kw_number }}</li>
     </ul>
 
-    <a class="btn btn-default" href="{% url 'property_edit' pk=property_detail.pk %}">EDYTUJ</a>
+    <a class="btn btn-default" href="{% url 'property_edit' pk=property_detail.id %}">EDYTUJ</a>
     <a class="btn btn-default" href="{% url 'property_all' %}">LISTA</a>
 {% endblock %}

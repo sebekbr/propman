@@ -1,14 +1,16 @@
 {% extends 'registration/base.html' %}
 
 {% block content %}
-  <h2>{{ ha_detail.name }}</h2>
+  <h2>{{ bill_detail.name }}</h2>
     <ul>
-      <li>{{ ha_detail.pk}}</li>
-      <li>{{ ha_detail.address }}</li>
-      <li>{{ ha_detail.postalcode }}</li>
-      <li>{{ ha_detail.city }}</li>
+      <li>{{ bill_detail.agreement_number }}</li>
+      <li>{{ bill_detail.start }}</li>
+      <li>{{ bill_detail.duration }}</li>
+      <li>{{ bill_detail.end }}</li>
+      <li>{{ bill_detail.bill_vendor }}</li>
+      <li>{{ bill_detail.property }}</li>
     </ul>
 
-    <a class="btn btn-default" href="{% url 'ha_edit' pk=ha_detail.pk %}">EDYTUJ</a>
-    <a class="btn btn-default" href="{% url 'ha_list' %}">LISTA</a>
+    <a class="btn btn-default" href="{% url 'bill_edit' pk=bill_detail.id %}">EDYTUJ</a>
+    <a class="btn btn-default" href="{% url 'bill_all' %}">LISTA</a>
 {% endblock %}

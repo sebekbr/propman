@@ -4,9 +4,9 @@
   <h2>{{ ha_detail.name }} - Edycja</h2>
   <form method="POST" class="post-form">
       {% csrf_token %}
-      {{ ha_edit.as_p }}
+      {{ bill_edit.as_p }}
 
       <button type="submit" class="save btn btn-default">Save</button>
-      <a href="/app/forms/housingassociation/item/{{ ha_detail.id }}" class="btn btn-primary" role="button">Anuluj</a>
+      <a href="/app/forms/bill/item/{{ ha_detail.id }}" class="btn btn-primary" role="button">Anuluj</a>
   </form>
 {% endblock %}

@@ -11,6 +11,6 @@
       <li>{{ billvendor_detail.email }}</li>
     </ul>
 
-    <a class="btn btn-default" href="{% url 'billvendor_edit' pk=billvendor_detail.pk %}">EDYTUJ</a>
+    <a class="btn btn-default" href="{% url 'billvendor_edit' pk=billvendor_detail.id %}">EDYTUJ</a>
     <a class="btn btn-default" href="{% url 'billvendor_list' %}">LISTA</a>
 {% endblock %}
