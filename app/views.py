@@ -241,7 +241,7 @@ def leaseagreement_form_new(request):
             return render(request, 'registration/lease/success.html') # Render strony po pomyślnym utworzeniu
     else:
         form = LeaseAgreementForm()
-    return render(request, 'registration/lease/la_new.html', {'la_new': form})
+    return render(request, 'registration/lease/la_new.html', {'leaseagreement_new': form})
 
 
 # Edycja wpisu
