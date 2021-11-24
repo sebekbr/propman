@@ -7,10 +7,10 @@
       <li>{{ property_detail.address }}</li>
       <li>{{ property_detail.postalcode }}</li>
       <li>{{ property_detail.city }}</li>
-      <li>{{ property_detail.housing_association }}</li>
+      <li>{{ property_detail.house_association }}</li>
       <li>{{ property_detail.kw_number }}</li>
     </ul>
 
     <a class="btn btn-default" href="{% url 'property_edit' pk=property_detail.pk %}">EDYTUJ</a>
-    <a class="btn btn-default" href="{% url 'property_list' %}">LISTA</a>
+    <a class="btn btn-default" href="{% url 'property_all' %}">LISTA</a>
 {% endblock %}
