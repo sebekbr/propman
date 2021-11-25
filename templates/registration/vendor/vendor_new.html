@@ -6,7 +6,7 @@
     {% csrf_token %}
     {{ billvendor_new.as_p }}
 
-    <button type="submit" class="save btn btn-default">Save</button>
+    <button type="submit" class="save btn btn-default">Zapisz</button>
     <a class="btn btn-default" href="{% url 'billvendor_all' %}">Anuluj</a>
   </form>
 {% endblock %}

@@ -7,5 +7,7 @@
     {{ property_new.as_p }}
 
     <button type="submit" class="save btn btn-default">Save</button>
+    <a class="btn btn-default" href="{% url 'property_all' %}">Anuluj</a>
+    <a class="btn btn-default" href="{% url 'index' %}">Home</a>
   </form>
 {% endblock %}

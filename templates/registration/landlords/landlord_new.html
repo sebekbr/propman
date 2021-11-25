@@ -5,7 +5,9 @@
   <form method="POST" class="post-form">
     {% csrf_token %}
     {{ landlord_new.as_p }}
-    <!-- <input type="text" name="name" placeholder="Nazwa"> -->
-    <button type="submit" class="save btn btn-default">Save</button>
+
+    <button type="submit" class="save btn btn-default">Zapisz</button>
+    <a class="btn btn-default" href="{% url 'landlord_all' %}">Anuluj</a>
+
   </form>
 {% endblock %}

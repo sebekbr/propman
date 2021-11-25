@@ -6,6 +6,8 @@
     {% csrf_token %}
     {{ tenant_new.as_p }}
 
-    <button type="submit" class="save btn btn-default">Save</button>
+    <button type="submit" class="save btn btn-default">Zapisz</button>
+    <a class="btn btn-default" href="{% url 'tenant_all' %}">Anuluj</a>
+    <a class="btn btn-default" href="{% url 'index' %}">Home</a>
   </form>
 {% endblock %}
