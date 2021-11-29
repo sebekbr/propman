@@ -133,6 +133,7 @@ class Property(models.Model):
 class LeaseAgreement(models.Model):
     # Fields
     id = models.AutoField(primary_key=True)
+    agreement_number = models.CharField(max_length=45, blank=True)
     start = models.DateField(auto_now=False, auto_now_add=False, blank=False) # Lease agreement beginning date
     end = models.DateField(auto_now=False, auto_now_add=False, blank=False) # Lease agreement ending date
     value = models.DecimalField(max_digits=19, decimal_places=2, blank=False) # Lease agreement value
@@ -153,7 +154,7 @@ class LeaseAgreement(models.Model):
 
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
-        return self.id, self.start, self.end, self.value, self.comments, self.type
+        return self.agreement_number #, self.start, self.end, self.value, self.comments, self.type
 
 
 # Dostawcy rachunków
