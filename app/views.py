@@ -9,55 +9,6 @@ def index(request):
     return render(request, 'registration/home.html')
 
 
-#############################
-# Housing Association methods
-# class HousingAssociationView(View):
-#     def get(self, request, *args, **kwargs):
-#         form = self.HousingAssociation(initial=self.initial)
-#         return render(request, self.template_name, {'form': form})
-#
-#     def post(self, request, *args, **kwargs):
-#         form = self.form_class(request.POST)
-#         if form.is_valid():
-#             # <process form cleaned data>
-#             return HttpResponseRedirect('/success/')
-#
-#         return render(request, self.template_name, {'form': form})
-#
-#     def list(self, request):
-#         form = HousingAssociation.objects.all()
-#         return render(request, 'registration/ha/ha_list.html', {'ha_all': form})
-#
-#     def detail(self, request, pk):
-#         self.form = get_object_or_404(HousingAssociation, pk=pk)
-#         return render(request, 'registration/ha/ha_detail.html', {'ha_detail': self.form})
-#
-#     # Zapisywanie formularza
-#     def new(self, request):
-#         if request.method == "POST":
-#             form = HousingAssociationForm(request.POST)
-#             if form.is_valid():
-#                 form.save()
-#                 return render(request, 'registration/ha/success.html')  # Render strony po pomyślnym utworzeniu
-#         else:
-#             form = HousingAssociationForm()
-#             return render(request, 'registration/ha/ha_new.html', {'housingassociation_new': form})
-#
-#     # Edycja wpisu
-#     def edit(self, request, pk):
-#         detail = get_object_or_404(HousingAssociation, pk=pk)
-#         if request.method == "POST":
-#             form = HousingAssociationForm(request.POST, instance=detail)
-#             if form.is_valid():
-#                 form.save()
-#                 return render(request, 'registration/ha/success.html')  # Render strony po pomyślnym zapisaniu
-#         else:
-#             form = HousingAssociationForm(instance=detail)
-#         return render(request, 'registration/ha/ha_edit.html', {'ha_edit': form})
-#
-#     def success(self, request):
-#         return render(request, 'registration/ha/success.html', {'ha_success': self.success})
-
 def ha_list(request):
     form = HousingAssociation.objects.all()
     return render(request, 'registration/ha/ha_list.html', {'ha_all': form})
@@ -229,7 +180,7 @@ def leaseagreement_list(request):
 
 def leaseagreement_detail(request, pk):
     form = get_object_or_404(LeaseAgreement, pk=pk)
-    return render(request, 'registration/lease/la_detail.html', {'la_detail': form})
+    return render(request, 'registration/lease/la_detail.html', {'leaseagreement_detail': form})
 
 
 # Zapisywanie formularza
@@ -254,7 +205,7 @@ def leaseagreement_form_edit(request, pk):
             return render(request, 'registration/lease/success.html') # Render strony po pomyślnym zapisaniu
     else:
         form = LeaseAgreementForm(instance=detail)
-    return render(request, 'registration/lease/la_edit.html', {'la_edit': form})
+    return render(request, 'registration/lease/la_edit.html', {'leaseagreement_edit': form})
 
 
 def leaseagreement_success(request):
