@@ -143,7 +143,7 @@ class LeaseAgreement(models.Model):
     end = models.DateField(auto_now=False, auto_now_add=False, blank=False)  # Lease agreement ending date
     value = models.DecimalField(max_digits=19, decimal_places=2, blank=False)  # Lease agreement value
     comments = models.TextField(max_length=1000, blank=True)  # Comments
-    type = models.IntegerField(choices=LA_TYPE_CHOICES, blank=False, default=0)  # LA type: 0 - normal, 1 - notarial
+    type = models.CharField(max_length=1, choices=LA_TYPE_CHOICES, blank=False, default=0)  # LA type: 0 - normal, 1 - notarial
     # Foreign Keys
     property = models.ForeignKey(Property, on_delete=models.CASCADE)
     landlords = models.ForeignKey(Landlords, on_delete=models.CASCADE)
@@ -152,10 +152,6 @@ class LeaseAgreement(models.Model):
     # Metadata
     class Meta:
         ordering = ['id']
-
-    # Methods
-    def add(self):
-        self.save()
 
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
