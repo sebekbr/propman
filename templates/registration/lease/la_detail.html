@@ -1,11 +1,11 @@
 {% extends 'registration/base.html' %}
 
 {% block content %}
-  <h2>{{ ha_detail.name }} - Szczegóły</h2>
+  <h2>{{ leaseagreement_detail.agreement_number }} - Szczegóły</h2>
     <table>
       <tr>
         <td>Numer umowy:</td>
-        <td>{{ leaseagreement_detail.start }}</td>
+        <td>{{ leaseagreement_detail.agreement_number }}</td>
       </tr>
       <tr>
         <td>Początek umowy:</td>
@@ -24,7 +24,7 @@
         <td>{{ leaseagreement_detail.comments }}</td>
       </tr>
       <tr>
-        <td>Typ:</td>
+        <td>Rodzaj umowy:</td>
         <td>{{ leaseagreement_detail.type }}</td>
       </tr>
       <tr>

@@ -1,7 +1,7 @@
 {% extends 'registration/base.html' %}
 
 {% block content %}
-  <h2>{{ ha_detail.name }} - Edycja</h2>
+  <h2>{{ leaseagreement_edit.agreement_number }} - Edycja</h2>
   <form method="POST" class="post-form">
       {% csrf_token %}
       {{ leaseagreement_edit.as_p }}
