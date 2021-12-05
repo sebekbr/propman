@@ -4,20 +4,64 @@
 {% block title %}Home - PropMan{% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
-  <p>Witaj {{ user.username }}!</p>
-  <button type="button" name="button"><a href="{% url 'logout' %}">Wyloguj</a></button>
+<div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  {% if user.is_authenticated %}
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">PropMan</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+      aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Panel główny</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Nieruchomości
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="{% url 'property_all' %}">Lista nieruchomości</a></li>
+              <li><a class="dropdown-item" href="{% url 'landlord_all' %}">Właściciele</a></li>
+              <li><a class="dropdown-item" href="{% url 'ha_list' %}">Spółdzielnie</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Najemcy
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="{% url 'tenant_all' %}">Lista najemców</a></li>
+              <li><a class="dropdown-item" href="{% url 'leaseagreement_all' %}">Umowy najmu</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Rachunki
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="{% url 'bill_all' %}">Lista umów</a></li>
+              <li><a class="dropdown-item" href="{% url 'billvendor_all' %}">Dostawcy mediów</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+      <span>{{ user.username }}</span>
+      <span>
+        <button type="button" name="button"><a href="{% url 'logout' %}">Wyloguj</a></button>
+      </span>
+  {% else %}
+    <p>Brak dostępu. Zaloguj się.</p>
+    <button type="button" name="button"><a href="{% url 'login' %}">Zaloguj</a></button>
+  </nav>
 
-  <button type="button" name="button"><a href="{% url 'ha_list' %}">Spółdzielnie</a></button>
-  <button type="button" name="button"><a href="{% url 'property_all' %}">Nieruchomości</a></button>
-  <button type="button" name="button"><a href="{% url 'landlord_all' %}">Właściciele</a></button>
-  <button type="button" name="button"><a href="{% url 'tenant_all' %}">Najemcy</a></button>
-  <button type="button" name="button"><a href="{% url 'leaseagreement_all' %}">Umowy najmu</a></button>
-  <button type="button" name="button"><a href="{% url 'billvendor_all' %}">Dostawcy</a></button>
-  <button type="button" name="button"><a href="{% url 'bill_all' %}">Rachunki/Umowy</a></button>
-
-{% else %}
-  <p>You are not logged in</p>
-  <button type="button" name="button"><a href="{% url 'login' %}">Zaloguj</a></button>
 {% endif %}
+</div>
 {% endblock %}

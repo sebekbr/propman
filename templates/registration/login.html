@@ -3,15 +3,14 @@
 {% block content %}
 
   {% if form.errors %}
-    <p>Your username and password didn't match. Please try again.</p>
+    <p>Nieprawidłowy login lub hasło. Spróbuj ponownie.</p>
   {% endif %}
 
   {% if next %}
     {% if user.is_authenticated %}
-      <p>Your account doesn't have access to this page. To proceed,
-      please login with an account that has access.</p>
+      <p>Nie masz dostępu do tej strony. Zaloguj się.</p>
     {% else %}
-      <p>Please login to see this page.</p>
+      <p>Zaloguj się aby uzyskać dostęp.</p>
     {% endif %}
   {% endif %}
 
@@ -27,11 +26,11 @@
         <td>{{ form.password }}</td>
       </tr>
     </table>
-    <input type="submit" value="login" />
+    <input type="submit" value="Zaloguj" />
     <input type="hidden" name="next" value="{{ next }}" />
   </form>
 
   {# Assumes you setup the password_reset view in your URLconf #}
-  <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+  <p><a href="{% url 'password_reset' %}">Nie pamiętasz hasła?</a></p>
 
 {% endblock %}
