@@ -1,6 +1,7 @@
 {% extends 'registration/base.html' %}
 
 {% block content %}
+<div class="col-8">
   <h2>{{ bill_detail.name }}</h2>
     <ul>
       <li>{{ bill_detail.agreement_number }}</li>
@@ -11,6 +12,7 @@
       <li>{{ bill_detail.property }}</li>
     </ul>
 
-    <a class="btn btn-default" href="{% url 'bill_edit' pk=bill_detail.id %}">EDYTUJ</a>
-    <a class="btn btn-default" href="{% url 'bill_all' %}">LISTA</a>
+  <a class="btn btn-default" href="{% url 'bill_edit' pk=bill_detail.id %}">EDYTUJ</a>
+  <a class="btn btn-default" href="{% url 'bill_all' %}">LISTA</a>
+</div>
 {% endblock %}

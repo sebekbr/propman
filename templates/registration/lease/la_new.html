@@ -1,6 +1,7 @@
 {% extends 'registration/base.html' %}
 
 {% block content %}
+<div class="col-8">
   <h2>Nowa umowa</h2>
   <form method="POST" class="post-form">
     {% csrf_token %}
@@ -10,4 +11,5 @@
     <a class="btn btn-default" href="{% url 'leaseagreement_all' %}">Anuluj</a>
     <a class="btn btn-default" href="{% url 'index' %}">Home</a>
   </form>
+</div>
 {% endblock %}

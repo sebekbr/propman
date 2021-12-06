@@ -1,16 +1,17 @@
 {% extends 'registration/base.html' %}
 
 {% block content %}
-<button type="button" name="button"><a href="{% url 'leaseagreement_new' %}">Nowa umowa</a></button>
-<p>Lista umów:</p>
-<ul>
-  {% for la in la_all %}
-    <li>
-      <a href="/app/forms/leaseagreement/item/{{ la.id }}">{{ la.id }}</a>
-    </li>
-  {% endfor %}
-</ul>
+<div class="col-8">
+  <button type="button" name="button"><a href="{% url 'leaseagreement_new' %}">Nowa umowa</a></button>
+  <p>Lista umów:</p>
+  <ul>
+    {% for la in la_all %}
+      <li>
+        <a href="/app/forms/leaseagreement/item/{{ la.id }}">{{ la.id }}</a>
+      </li>
+    {% endfor %}
+  </ul>
 
-<a class="btn btn-default" href="{% url 'index' %}">Home</a>
-
+  <a class="btn btn-default" href="{% url 'index' %}">Home</a>
+</div>
 {% endblock %}

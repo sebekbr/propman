@@ -1,16 +1,17 @@
 {% extends 'registration/base.html' %}
 
 {% block content %}
-<button type="button" name="button"><a href="{% url 'bill_new' %}">Nowy rachunek</a></button>
-<p>Lista rachunków:</p>
-<ul>
-  {% for item in bill_all %}
-    <li>
-      <a href="/app/forms/bill/item/{{ item.id }}">{{ item.name }}</a>
-    </li>
-  {% endfor %}
-</ul>
+<div class="col-8">
+  <button type="button" name="button"><a href="{% url 'bill_new' %}">Nowy rachunek</a></button>
+  <p>Lista rachunków:</p>
+  <ul>
+    {% for item in bill_all %}
+      <li>
+        <a href="/app/forms/bill/item/{{ item.id }}">{{ item.name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
 
-<a class="btn btn-default" href="{% url 'index' %}">Home</a>
-
+  <a class="btn btn-default" href="{% url 'index' %}">Home</a>
+</div>
 {% endblock %}

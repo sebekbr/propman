@@ -1,6 +1,7 @@
 {% extends 'registration/base.html' %}
 
 {% block content %}
+<div class="col-8">
   <h2>Nowy rachunek</h2>
   <form method="POST" class="post-form">
     {% csrf_token %}
@@ -9,4 +10,5 @@
     <button type="submit" class="save btn btn-default">Zapisz</button>
     <a class="btn btn-default" href="{% url 'bill_all' %}">Anuluj</a>
   </form>
+</div>
 {% endblock %}

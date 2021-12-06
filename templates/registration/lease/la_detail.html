@@ -1,6 +1,7 @@
 {% extends 'registration/base.html' %}
 
 {% block content %}
+<div class="col-8">
   <h2>{{ leaseagreement_detail.agreement_number }} - Szczegóły</h2>
     <table>
       <tr>
@@ -43,4 +44,5 @@
 
     <a class="btn btn-default" href="{% url 'leaseagreement_edit' pk=leaseagreement_detail.id %}">EDYTUJ</a>
     <a class="btn btn-default" href="{% url 'leaseagreement_all' %}">LISTA</a>
+</div>
 {% endblock %}

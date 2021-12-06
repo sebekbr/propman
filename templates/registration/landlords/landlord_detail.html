@@ -1,6 +1,7 @@
 {% extends 'registration/base.html' %}
 
 {% block content %}
+<div class="col-8">
   <h2>{{ landlord_detail.name }} {{ landlord_detail.surname }}</h2>
     <ul>
       <li>{{ landlord_detail.pk}}</li>
@@ -10,6 +11,7 @@
       <li>{{ landlord_detail.email }}</li>
     </ul>
 
-    <a class="btn btn-default" href="{% url 'landlord_edit' pk=landlord_detail.pk %}">EDYTUJ</a>
-    <a class="btn btn-default" href="{% url 'landlord_all' %}">LISTA</a>
+  <a class="btn btn-default" href="{% url 'landlord_edit' pk=landlord_detail.pk %}">EDYTUJ</a>
+  <a class="btn btn-default" href="{% url 'landlord_all' %}">LISTA</a>
+</div>
 {% endblock %}

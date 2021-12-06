@@ -1,6 +1,7 @@
 {% extends 'registration/base.html' %}
 
 {% block content %}
+<div class="col-8">
   <h2>{{ ha_detail.name }} - Edycja</h2>
   <form method="POST" class="post-form">
       {% csrf_token %}
@@ -9,4 +10,5 @@
       <button type="submit" class="save btn btn-default">Save</button>
       <a href="/app/forms/billven/item/{{ billvendor_detail.id }}" class="btn btn-primary" role="button">Anuluj</a>
   </form>
+</div>
 {% endblock %}

@@ -1,16 +1,17 @@
 {% extends 'registration/base.html' %}
 
 {% block content %}
-<button type="button" name="button"><a href="{% url 'property_new' %}">Nowa</a></button>
-<p>Lista nieruchomości:</p>
-<ul>
-  {% for prop in property_all %}
-    <li>
-      <a href="/app/forms/property/item/{{ prop.id }}">{{ prop.name }}</a>
-    </li>
-  {% endfor %}
-</ul>
-<a class="btn btn-default" href="{% url 'property_all' %}">Lista</a>
-<a class="btn btn-default" href="{% url 'index' %}">Home</a>
-
+<div class="col-8">
+  <button type="button" name="button"><a href="{% url 'property_new' %}">Nowa</a></button>
+  <p>Lista nieruchomości:</p>
+  <ul>
+    {% for prop in property_all %}
+      <li>
+        <a href="/app/forms/property/item/{{ prop.id }}">{{ prop.name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  <a class="btn btn-default" href="{% url 'property_all' %}">Lista</a>
+  <a class="btn btn-default" href="{% url 'index' %}">Home</a>
+</div>
 {% endblock %}

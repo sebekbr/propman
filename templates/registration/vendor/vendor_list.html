@@ -1,15 +1,17 @@
 {% extends 'registration/base.html' %}
 
 {% block content %}
-<button type="button" name="button"><a href="{% url 'billvendor_new' %}">Nowy</a></button>
-<p>Lista dostawców:</p>
-<ul>
-  {% for item in billvendor_all %}
-    <li>
-      <a href="/app/forms/billven/item/{{ item.id }}">{{ item.name }}</a>
-    </li>
-  {% endfor %}
-</ul>
+<div class="col-8">
+  <button type="button" name="button"><a href="{% url 'billvendor_new' %}">Nowy</a></button>
+  <p>Lista dostawców:</p>
+  <ul>
+    {% for item in billvendor_all %}
+      <li>
+        <a href="/app/forms/billven/item/{{ item.id }}">{{ item.name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
 
-<a class="btn btn-default" href="{% url 'index' %}">Home</a>
+  <a class="btn btn-default" href="{% url 'index' %}">Home</a>
+</div>
 {% endblock %}
