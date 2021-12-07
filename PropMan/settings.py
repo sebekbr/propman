@@ -123,7 +123,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    BASE_DIR / "static"
+    # os.path.join(BASE_DIR, 'static'),
 ]
 
 # Default primary key field type
@@ -134,4 +135,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Redirect to home URL after login/logout (Default redirects to /accounts/profile/ / /accounts/logout/)
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-
