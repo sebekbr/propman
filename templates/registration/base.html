@@ -11,192 +11,95 @@
   <body>
     <div class="container-fluid">
       <div class="row">
-        <!-- OLD MENU -->
-        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    {% if user.is_authenticated %}
-      <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'index' %}">PropMan</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
-        aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Panel główny</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-              role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Nieruchomości
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="{% url 'property_all' %}">Lista nieruchomości</a></li>
-                <li><a class="dropdown-item" href="{% url 'landlord_all' %}">Właściciele</a></li>
-                <li><a class="dropdown-item" href="{% url 'ha_list' %}">Spółdzielnie</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-              role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Najemcy
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="{% url 'tenant_all' %}">Lista najemców</a></li>
-                <li><a class="dropdown-item" href="{% url 'leaseagreement_all' %}">Umowy najmu</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-              role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Rachunki
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="{% url 'bill_all' %}">Lista umów</a></li>
-                <li><a class="dropdown-item" href="{% url 'billvendor_all' %}">Dostawcy mediów</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-        <span style="padding-left: 0.75em;padding-right: 0.5em;">{{ user.username }}</span>
-        <span style="padding-right: 0.75em;">
-          <a type="button" name="button" class="btn btn-secondary" href="{% url 'logout' %}">Wyloguj</a>
-        </span>
-    {% else %}
-      <div style="margin:0 auto; text-align: center;">
-        <p>Brak dostępu. Zaloguj się.</p>
-        <a href="{% url 'login' %}" type="button" name="button" class="btn btn-primary">Zaloguj</a>
-      </div>
-    {% endif %}
-    </nav> -->
-        <!-- OLD MENU END -->
 
         <!-- MENU v1 BEGIN -->
-        <div class="col-4">
-          <div class="d-flex flex-column vh-100 flex-shrink-0 p-3 text-white bg-dark" style="width: 250px;">
-            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-              <i class="bi-building text-white"></i> <span class="fs-4">PropMan</span> </a>
-            <hr>
-            {% if user.is_authenticated %}
-              <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item">
-                  <a href="{% url 'index' %}" class="nav-link active" aria-current="page">
-                    <i class="bi-house"></i><span class="ms-2">Panel główny</span>
-                  </a>
-                </li>
-                <!-- Nieruchomości -->
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink"
-                  role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Nieruchomości
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="{% url 'property_all' %}">Lista nieruchomości</a></li>
-                    <li><a class="dropdown-item" href="{% url 'landlord_all' %}">Właściciele</a></li>
-                    <li><a class="dropdown-item" href="{% url 'ha_list' %}">Spółdzielnie</a></li>
-                  </ul>
-                </li>
+          <div class="col-3">
+            <div class="d-flex flex-column vh-100 flex-shrink-0 p-3 text-white bg-dark" style="width: 250px;">
+              <a href="{% url 'index' %}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <i class="bi-building text-white"></i> <span class="fs-4">PropMan</span> </a>
+              <hr>
+              {% if user.is_authenticated %}
+                <ul class="nav nav-pills flex-column mb-auto">
+                  <li class="nav-item">
+                    <a href="{% url 'index' %}" class="nav-link active" aria-current="page">
+                      <i class="bi-house"></i><span class="ms-2">Panel główny</span>
+                    </a>
+                  </li>
+                  <!-- Nieruchomości -->
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink"
+                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Nieruchomości
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item" href="{% url 'property_all' %}">Lista nieruchomości</a></li>
+                      <li><a class="dropdown-item" href="{% url 'landlord_all' %}">Właściciele</a></li>
+                      <li><a class="dropdown-item" href="{% url 'ha_list' %}">Spółdzielnie</a></li>
+                    </ul>
+                  </li>
 
-                <!-- Najemcy -->
-                <li class="accordion accordion-flush" id="accordionFlushExample">
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingOne">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                        Najemcy
-                      </button>
-                    </h2>
-                    <div id="flush-collapseOne" class="accordion-collapse collapse text-white"
-                    aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                      <div class="accordion-body">
-                        <ul>
-                          <li><i class="bi-file-earmark-text"></i><a class="accordion-item text-decoration-none" href="{% url 'tenant_all' %}">Lista najemców</a></li>
-                          <li><i class="bi-file-earmark-text"></i><a class="accordion-item text-decoration-none" href="{% url 'leaseagreement_all' %}">Umowy najmu</a></li>
-                        </ul>
+                  <!-- Najemcy -->
+                  <li class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item text-white bg-dark">
+                      <h2 class="accordion-header text-white bg-dark" id="flush-headingOne">
+                        <button class="accordion-button collapsed text-white bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                          Najemcy
+                        </button>
+                      </h2>
+                      <div id="flush-collapseOne" class="accordion-collapse collapse bg-dark"
+                      aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                          <ul>
+                            <li><i class="bi-file-earmark-text"></i><a class="accordion-item text-decoration-none text-white bg-dark" href="{% url 'tenant_all' %}">Lista najemców</a></li>
+                            <li><i class="bi-file-earmark-text"></i><a class="accordion-item text-decoration-none text-white bg-dark" href="{% url 'leaseagreement_all' %}">Umowy najmu</a></li>
+                          </ul>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </li>
-                <li>
-                  <a href="#" class="nav-link text-white">
-                    <i class="fas fa-cog"></i><span class="ms-2">Rachunki</span>
-                  </a>
-                </li>
-              </ul>
+                  </li>
+
+                  <!-- Rachunki -->
+                  <li>
+                    <a href="#" class="nav-link text-white">
+                      <i class="fas fa-cog"></i><span class="ms-2">Rachunki</span>
+                    </a>
+                  </li>
+                </ul>
+
+              <!-- Użytkownik -->
               <hr>
-            <div class="dropdown">
-              <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-                id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://github.com/mdo.png" alt="" width="32" height="32"
-                  class="rounded-circle me-2">
-                  <strong> {{ user.username }} </strong>
-              </a>
-              <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                <li><a class="dropdown-item" href="#">New project</a></li>
-                <li><a class="dropdown-item" href="#">Settings</a></li>
-                <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="{% url 'logout' %}">Wyloguj</a></li>
-              </ul>
+              <div class="dropdown">
+                <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+                  id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="https://github.com/mdo.png" alt="" width="32" height="32"
+                    class="rounded-circle me-2">
+                    <strong> {{ user.username }} </strong>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                  <li><a class="dropdown-item" href="#">Nowy użytkownik</a></li>
+                  <li><a class="dropdown-item" href="#">Profil</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="{% url 'logout' %}">Wyloguj</a></li>
+                </ul>
+              </div>
             </div>
+            {% else %}
+              <div style="margin:0 auto; text-align: center;">
+                <p>Brak dostępu. Zaloguj się.</p>
+                <a href="{% url 'login' %}" type="button" name="button" class="btn btn-primary">Zaloguj</a>
+              </div>
+            {% endif %}
           </div>
-          {% else %}
-            <div style="margin:0 auto; text-align: center;">
-              <p>Brak dostępu. Zaloguj się.</p>
-              <a href="{% url 'login' %}" type="button" name="button" class="btn btn-primary">Zaloguj</a>
-            </div>
-          {% endif %}
-        </div>
         <!-- MENU END -->
 
-        <!-- MENU v2 BEGIN -->
-        <!-- <div class="col-4">
-        <header class="header" id="header">
-          <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
-          <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>
-        </header>
-        <div class="l-navbar" id="nav-bar">
-          <nav class="nav">
-            <div>
-              <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i>
-                <span class="nav_logo-name">BBBootstrap</span>
-              </a>
-                <div class="nav_list">
-                  <a href="#" class="nav_link active"> <i class='bx bx-grid-alt nav_icon'></i>
-                    <span class="nav_name">Dashboard</span>
-                  </a>
-                  <a href="#" class="nav_link"> <i class='bx bx-user nav_icon'></i>
-                    <span class="nav_name">Users</span>
-                  </a>
-                  <a href="#" class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i>
-                    <span class="nav_name">Messages</span>
-                  </a>
-                  <a href="#" class="nav_link"> <i class='bx bx-bookmark nav_icon'></i>
-                    <span class="nav_name">Bookmark</span>
-                  </a>
-                  <a href="#" class="nav_link"> <i class='bx bx-folder nav_icon'></i>
-                    <span class="nav_name">Files</span>
-                  </a>
-                  <a href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
-                    <span class="nav_name">Stats</span>
-                  </a>
-                </div>
-            </div>
-            <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon'></i>
-              <span class="nav_name">SignOut</span>
-            </a>
-          </nav>
-          </div>
-        </div>
-        <!-- MENU v2 END -->
-
         <!-- MAIN CONTENT BEGIN -->
-
+        <div class="col-8">
         {% block content %}
+
         {% endblock %}
+        </div>
         <!-- MAIN CONTENT END -->
       </div>
     </div>
