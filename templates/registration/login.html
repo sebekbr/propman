@@ -1,7 +1,7 @@
 {% extends "registration/base.html" %}
 
 {% block content %}
-  <div style="margin:0 auto; text-align: center;">
+  <!-- <div class="position absolute top-0 end-0 text-center">
     {% if form.errors %}
       <p>Nieprawidłowy login lub hasło. Spróbuj ponownie.</p>
     {% endif %}
@@ -16,7 +16,7 @@
 
     <form method="post" action="{% url 'login' %}">
       {% csrf_token %}
-      <table style="margin:0 auto; text-align: center;">
+      <!-- <table style="margin:0 auto; text-align: center;">
         <tr>
           <td>{{ form.username.label_tag }}</td>
           <td>{{ form.username }}</td>
@@ -25,37 +25,14 @@
           <td>{{ form.password.label_tag }}</td>
           <td>{{ form.password }}</td>
         </tr>
-      </table>
+      </table> -->
+      <!--<span>{{ form.username.label_tag }}</span> <span>{{ form.username }}</span>
+      <span>{{ form.password.label_tag }}</span> <span>{{ form.password }}</span>
       <input type="submit" value="Zaloguj" />
       <input type="hidden" name="next" value="{{ next }}" />
     </form>
 
-    <div class="dropdown-menu">
-    <form class="px-4 py-3">
-      <div class="mb-3">
-        <label for="exampleDropdownFormEmail1" class="form-label">{{ form.username.label_tag }}</label>
-        <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
-      </div>
-      <div class="mb-3">
-        <label for="exampleDropdownFormPassword1" class="form-label">Password</label>
-        <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
-      </div>
-      <div class="mb-3">
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="dropdownCheck">
-          <label class="form-check-label" for="dropdownCheck">
-            Remember me
-          </label>
-        </div>
-      </div>
-      <button type="submit" class="btn btn-primary">Sign in</button>
-    </form>
-    <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">New around here? Sign up</a>
-      <a class="dropdown-item" href="#">Forgot password?</a>
-    </div>
-
     {# Assumes you setup the password_reset view in your URLconf #}
     <p><a href="{% url 'password_reset' %}">Nie pamiętasz hasła?</a></p>
-  </div>
+  </div> -->
 {% endblock %}
