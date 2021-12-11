@@ -18,6 +18,35 @@
   </div>
 </div>
 
-<p>Kolumna lewa w base.html</p>
+<h2>Statystyki</h2>
+<h5>Podsumowanie</h5>
+<div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Lp.</th>
+        <th scope="col">Nazwa</th>
+        <th scope="col">Ilość</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Ilość nieruchomości</td>
+        <td>{{ property_count }}</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Ilość umów najmu</td>
+        <td>{{ agreement_count }}</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Suma przychodów</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 {% endblock %}
