@@ -120,8 +120,7 @@ class Property(models.Model):
         ordering = ['id']
 
     # Methods
-    def add(self):
-        self.save()
+
 
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
