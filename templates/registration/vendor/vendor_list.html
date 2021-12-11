@@ -23,6 +23,8 @@
       <li>
         <a href="/app/forms/billven/item/{{ item.id }}">{{ item.name }}</a>
       </li>
+    {% empty %}
+      <li>Brak wpisów</li>
     {% endfor %}
   </ul>
 

@@ -23,6 +23,8 @@
       <li>
         <a href="/app/forms/leaseagreement/item/{{ la.id }}">{{ la.id }}</a>
       </li>
+    {% empty %}
+      <li>Brak wpisów</li>
     {% endfor %}
   </ul>
 

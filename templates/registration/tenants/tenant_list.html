@@ -23,6 +23,8 @@
       <li>
         <a href="/app/forms/tenant/item/{{ t.id }}">{{ t.name }} {{ t.surname }}</a>
       </li>
+    {% empty %}
+      <li>Brak wpisów</li>
     {% endfor %}
   </ul>
 

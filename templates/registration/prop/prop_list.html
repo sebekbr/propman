@@ -23,8 +23,12 @@
       <li>
         <a href="/app/forms/property/item/{{ prop.id }}">{{ prop.name }}</a>
       </li>
+    {% empty %}
+      <li>Brak wpisów</li>
     {% endfor %}
   </ul>
+  <p>Ilość nieruchomości:</p>
+  <p>{{ property_count }}</p>
   <a class="btn btn-default" href="{% url 'property_all' %}">Lista</a>
   <a class="btn btn-default" href="{% url 'index' %}">Home</a>
 </div>
