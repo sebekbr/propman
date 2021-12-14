@@ -5,8 +5,8 @@
   <h1 class="h2">Umowy najmu</h1>
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group me-2">
-      <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-      <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+      <a href="{% url 'leaseagreement_new' %}" type="button" class="btn btn-sm btn-outline-primary">Nowa</a>
+      <a type="button" class="btn btn-sm btn-outline-disable">Usuń</a>
     </div>
     <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
       <span data-feather="calendar"></span>
@@ -16,7 +16,6 @@
 </div>
 
 <div class="">
-  <button type="button" name="button"><a href="{% url 'leaseagreement_new' %}">Nowa umowa</a></button>
   <p>Lista umów:</p>
   <ul>
     {% for la in la_all %}
