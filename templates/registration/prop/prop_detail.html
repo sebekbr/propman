@@ -5,28 +5,47 @@
   <h1 class="h2">Nieruchomości</h1>
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group me-2">
-      <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-      <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+      <a href="{% url 'property_edit' pk=property_detail.id %}" type="button" class="btn btn-sm btn-outline-primary">Edytuj</a>
+      <a href="" type="button" class="btn btn-sm btn-danger">Usuń</a>
+      <a href="" type="button" class="btn btn-sm btn-outline-secondary">Anuluj</a>
     </div>
-    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+    <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
       <span data-feather="calendar"></span>
       This week
-    </button>
+    </button> -->
   </div>
 </div>
 
 <div class="">
   <h2>Szczegóły</h2>
-    <ul>
-      <li>{{ property_detail.name }}</li>
-      <li>{{ property_detail.address }}</li>
-      <li>{{ property_detail.postalcode }}</li>
-      <li>{{ property_detail.city }}</li>
-      <li>{{ property_detail.house_association }}</li>
-      <li>{{ property_detail.kw_number }}</li>
-    </ul>
-
-    <a class="btn btn-default" href="{% url 'property_edit' pk=property_detail.id %}">EDYTUJ</a>
-    <a class="btn btn-default" href="{% url 'property_all' %}">LISTA</a>
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <td>Nazwa nieruchomości:</td>
+        <td>{{ property_detail.name }}</td>
+      </tr>
+      <tr>
+        <td>Adres:</td>
+        <td>{{ property_detail.address }}</td>
+      </tr>
+      <tr>
+        <!--TO DO-->
+        <td>Kod pocztowy:</td>
+        <td>{{ property_detail.postalcode }}</td>
+      </tr>
+      <tr>
+        <td>Miejscowość:</td>
+        <td>{{ property_detail.city }}</td>
+      </tr>
+      <tr>
+        <td>Spółdzielnia:</td>
+        <td>{{ property_detail.house_association }}</td>
+      </tr>
+      <tr>
+        <td>Numer księgi wieczystej:</td>
+        <td>{{ property_detail.kw_number }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 {% endblock %}

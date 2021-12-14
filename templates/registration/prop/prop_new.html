@@ -5,13 +5,13 @@
   <h1 class="h2">Nieruchomości</h1>
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group me-2">
-      <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-      <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+
+      <a href="{% url 'leaseagreement_all' %}" type="button" class="btn btn-sm btn-outline-secondary">Anuluj</a>
     </div>
-    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+    <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
       <span data-feather="calendar"></span>
       This week
-    </button>
+    </button> -->
   </div>
 </div>
 
@@ -20,10 +20,7 @@
   <form method="POST" class="post-form">
     {% csrf_token %}
     {{ property_new.as_p }}
-
-    <button type="submit" class="save btn btn-default">Save</button>
-    <a class="btn btn-default" href="{% url 'property_all' %}">Anuluj</a>
-    <a class="btn btn-default" href="{% url 'index' %}">Home</a>
+    <button type="submit" class="btn btn-sm btn-outline-success">Zapisz</button>
   </form>
 </div>
 {% endblock %}

@@ -6,12 +6,12 @@
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group me-2">
       <a href="{% url 'tenant_new' %}" type="button" class="btn btn-sm btn-outline-primary">Nowy</a>
-      <a type="button" class="btn btn-sm btn-outline-disable">Usuń</a>
+      <!-- <a type="button" class="btn btn-sm btn-disable">Usuń</a> -->
     </div>
-    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+    <!-- <button type="button" class="btn btn-sm btn-secondary dropdown-toggle">
       <span data-feather="calendar"></span>
       This week
-    </button>
+    </button> -->
   </div>
 </div>
 
@@ -26,7 +26,5 @@
       <li>Brak wpisów</li>
     {% endfor %}
   </ul>
-
-  <a class="btn btn-default" href="{% url 'index' %}">Home</a>
 </div>
 {% endblock %}

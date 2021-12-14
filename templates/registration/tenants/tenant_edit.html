@@ -5,13 +5,13 @@
   <h1 class="h2">Najemcy</h1>
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group me-2">
-      <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-      <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+      <!-- <a type="button" class="btn btn-sm btn-outline-light">Usuń</a> -->
+      <a href="{% url 'tenant_all' %}" type="button" class="btn btn-sm btn-outline-secondary">Anuluj</a>
     </div>
-    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+    <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
       <span data-feather="calendar"></span>
       This week
-    </button>
+    </button> -->
   </div>
 </div>
 
@@ -20,9 +20,7 @@
   <form method="POST" class="post-form">
       {% csrf_token %}
       {{ tenant_edit.as_p }}
-
-      <button type="submit" class="save btn btn-default">Zapisz</button>
-      <a href="/app/forms/tenant/item/{{ tenant_detail.id }}" class="btn btn-primary" role="button">Anuluj</a>
+      <button type="submit" class="btn btn-sm btn-outline-success">Zapisz</button>
   </form>
 </div>
 {% endblock %}

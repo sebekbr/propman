@@ -5,58 +5,58 @@
   <h1 class="h2">Umowy najmu</h1>
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group me-2">
-      <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-      <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+      <a href="{% url 'leaseagreement_edit' pk=leaseagreement_detail.id %}" type="button" class="btn btn-sm btn-outline-primary">Edytuj</a>
+      <a href="" type="button" class="btn btn-sm btn-danger">Usuń</a>
+      <a href="" type="button" class="btn btn-sm btn-outline-secondary">Anuluj</a>
     </div>
-    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+    <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
       <span data-feather="calendar"></span>
       This week
-    </button>
+    </button> -->
   </div>
 </div>
 
 <div class="">
   <h2>Szczegóły</h2>
-    <table>
-      <tr>
-        <td>Numer umowy:</td>
-        <td>{{ leaseagreement_detail.agreement_number }}</td>
-      </tr>
-      <tr>
-        <td>Początek umowy:</td>
-        <td>{{ leaseagreement_detail.start }}</td>
-      </tr>
-      <tr>
-        <td>Koniec umowy:</td>
-        <td>{{ leaseagreement_detail.end }}</td>
-      </tr>
-      <tr>
-        <td>Czynsz:</td>
-        <td>{{ leaseagreement_detail.value }}</td>
-      </tr>
-      <tr>
-        <td>Uwagi:</td>
-        <td>{{ leaseagreement_detail.comments }}</td>
-      </tr>
-      <tr>
-        <td>Rodzaj umowy:</td>
-        <td>{{ leaseagreement_detail.type }}</td>
-      </tr>
-      <tr>
-        <td>Nieruchomość:</td>
-        <td>{{ leaseagreement_detail.property }}</td>
-      </tr>
-      <tr>
-        <td>Właściciel:</td>
-        <td>{{ leaseagreement_detail.landlords }}</td>
-      </tr>
-      <tr>
-        <td>Najemca:</td>
-        <td>{{ leaseagreement_detail.tenants }}</td>
-      </tr>
+    <table class="table table-striped">
+      <tbody>
+        <tr>
+          <td>Numer umowy:</td>
+          <td>{{ leaseagreement_detail.agreement_number }}</td>
+        </tr>
+        <tr>
+          <td>Początek umowy:</td>
+          <td>{{ leaseagreement_detail.start }}</td>
+        </tr>
+        <tr>
+          <td>Koniec umowy:</td>
+          <td>{{ leaseagreement_detail.end }}</td>
+        </tr>
+        <tr>
+          <td>Czynsz:</td>
+          <td>{{ leaseagreement_detail.value }}</td>
+        </tr>
+        <tr>
+          <td>Uwagi:</td>
+          <td>{{ leaseagreement_detail.comments }}</td>
+        </tr>
+        <tr>
+          <td>Rodzaj umowy:</td>
+          <td>{{ leaseagreement_detail.type }}</td>
+        </tr>
+        <tr>
+          <td>Nieruchomość:</td>
+          <td>{{ leaseagreement_detail.property }}</td>
+        </tr>
+        <tr>
+          <td>Właściciel:</td>
+          <td>{{ leaseagreement_detail.landlords }}</td>
+        </tr>
+        <tr>
+          <td>Najemca:</td>
+          <td>{{ leaseagreement_detail.tenants }}</td>
+        </tr>
+      </tbody>
     </table>
-
-    <a class="btn btn-default" href="{% url 'leaseagreement_edit' pk=leaseagreement_detail.id %}">EDYTUJ</a>
-    <a class="btn btn-default" href="{% url 'leaseagreement_all' %}">LISTA</a>
 </div>
 {% endblock %}

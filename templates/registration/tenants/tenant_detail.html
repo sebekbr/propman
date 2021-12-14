@@ -5,29 +5,54 @@
   <h1 class="h2">Najemcy</h1>
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group me-2">
-      <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-      <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+      <a href="{% url 'tenant_edit' pk=tenant_detail.pk %}" type="button" class="btn btn-sm btn-outline-primary">Edytuj</a>
+      <a href="" type="button" class="btn btn-sm btn-danger">Usuń</a>
+      <a href="" type="button" class="btn btn-sm btn-outline-secondary">Anuluj</a>
     </div>
-    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+    <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
       <span data-feather="calendar"></span>
       This week
-    </button>
+    </button> -->
   </div>
 </div>
 
 <div class="">
   <h2>Szczegóły</h2>
-    <ul>
-      <li>{{ tenant_detail.pk}}</li>
-      <li>{{ tenant_detail.address }}</li>
-      <li>{{ tenant_detail.postalcode }}</li>
-      <li>{{ tenant_detail.city }}</li>
-      <li>{{ tenant_detail.phone }}</li>
-      <li>{{ tenant_detail.email }}</li>
-      <li>{{ tenant_detail.comments }}</li>
-    </ul>
-
-  <a class="btn btn-default" href="{% url 'tenant_edit' pk=tenant_detail.pk %}">EDYTUJ</a>
-  <a class="btn btn-default" href="{% url 'tenant_all' %}">LISTA</a>
+    <table class="table table-striped">
+      <tbody>
+        <tr>
+          <td>Imię:</td>
+          <td>{{ tenant_detail.name}}</td>
+        </tr>
+        <tr>
+          <td>Nazwisko:</td>
+          <td>{{ tenant_detail.surname}}</td>
+        </tr>
+        <tr>
+          <td>Adres:</td>
+          <td>{{ tenant_detail.address }}</td>
+        </tr>
+        <tr>
+          <td>Kod pocztowy:</td>
+          <td>{{ tenant_detail.postalcode }}</td>
+        </tr>
+        <tr>
+          <td>Miejscowość:</td>
+          <td>{{ tenant_detail.city }}</td>
+        </tr>
+        <tr>
+          <td>Telefon:</td>
+          <td>{{ tenant_detail.phone }}</td>
+        </tr>
+        <tr>
+          <td>E-mail:</td>
+          <td>{{ tenant_detail.email }}</td>
+        </tr>
+        <tr>
+          <td>Uwagi:</td>
+          <td>{{ tenant_detail.comments }}</td>
+        </tr>
+      </tbody>
+    </table>
 </div>
 {% endblock %}

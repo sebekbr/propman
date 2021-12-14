@@ -5,28 +5,46 @@
   <h1 class="h2">Rachunki</h1>
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group me-2">
-      <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-      <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+      <a href="{% url 'bill_edit' pk=bill_detail.id %}" type="button" class="btn btn-sm btn-outline-primary">Edytuj</a>
+      <a href="" type="button" class="btn btn-sm btn-danger">Usuń</a>
+      <a href="" type="button" class="btn btn-sm btn-outline-secondary">Anuluj</a>
     </div>
-    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+    <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
       <span data-feather="calendar"></span>
       This week
-    </button>
+    </button> -->
   </div>
 </div>
 
 <div class="">
   <h2>Szczegóły</h2>
-    <ul>
-      <li>{{ bill_detail.agreement_number }}</li>
-      <li>{{ bill_detail.start }}</li>
-      <li>{{ bill_detail.duration }}</li>
-      <li>{{ bill_detail.end }}</li>
-      <li>{{ bill_detail.bill_vendor }}</li>
-      <li>{{ bill_detail.property }}</li>
-    </ul>
-
-  <a class="btn btn-default" href="{% url 'bill_edit' pk=bill_detail.id %}">EDYTUJ</a>
-  <a class="btn btn-default" href="{% url 'bill_all' %}">LISTA</a>
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <td>Numer umowy:</td>
+        <td>{{ bill_detail.agreement_number }}</td>
+      </tr>
+      <tr>
+        <td>Data rozpoczęcia:</td>
+        <td>{{ bill_detail.start }}</td>
+      </tr>
+      <tr>
+        <td>Czas trwania:</td>
+        <td>{{ bill_detail.duration }}</td>
+      </tr>
+      <tr>
+        <td>Data zakończenia:</td>
+        <td>{{ bill_detail.end }}</td>
+      </tr>
+      <tr>
+        <td>Dostawca:</td>
+        <td>{{ bill_detail.bill_vendor }}</td>
+      </tr>
+      <tr>
+        <td>Nieruchomość:</td>
+        <td>{{ bill_detail.property }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 {% endblock %}

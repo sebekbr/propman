@@ -5,28 +5,46 @@
   <h1 class="h2">Dostawcy mediów</h1>
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group me-2">
-      <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-      <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+      <a href="{% url 'billvendor_edit' pk=billvendor_detail.id %}" type="button" class="btn btn-sm btn-outline-primary">Edytuj</a>
+      <a href="" type="button" class="btn btn-sm btn-danger">Usuń</a>
+      <a href="" type="button" class="btn btn-sm btn-outline-secondary">Anuluj</a>
     </div>
-    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+    <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
       <span data-feather="calendar"></span>
       This week
-    </button>
+    </button> -->
   </div>
 </div>
 
 <div class="">
   <h2>Szczegóły</h2>
-    <ul>
-      <li>{{ billvendor_detail.name }}</li>
-      <li>{{ billvendor_detail.address }}</li>
-      <li>{{ bilvendor_detail.postalcode }}</li>
-      <li>{{ billvendor_detail.city }}</li>
-      <li>{{ billvendor_detail.phone }}</li>
-      <li>{{ billvendor_detail.email }}</li>
-    </ul>
-
-  <a class="btn btn-default" href="{% url 'billvendor_edit' pk=billvendor_detail.id %}">EDYTUJ</a>
-  <a class="btn btn-default" href="{% url 'billvendor_list' %}">LISTA</a>
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <td>Nazwa:</td>
+        <td>{{ billvendor_detail.name }}</td>
+      </tr>
+      <tr>
+        <td>Adres:</td>
+        <td>{{ billvendor_detail.address }}</td>
+      </tr>
+      <tr>
+        <td>Kod pocztowy:</td>
+        <td>{{ bilvendor_detail.postalcode }}</td>
+      </tr>
+      <tr>
+        <td>Miejscowość:</td>
+        <td>{{ billvendor_detail.city }}</td>
+      </tr>
+      <tr>
+        <td>Telefon:</td>
+        <td>{{ billvendor_detail.phone }}</td>
+      </tr>
+      <tr>
+        <td>E-mail:</td>
+        <td>{{ billvendor_detail.email }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 {% endblock %}

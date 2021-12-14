@@ -6,27 +6,26 @@
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group me-2">
       <a href="{% url 'bill_new' %}" type="button" class="btn btn-sm btn-outline-primary">Nowy</a>
-      <a type="button" class="btn btn-sm btn-outline-disable">Usuń</a>
+      <!-- <a type="button" class="btn btn-sm btn-disable">Usuń</a> -->
     </div>
-    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+    <!-- <button type="button" class="btn btn-sm btn-secondary dropdown-toggle">
       <span data-feather="calendar"></span>
       This week
-    </button>
+    </button> -->
   </div>
 </div>
 
+<!--TODO-->
 <div class="">
   <p>Lista rachunków:</p>
   <ul>
-    {% for item in bill_all %}
+    {% for bill in bill_all %}
       <li>
-        <a href="/app/forms/bill/item/{{ item.id }}">{{ item.name }}</a>
+        <a href="/app/forms/bill/item/{{ bill.id }}">{{ bill.name }}</a>
       </li>
     {% empty %}
       <li>Brak wpisów</li>
     {% endfor %}
   </ul>
-
-  <a class="btn btn-default" href="{% url 'index' %}">Home</a>
 </div>
 {% endblock %}
