@@ -14,14 +14,13 @@
     </button> -->
   </div>
 </div>
-
+<!--TODO-->
 <div class="">
   <p>Lista dostawców:</p>
   <ul>
-    <!--TODO-->
-    {% for item in billvendor_all %}
+    {% for vendor in billvendors_all %}
       <li>
-        <a href="/app/forms/billven/item/{{ item.id }}">{{ item.name }}</a>
+        <a href="/app/forms/billven/item/{{ vendor.id }}">{{ vendor.name }}</a>
       </li>
     {% empty %}
       <li>Brak wpisów</li>

@@ -14,12 +14,11 @@
     </button> -->
   </div>
 </div>
-
 <!--TODO-->
 <div class="">
   <p>Lista rachunków:</p>
   <ul>
-    {% for bill in bill_all %}
+    {% for bill in bills_all %}
       <li>
         <a href="/app/forms/bill/item/{{ bill.id }}">{{ bill.name }}</a>
       </li>
