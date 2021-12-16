@@ -145,12 +145,6 @@ class LeaseAgreement_type(models.Model):
 
 # Umowy najmu
 class LeaseAgreement(models.Model):
-    #TODO change to new model and make PK
-    LA_TYPE_CHOICES = [
-        (0, 'Zwykła'),
-        (1, 'Notarialna'),
-    ]
-
     # Fields
     id = models.AutoField(primary_key=True)
     agreement_number = models.CharField(max_length=45, blank=True)
@@ -158,12 +152,12 @@ class LeaseAgreement(models.Model):
     end = models.DateField(auto_now=False, auto_now_add=False, blank=False)  # Lease agreement ending date
     value = models.DecimalField(max_digits=19, decimal_places=2, blank=False)  # Lease agreement value
     comments = models.TextField(max_length=1000, blank=True)  # Comments
-    type = models.CharField(max_length=1, choices=LA_TYPE_CHOICES, blank=False, default=0)  # LA type: 0 - normal, 1 - notarial
     # Foreign Keys
     #TODO on_delete change
     property = models.ForeignKey(Property, on_delete=models.CASCADE)
     landlords = models.ForeignKey(Landlords, on_delete=models.CASCADE)
     tenants = models.ForeignKey(Tenants, on_delete=models.CASCADE)
+    type = models.ForeignKey(LeaseAgreement_type, on_delete=models.CASCADE)
 
     # Metadata
     class Meta:
