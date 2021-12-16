@@ -128,8 +128,24 @@ class Property(models.Model):
         return self.name
 
 
+class LeaseAgreement_type(models.Model):
+    id = models.AutoField(primary_key=True)
+    type = models.CharField(max_length=45, blank=False)
+
+    # Metadata
+    class Meta:
+        ordering = ['id']
+
+    # Methods
+    def __str__(self):
+        """String for representing the MyModelName object (in Admin site etc.)."""
+        # return self.id, self.name, self.address, self.postalcode, self.city, self.kw_number
+        return self.type
+
+
 # Umowy najmu
 class LeaseAgreement(models.Model):
+    #TODO change to new model and make PK
     LA_TYPE_CHOICES = [
         (0, 'Zwykła'),
         (1, 'Notarialna'),
@@ -144,6 +160,7 @@ class LeaseAgreement(models.Model):
     comments = models.TextField(max_length=1000, blank=True)  # Comments
     type = models.CharField(max_length=1, choices=LA_TYPE_CHOICES, blank=False, default=0)  # LA type: 0 - normal, 1 - notarial
     # Foreign Keys
+    #TODO on_delete change
     property = models.ForeignKey(Property, on_delete=models.CASCADE)
     landlords = models.ForeignKey(Landlords, on_delete=models.CASCADE)
     tenants = models.ForeignKey(Tenants, on_delete=models.CASCADE)
