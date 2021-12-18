@@ -113,7 +113,7 @@ class Property(models.Model):
     kw_number = models.CharField(max_length=15, blank=True) # Numer KW
     # Foreign Keys
 
-    house_association = models.ForeignKey(HousingAssociation, on_delete=models.CASCADE)
+    house_association = models.ForeignKey(HousingAssociation, on_delete=models.PROTECT)
 
     # Metadata
     class Meta:
@@ -153,11 +153,10 @@ class LeaseAgreement(models.Model):
     value = models.DecimalField(max_digits=19, decimal_places=2, blank=False)  # Lease agreement value
     comments = models.TextField(max_length=1000, blank=True)  # Comments
     # Foreign Keys
-    #TODO on_delete change
-    property = models.ForeignKey(Property, on_delete=models.CASCADE)
-    landlords = models.ForeignKey(Landlords, on_delete=models.CASCADE)
-    tenants = models.ForeignKey(Tenants, on_delete=models.CASCADE)
-    type = models.ForeignKey(LeaseAgreement_type, on_delete=models.CASCADE)
+    property = models.ForeignKey(Property, on_delete=models.PROTECT)
+    landlords = models.ForeignKey(Landlords, on_delete=models.PROTECT)
+    tenants = models.ForeignKey(Tenants, on_delete=models.PROTECT)
+    type = models.ForeignKey(LeaseAgreement_type, on_delete=models.PROTECT)
 
     # Metadata
     class Meta:
@@ -202,8 +201,8 @@ class Bills(models.Model):
     duration = models.IntegerField(blank=False) # Duration in months
     end = models.DateField(auto_now=False, auto_now_add=False, blank=False) # Agreement ending date
     # Foreign Keys
-    bill_vendor = models.OneToOneField(BillVendors, on_delete=models.CASCADE)
-    property = models.ForeignKey(Property, on_delete=models.CASCADE)
+    bill_vendor = models.OneToOneField(BillVendors, on_delete=models.PROTECT)
+    property = models.ForeignKey(Property, on_delete=models.PROTECT)
 
     # Metadata
     class Meta:
