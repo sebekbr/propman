@@ -13,6 +13,8 @@ urlpatterns = [
     path('forms/housingassociation/item/<int:pk>/', views.housingassociation_detail, name='ha_detail'),
     path('forms/housingassociation/item/<int:pk>/edit', views.housingassociation_form_edit, name='ha_edit'),
     path('forms/housingassociation/item/<int:pk>/edit/', views.housingassociation_form_edit, name='ha_edit'),
+    path('forms/housingassociation/item/<int:pk>/del', views.housingassociation_delete, name='ha_delete'),
+    path('forms/housingassociation/item/<int:pk>/del/', views.housingassociation_delete, name='ha_delete'),
     path('forms/housingassociation/success', views.housingassociation_success, name='ha_success'),
 
     # Tenants
@@ -24,6 +26,8 @@ urlpatterns = [
     path('forms/tenant/item/<int:pk>/', views.tenant_detail, name='tenant_detail'),
     path('forms/tenant/item/<int:pk>/edit', views.tenant_form_edit, name='tenant_edit'),
     path('forms/tenant/item/<int:pk>/edit/', views.tenant_form_edit, name='tenant_edit'),
+    path('forms/tenant/item/<int:pk>/del', views.tenant_delete, name='tenant_delete'),
+    path('forms/tenant/item/<int:pk>/del/', views.tenant_delete, name='tenant_delete'),
     path('forms/tenant/success', views.tenant_success, name='tenant_success'),
 
     # Landlords
@@ -35,6 +39,8 @@ urlpatterns = [
     path('forms/landlord/item/<int:pk>/', views.landlord_detail, name='landlord_detail'),
     path('forms/landlord/item/<int:pk>/edit', views.landlord_form_edit, name='landlord_edit'),
     path('forms/landlord/item/<int:pk>/edit/', views.landlord_form_edit, name='landlord_edit'),
+    path('forms/landlord/item/<int:pk>/delete', views.landlord_delete, name='landlord_delete'),
+    path('forms/landlord/item/<int:pk>/delete/', views.landlord_delete, name='landlord_delete'),
     path('forms/landlord/success', views.landlord_success, name='landlord_success'),
 
     # Property
@@ -46,6 +52,8 @@ urlpatterns = [
     path('forms/property/item/<int:pk>/', views.property_detail, name='property_detail'),
     path('forms/property/item/<int:pk>/edit', views.property_form_edit, name='property_edit'),
     path('forms/property/item/<int:pk>/edit/', views.property_form_edit, name='property_edit'),
+    path('forms/property/item/<int:pk>/del', views.property_delete, name='property_delete'),
+    path('forms/property/item/<int:pk>/del/', views.property_delete, name='property_delete'),
     path('forms/property/success', views.property_success, name='property_success'),
 
     # Lease Agreements
@@ -57,6 +65,8 @@ urlpatterns = [
     path('forms/leaseagreement/item/<int:pk>/', views.leaseagreement_detail, name='leaseagreement_detail'),
     path('forms/leaseagreement/item/<int:pk>/edit', views.leaseagreement_form_edit, name='leaseagreement_edit'),
     path('forms/leaseagreement/item/<int:pk>/edit/', views.leaseagreement_form_edit, name='leaseagreement_edit'),
+    path('forms/leaseagreement/item/<int:pk>/del', views.leaseagreement_delete, name='leaseagreement_delete'),
+    path('forms/leaseagreement/item/<int:pk>/del/', views.leaseagreement_delete, name='leaseagreement_delete'),
     path('forms/leaseagreement/success', views.leaseagreement_success, name='leaseagreement_success'),
 
     # Bill Vendors
@@ -68,6 +78,8 @@ urlpatterns = [
     path('forms/billven/item/<int:pk>/', views.billvendor_detail, name='billvendor_detail'),
     path('forms/billven/item/<int:pk>/edit', views.billvendor_form_edit, name='billvendor_edit'),
     path('forms/billven/item/<int:pk>/edit/', views.billvendor_form_edit, name='billvendor_edit'),
+    path('forms/billven/item/<int:pk>/del', views.billvendor_delete, name='billvendor_delete'),
+    path('forms/billven/item/<int:pk>/del/', views.billvendor_delete, name='billvendor_delete'),
     path('forms/billven/success', views.billvendor_success, name='billvendor_success'),
 
     # Bills
@@ -79,6 +91,8 @@ urlpatterns = [
     path('forms/bill/item/<int:pk>/', views.bill_detail, name='bill_detail'),
     path('forms/bill/item/<int:pk>/edit', views.bill_form_edit, name='bill_edit'),
     path('forms/bill/item/<int:pk>/edit/', views.bill_form_edit, name='bill_edit'),
+    path('forms/bill/item/<int:pk>/del', views.bill_delete, name='bill_delete'),
+    path('forms/bill/item/<int:pk>/del/', views.bill_delete, name='bill_delete'),
     path('forms/bill/success', views.bill_success, name='bill_success')
 
     #

@@ -8,7 +8,8 @@ def index(request):
 
 def ha_list(request):
     form = HousingAssociation.objects.all()
-    return render(request, 'registration/ha/ha_list.html', {'ha_all': form})
+    ha_count = HousingAssociation.objects.count()
+    return render(request, 'registration/ha/ha_list.html', {'ha_all': form, 'ha_count': ha_count})
 
 
 def housingassociation_detail(request, pk):
@@ -39,6 +40,13 @@ def housingassociation_form_edit(request, pk):
     else:
         form = HousingAssociationForm(instance=detail)
     return render(request, 'registration/ha/ha_edit.html', {'ha_edit': form})
+
+
+# Usuwanie wpisu
+def housingassociation_delete(request, pk):
+    ha = HousingAssociation.objects.get(id=pk)
+    ha.delete()
+    return housingassociation_success(request)
 
 
 def housingassociation_success(request):
@@ -82,6 +90,13 @@ def tenant_form_edit(request, pk):
     return render(request, 'registration/tenants/tenant_edit.html', {'tenant_edit': form})
 
 
+# Usuwanie wpisu
+def tenant_delete(request, pk):
+    tenant = Tenants.objects.get(id=pk)
+    tenant.delete()
+    return tenant_success(request)
+
+
 def tenant_success(request):
     return render(request, 'registration/tenants/success.html', {'tenant_success': tenant_success})
 
@@ -123,6 +138,13 @@ def landlord_form_edit(request, pk):
     return render(request, 'registration/landlords/landlord_edit.html', {'landlord_edit': form})
 
 
+# Usuwanie wpisu
+def landlord_delete(request, pk):
+    landlord = Landlords.objects.get(id=pk)
+    landlord.delete()
+    return landlord_success(request)
+
+
 def landlord_success(request):
     return render(request, 'registration/landlords/success.html', {'landlord_success': landlord_success})
 
@@ -131,7 +153,8 @@ def landlord_success(request):
 # Property methods
 def property_list(request):
     form = Property.objects.all()
-    return render(request, 'registration/prop/prop_list.html', {'property_all': form})
+    prop_count = Property.objects.count()  # Zliczanie ilości obiektów w tablicy
+    return render(request, 'registration/prop/prop_list.html', {'property_all': form, 'property_count': prop_count})
 
 
 def property_detail(request, pk):
@@ -164,6 +187,13 @@ def property_form_edit(request, pk):
     return render(request, 'registration/prop/prop_edit.html', {'property_edit': form})
 
 
+# Usuwanie wpisu
+def property_delete(request, pk):
+    prop = Property.objects.get(id=pk)
+    prop.delete()
+    return property_success(request)
+
+
 def property_success(request):
     return render(request, 'registration/prop/success.html', {'property_success': property_success})
 
@@ -172,7 +202,8 @@ def property_success(request):
 # Lease Agreement methods
 def leaseagreement_list(request):
     form = LeaseAgreement.objects.all()
-    return render(request, 'registration/lease/la_list.html', {'la_all': form})
+    la_count = LeaseAgreement.objects.count()
+    return render(request, 'registration/lease/la_list.html', {'la_all': form, 'la_count': la_count})
 
 
 def leaseagreement_detail(request, pk):
@@ -203,6 +234,13 @@ def leaseagreement_form_edit(request, pk):
     else:
         form = LeaseAgreementForm(instance=detail)
     return render(request, 'registration/lease/la_edit.html', {'leaseagreement_edit': form})
+
+
+# Usuwanie wpisu
+def leaseagreement_delete(request, pk):
+    la = LeaseAgreement.objects.get(id=pk)
+    la.delete()
+    return leaseagreement_success(request)
 
 
 def leaseagreement_success(request):
@@ -246,6 +284,13 @@ def billvendor_form_edit(request, pk):
     return render(request, 'registration/vendor/vendor_edit.html', {'billvendor_edit': form})
 
 
+# Usuwanie wpisu
+def billvendor_delete(request, pk):
+    billven = BillVendors.objects.get(id=pk)
+    billven.delete()
+    return billvendor_success(request)
+
+
 def billvendor_success(request):
     return render(request, 'registration/vendor/success.html', {'billvendor_success': billvendor_success})
 
@@ -254,6 +299,7 @@ def billvendor_success(request):
 # Bill methods
 def bill_list(request):
     form = Bills.objects.all()
+
     return render(request, 'registration/bill/bill_list.html', {'bills_all': form})
 
 
@@ -285,6 +331,13 @@ def bill_form_edit(request, pk):
     else:
         form = BillsForm(instance=detail)
     return render(request, 'registration/bill/bill_edit.html', {'bill_edit': form})
+
+
+# Usuwanie wpisu
+def bill_delete(request, pk):
+    bill = Bills.objects.get(id=pk)
+    bill.delete()
+    return bill_success(request)
 
 
 def bill_success(request):
