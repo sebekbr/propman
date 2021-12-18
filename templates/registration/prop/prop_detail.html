@@ -6,7 +6,7 @@
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group me-2">
       <a href="{% url 'property_edit' pk=property_detail.id %}" type="button" class="btn btn-sm btn-outline-primary">Edytuj</a>
-      <a href="" type="button" class="btn btn-sm btn-danger">Usuń</a>
+      <a href="{% url 'property_delete' pk=property_detail.id %}" type="button" class="btn btn-sm btn-danger">Usuń</a>
       <a href="" type="button" class="btn btn-sm btn-outline-secondary">Anuluj</a>
     </div>
     <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">

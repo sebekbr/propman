@@ -5,27 +5,38 @@
   <h1 class="h2">Właściciele</h1>
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group me-2">
-      <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-      <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+      <a href="{% url 'landlord_edit' pk=landlord_detail.pk %}" type="button" class="btn btn-sm btn-outline-primary">Edytuj</a>
+      <a href="{% url 'landlord_delete' pk=landlord_detail.id %}" type="button" class="btn btn-sm btn-danger">Usuń</a>
+      <a href="" type="button" class="btn btn-sm btn-outline-secondary">Anuluj</a>
     </div>
-    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+    <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
       <span data-feather="calendar"></span>
       This week
-    </button>
+    </button> -->
   </div>
 </div>
 
 <div class="">
   <h2>Szczegóły</h2>
-    <ul>
-      <li>{{ landlord_detail.pk}}</li>
-      <li>{{ landlord_detail.name }}</li>
-      <li>{{ landlord_detail.surname }}</li>
-      <li>{{ landlord_detail.phone }}</li>
-      <li>{{ landlord_detail.email }}</li>
-    </ul>
-
-  <a class="btn btn-default" href="{% url 'landlord_edit' pk=landlord_detail.pk %}">EDYTUJ</a>
-  <a class="btn btn-default" href="{% url 'landlord_all' %}">LISTA</a>
+  <table>
+    <tbody>
+      <tr>
+        <td>Imię:</td>
+        <td>{{ landlord_detail.name }}</td>
+      </tr>
+      <tr>
+        <td>Nazwisko:</td>
+        <td>{{ landlord_detail.surname }}</td>
+      </tr>
+      <tr>
+        <td>Telefon:</td>
+        <td>{{ landlord_detail.phone }}</td>
+      </tr>
+      <tr>
+        <td>E-mail:</td>
+        <td>{{ landlord_detail.email }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 {% endblock %}

@@ -6,12 +6,12 @@
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group me-2">
       <a href="{% url 'housingassociation_new' %}" type="button" class="btn btn-sm btn-outline-primary">Nowa</a>
-      <a type="button" class="btn btn-sm btn-outline-disable">Usuń</a>
+      <!-- <a type="button" class="btn btn-sm btn-outline-disable">Usuń</a> -->
     </div>
-    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+    <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
       <span data-feather="calendar"></span>
       This week
-    </button>
+    </button> -->
   </div>
 </div>
 
@@ -19,13 +19,11 @@
   <p>Lista spółdzielni:</p>
   <ul>
     {% for ha in ha_all %}
-      <li>{{ forloop.counter }}. <a href="/app/forms/housingassociation/item/{{ ha.id }}">{{ ha.name }}</a></li>
+      <li><a href="/app/forms/housingassociation/item/{{ ha.id }}">{{ ha.name }}</a></li>
     {% empty %}
       <li>Brak wpisów</li>
     {% endfor %}
   </ul>
   <p>Liczba spółdzielni: {{ ha_count }}</p>
-  <a class="btn btn-default" href="{% url 'ha_list' %}">Lista</a>
-  <a class="btn btn-default" href="{% url 'index' %}">Home</a>
 </div>
 {% endblock %}
