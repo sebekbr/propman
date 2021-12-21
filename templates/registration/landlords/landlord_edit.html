@@ -5,8 +5,8 @@
   <h1 class="h2">Właściciele</h1>
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group me-2">
-      <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-      <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+      <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Zapisz</button> -->
+      <button type="button" class="btn btn-sm btn-outline-secondary">Anuluj</button>
     </div>
     <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
       <span data-feather="calendar"></span>
@@ -19,10 +19,28 @@
   <h2>Edycja</h2>
   <form method="POST" class="post-form">
       {% csrf_token %}
-      {{ landlord_edit.as_p }}
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <td>Imię:</td>
+            <td>{{ landlord_edit.name }}</td>
+          </tr>
+          <tr>
+            <td>Nazwisko:</td>
+            <td>{{ landlord_edit.surname }}</td>
+          </tr>
+          <tr>
+            <td>Telefon:</td>
+            <td>{{ landlord_edit.phone }}</td>
+          </tr>
+          <tr>
+            <td>E-mail:</td>
+            <td>{{ landlord_edit.email }}</td>
+          </tr>
+        </tbody>
+      </table>
 
-      <button type="submit" class="save btn btn-default">Zapisz</button>
-      <a href="/app/forms/landlord/item/{{ landlord_detail.id }}" class="btn btn-primary" role="button">Anuluj</a>
+      <button type="submit" class="btn btn-sm btn-outline-success">Zapisz</button>
   </form>
 </div>
 {% endblock %}

@@ -19,7 +19,35 @@
   <h2>Edycja</h2>
   <form method="POST" class="post-form">
       {% csrf_token %}
-      {{ property_edit.as_p }}
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <td>Nazwa nieruchomości:</td>
+            <td>{{ property_edit.name }}</td>
+          </tr>
+          <tr>
+            <td>Adres:</td>
+            <td>{{ property_edit.address }}</td>
+          </tr>
+          <tr>
+            <!--TO DO-->
+            <td>Kod pocztowy:</td>
+            <td>{{ property_edit.postalcode }}</td>
+          </tr>
+          <tr>
+            <td>Miejscowość:</td>
+            <td>{{ property_edit.city }}</td>
+          </tr>
+          <tr>
+            <td>Spółdzielnia:</td>
+            <td>{{ property_edit.house_association }}</td>
+          </tr>
+          <tr>
+            <td>Numer księgi wieczystej:</td>
+            <td>{{ property_edit.kw_number }}</td>
+          </tr>
+        </tbody>
+      </table>
 
       <button type="submit" class="btn btn-sm btn-outline-success">Zapisz</button>
   </form>

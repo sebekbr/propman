@@ -6,17 +6,16 @@
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group me-2">
       <a href="{% url 'landlord_new' %}" type="button" class="btn btn-sm btn-outline-primary">Nowy</a>
-      <a type="button" class="btn btn-sm btn-outline-disable">Usuń</a>
+      <!-- <a type="button" class="btn btn-sm btn-outline-disable">Usuń</a> -->
     </div>
-    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+    <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
       <span data-feather="calendar"></span>
       This week
-    </button>
+    </button> -->
   </div>
 </div>
 
 <div class="">
-  <button type="button" name="button"><a href="{% url 'landlord_new' %}">Nowy</a></button>
   <p>Lista właścicieli:</p>
   <ul>
     {% for l in landlord_all %}
@@ -27,7 +26,5 @@
       <li>Brak wpisów</li>
     {% endfor %}
   </ul>
-
-  <a class="btn btn-default" href="{% url 'index' %}">Home</a>
 </div>
 {% endblock %}

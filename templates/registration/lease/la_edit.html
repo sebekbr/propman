@@ -18,7 +18,46 @@
   <h2>Edycja</h2>
   <form method="POST" class="post-form">
       {% csrf_token %}
-      {{ leaseagreement_edit.as_p }}
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <td>Numer umowy:</td>
+            <td>{{ leaseagreement_edit.la_number }}</td>
+          </tr>
+          <tr>
+            <td>Data początkowa:</td>
+            <td>{{ leaseagreement_edit.start }}</td>
+          </tr>
+          <tr>
+            <td>Data końcowa:</td>
+            <td>{{ leaseagreement_edit.end }}</td>
+          </tr>
+          <tr>
+            <td>Czynsz:</td>
+            <td>{{ leaseagreement_edit.value }}</td>
+          </tr>
+          <tr>
+            <td>Uwagi:</td>
+            <td>{{ leaseagreement_edit.comments }}</td>
+          </tr>
+          <tr>
+            <td>Nieruchomość:</td>
+            <td>{{ leaseagreement_edit.property }}</td>
+          </tr>
+          <tr>
+            <td>Właściciel:</td>
+            <td>{{ leaseagreement_edit.landlords }}</td>
+          </tr>
+          <tr>
+            <td>Najemca:</td>
+            <td>{{ leaseagreement_edit.tenants }}</td>
+          </tr>
+          <tr>
+            <td>Typ umowy:</td>
+            <td>{{ leaseagreement_edit.type }}</td>
+          </tr>
+        </tbody>
+      </table>
       <button type="submit" class="btn btn-sm btn-outline-success">Zapisz</button>
   </form>
 </div>

@@ -19,7 +19,38 @@
   <h2>{{ ha_detail.name }} - Edycja</h2>
   <form method="POST" class="post-form">
       {% csrf_token %}
-      {{ ha_edit.as_p }}
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <td>Nazwa:</td>
+            <td>{{ ha_edit.name}}</td>
+          </tr>
+          <tr>
+            <td>Ulica:</td>
+            <td>{{ ha_edit.address }}</td>
+          </tr>
+          <tr>
+            <td>Kod pocztowy:</td>
+            <td>{{ ha_edit.postalcode }}</td>
+          </tr>
+          <tr>
+            <td>Miejscowość:</td>
+            <td>{{ ha_edit.city }}</td>
+          </tr>
+          <tr>
+             <td>Telefon:</td>
+            <td>{{ ha_edit.phone }}</td>
+          </tr>
+          <tr>
+            <td>E-mail:</td>
+            <td>{{ ha_edit.email }}</td>
+          </tr>
+          <tr>
+            <td>Uwagi:</td>
+            <td>{{ ha_edit.comments }}</td>
+          </tr>
+        </tbody>
+      </table>
 
       <button type="submit" class="btn btn-sm btn-outline-success">Zapisz</button>
   </form>
