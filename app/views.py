@@ -181,6 +181,7 @@ def property_form_edit(request, pk):
         form = PropertyForm(request.POST, instance=detail)
         if form.is_valid():
             form.save()
+            # Property.objects.filter(id=pk).update(instance=detail)
             return render(request, 'registration/prop/success.html') # Render strony po pomyślnym zapisaniu
     else:
         form = PropertyForm(instance=detail)
