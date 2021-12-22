@@ -16,16 +16,27 @@
 </div>
 
 <div class="">
-  <p>Lista nieruchomości:</p>
-  <ul>
+  <table class="table table-striped">
+    <tbody>
+      <thead>
+        <th>Nazwa</th>
+        <th>Adres</th>
+        <th>Kod pocztowy</th>
+        <th>Miejscowość</th>
+      </thead>
     {% for prop in property_all %}
-      <li>
-        <a href="/app/forms/property/item/{{ prop.id }}">{{ prop.name }}</a>
-      </li>
+      <tr>
+        <td><a href="/app/forms/property/item/{{ prop.id }}">{{ prop.name }}</a></td>
+        <td>{{ prop.address }}</td>
+        <td>{{ prop.postalcode }}</td>
+        <td>{{ prop.city }}</td>
+      </tr>
     {% empty %}
       <li>Brak wpisów</li>
     {% endfor %}
-  </ul>
+    </tbody>
+  </table>
+
   <p>Ilość nieruchomości:</p>
   <p>{{ property_count }}</p>
 </div>

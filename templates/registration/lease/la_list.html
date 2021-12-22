@@ -16,16 +16,26 @@
 </div>
 
 <div class="">
-  <p>Lista umów:</p>
-  <ul>
+  <table class="table table-striped">
+    <tbody>
+      <thead>
+        <th>Numer umowy</th>
+        <th>Data rozpoczęcia</th>
+        <th>Data zakończenia</th>
+        <th>Czynsz</th>
+      </thead>
     {% for la in la_all %}
-      <li>
-        <a href="/app/forms/leaseagreement/item/{{ la.id }}">{{ la.id }}</a>
-      </li>
+      <tr>
+        <td><a href="/app/forms/leaseagreement/item/{{ la.id }}">{{ la.la_number }}</a></td>
+        <td>{{ la.start }}</td>
+        <td>{{ la.end }}</td>
+        <td>{{ la.value }}</td>
+      </tr>
     {% empty %}
       <li>Brak wpisów</li>
     {% endfor %}
-  </ul>
+    </tbody>
+  </table>
   <p>Liczba umów: {{ la_count }}</p>
 </div>
 {% endblock %}
