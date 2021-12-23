@@ -1,4 +1,5 @@
 from pathlib import Path
+from django.contrib.messages import constants
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -124,3 +125,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Redirect to home URL after login/logout (Default redirects to /accounts/profile/ / /accounts/logout/)
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+# MESSAGE
+MESSAGE_LEVEL = constants.DEBUG
+
+
+MESSAGE_TAGS = {
+        constants.DEBUG: 'alert-secondary',
+        constants.INFO: 'alert-info',
+        constants.SUCCESS: 'alert-success',
+        constants.WARNING: 'alert-warning',
+        constants.ERROR: 'alert-danger',
+}
