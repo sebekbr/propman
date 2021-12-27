@@ -24,7 +24,10 @@ def housingassociation_form_new(request):
         form = HousingAssociationForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'registration/ha/success.html') # Render strony po pomyślnym utworzeniu
+            messages.success(request, 'Operacja wykonana pomyślnie')
+            return redirect('ha_list')
+        messages.error(request, 'Błąd. Operacja nieudana.')
+            # return render(request, 'registration/ha/success.html')
     else:
         form = HousingAssociationForm()
     return render(request, 'registration/ha/ha_new.html', {'housingassociation_new': form})
@@ -37,7 +40,9 @@ def housingassociation_form_edit(request, pk):
         form = HousingAssociationForm(request.POST, instance=detail)
         if form.is_valid():
             form.save()
-            return render(request, 'registration/ha/success.html') # Render strony po pomyślnym zapisaniu
+            messages.success(request, 'Operacja wykonana pomyślnie')
+            return redirect('ha_list')
+        messages.error(request, 'Błąd. Operacja nieudana.')
     else:
         form = HousingAssociationForm(instance=detail)
     return render(request, 'registration/ha/ha_edit.html', {'ha_edit': form})
@@ -72,7 +77,10 @@ def tenant_form_new(request):
         form = TenantsForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'registration/tenants/success.html') # Render strony po pomyślnym utworzeniu
+            # return render(request, 'registration/tenants/success.html')
+            messages.success(request, 'Operacja wykonana pomyślnie')
+            return redirect('tenant_all')
+        messages.error(request, 'Błąd. Operacja nieudana.')
     else:
         form = TenantsForm()
     return render(request, 'registration/tenants/tenant_new.html', {'tenant_new': form})
@@ -85,7 +93,9 @@ def tenant_form_edit(request, pk):
         form = TenantsForm(request.POST, instance=detail)
         if form.is_valid():
             form.save()
-            return render(request, 'registration/tenants/success.html') # Render strony po pomyślnym zapisaniu
+            messages.success(request, 'Operacja wykonana pomyślnie')
+            return redirect('tenant_all')
+        messages.error(request, 'Błąd. Operacja nieudana.')
     else:
         form = TenantsForm(instance=detail)
     return render(request, 'registration/tenants/tenant_edit.html', {'tenant_edit': form})
@@ -120,7 +130,10 @@ def landlord_form_new(request):
         form = LandlordsForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'registration/landlords/success.html') # Render strony po pomyślnym utworzeniu
+            # return render(request, 'registration/landlords/success.html')
+            messages.success(request, 'Operacja wykonana pomyślnie')
+            return redirect('landlord_all')
+        messages.error(request, 'Błąd. Operacja nieudana.')
     else:
         form = LandlordsForm()
     return render(request, 'registration/landlords/landlord_new.html', {'landlord_new': form})
@@ -133,7 +146,9 @@ def landlord_form_edit(request, pk):
         form = LandlordsForm(request.POST, instance=detail)
         if form.is_valid():
             form.save()
-            return render(request, 'registration/landlords/success.html') # Render strony po pomyślnym zapisaniu
+            messages.success(request, 'Operacja wykonana pomyślnie')
+            return redirect('landlord_all')
+        messages.error(request, 'Błąd. Operacja nieudana.')
     else:
         form = LandlordsForm(instance=detail)
     return render(request, 'registration/landlords/landlord_edit.html', {'landlord_edit': form})
@@ -169,7 +184,10 @@ def property_form_new(request):
         form = PropertyForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'registration/prop/success.html') # Render strony po pomyślnym utworzeniu
+            # return render(request, 'registration/prop/success.html')
+            messages.success(request, 'Operacja wykonana pomyślnie')
+            return redirect('property_all')
+        messages.error(request, 'Błąd. Operacja nieudana.')
     else:
         form = PropertyForm()
     return render(request, 'registration/prop/prop_new.html', {'property_new': form})
@@ -182,8 +200,9 @@ def property_form_edit(request, pk):
         form = PropertyForm(request.POST, instance=detail)
         if form.is_valid():
             form.save()
-            # Property.objects.filter(id=pk).update(instance=detail)
-            return render(request, 'registration/prop/success.html') # Render strony po pomyślnym zapisaniu
+            messages.success(request, 'Operacja wykonana pomyślnie')
+            return redirect('property_all')
+        messages.error(request, 'Błąd. Operacja nieudana.')
     else:
         form = PropertyForm(instance=detail)
     return render(request, 'registration/prop/prop_edit.html', {'property_edit': form})
@@ -219,7 +238,10 @@ def leaseagreement_form_new(request):
         form = LeaseAgreementForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'registration/lease/success.html') # Render strony po pomyślnym utworzeniu
+            # return render(request, 'registration/lease/success.html')
+            messages.success(request, 'Operacja wykonana pomyślnie')
+            return redirect('leaseagreement_all')
+        messages.error(request, 'Błąd. Operacja nieudana.')
     else:
         form = LeaseAgreementForm()
     return render(request, 'registration/lease/la_new.html', {'leaseagreement_new': form})
@@ -232,7 +254,9 @@ def leaseagreement_form_edit(request, pk):
         form = LeaseAgreementForm(request.POST, instance=detail)
         if form.is_valid():
             form.save()
-            return render(request, 'registration/lease/success.html') # Render strony po pomyślnym zapisaniu
+            messages.success(request, 'Operacja wykonana pomyślnie')
+            return redirect('leaseagreement_all')
+        messages.error(request, 'Błąd. Operacja nieudana.')
     else:
         form = LeaseAgreementForm(instance=detail)
     return render(request, 'registration/lease/la_edit.html', {'leaseagreement_edit': form})
@@ -267,7 +291,10 @@ def billvendor_form_new(request):
         form = BillVendorsForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'registration/vendor/success.html') # Render strony po pomyślnym utworzeniu
+            # return render(request, 'registration/vendor/success.html')
+            messages.success(request, 'Operacja wykonana pomyślnie')
+            return redirect('billvendor_all')
+        messages.error(request, 'Błąd. Operacja nieudana.')
     else:
         form = BillVendorsForm()
     return render(request, 'registration/vendor/vendor_new.html', {'billvendor_new': form})
@@ -280,7 +307,9 @@ def billvendor_form_edit(request, pk):
         form = BillVendorsForm(request.POST, instance=detail)
         if form.is_valid():
             form.save()
-            return render(request, 'registration/vendor/success.html') # Render strony po pomyślnym zapisaniu
+            messages.success(request, 'Operacja wykonana pomyślnie')
+            return redirect('billvendor_all')
+        messages.error(request, 'Błąd. Operacja nieudana.')
     else:
         form = BillVendorsForm(instance=detail)
     return render(request, 'registration/vendor/vendor_edit.html', {'billvendor_edit': form})
@@ -316,7 +345,10 @@ def bill_form_new(request):
         form = BillsForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'registration/bill/success.html') # Render strony po pomyślnym utworzeniu
+            # return render(request, 'registration/bill/success.html')
+            messages.success(request, 'Operacja wykonana pomyślnie')
+            return redirect('bill_all')
+        messages.error(request, 'Błąd. Operacja nieudana.')
     else:
         form = BillsForm()
     return render(request, 'registration/bill/bill_new.html', {'bill_new': form})
@@ -329,7 +361,9 @@ def bill_form_edit(request, pk):
         form = BillsForm(request.POST, instance=detail)
         if form.is_valid():
             form.save()
-            return render(request, 'registration/bill/success.html') # Render strony po pomyślnym zapisaniu
+            messages.success(request, 'Operacja wykonana pomyślnie')
+            return redirect('bill_all')
+        messages.error(request, 'Błąd. Operacja nieudana.')
     else:
         form = BillsForm(instance=detail)
     return render(request, 'registration/bill/bill_edit.html', {'bill_edit': form})
