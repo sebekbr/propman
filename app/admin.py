@@ -4,6 +4,7 @@ from django.contrib import admin
 from django.contrib import admin
 from .models import *
 
+admin.site.register(HousingAssociation_type)
 admin.site.register(HousingAssociation)
 admin.site.register(Tenants)
 admin.site.register(Landlords)

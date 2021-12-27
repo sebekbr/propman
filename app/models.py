@@ -26,6 +26,17 @@ from django.db import models
 #
 
 # Spółdzielnie/Wspólnoty mieszkaniowe
+class HousingAssociation_type(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=45, blank=False)
+
+    class Meta:
+        ordering = ['name']
+
+    def __str__(self):
+        return self.name
+
+
 class HousingAssociation(models.Model):
     # Fields
     id = models.AutoField(primary_key=True)
@@ -36,6 +47,8 @@ class HousingAssociation(models.Model):
     phone = models.CharField(max_length=12, blank=True) # HA phone number
     email = models.EmailField(max_length=254, blank=True)
     comments = models.TextField(max_length=1000, blank=True) # Comments
+
+    type = models.ForeignKey(HousingAssociation_type, default=1, on_delete=models.PROTECT)
 
     # Metadata
     class Meta:

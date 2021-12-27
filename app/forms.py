@@ -7,7 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 class HousingAssociationForm(forms.ModelForm):
     class Meta:
         model = HousingAssociation
-        fields = ('name', 'address', 'postalcode', 'city', 'phone', 'email', 'comments')
+        fields = ('name', 'address', 'postalcode', 'city', 'phone', 'email', 'type', 'comments')
         labels = {
             'name': _('Nazwa'),
             'address': _('Adres'),
@@ -15,6 +15,7 @@ class HousingAssociationForm(forms.ModelForm):
             'city': _('Miasto'),
             'phone': _('Telefon'),
             'email': _('E-mail'),
+            'type': _('Rodzaj'),
             'comments': _('Uwagi')
         }
         # help_texts = {
