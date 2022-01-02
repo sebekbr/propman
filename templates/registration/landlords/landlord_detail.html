@@ -8,7 +8,7 @@
       <a href="{% url 'landlord_edit' pk=landlord_detail.pk %}" type="button" class="btn btn-sm btn-outline-primary">Edytuj</a>
       <a href="{% url 'landlord_delete' pk=landlord_detail.id %}" type="button"
       class="btn btn-sm btn-danger" onclick="return confirm('Czy usunąć?');">Usuń</a>
-      <a href="" type="button" class="btn btn-sm btn-outline-secondary">Anuluj</a>
+      <a href="{% url 'landlord_all' %}" type="button" class="btn btn-sm btn-outline-secondary">Anuluj</a>
     </div>
     <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
       <span data-feather="calendar"></span>
