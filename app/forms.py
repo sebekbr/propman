@@ -1,4 +1,6 @@
 from django import forms
+from django.contrib import messages
+
 from app.models import *
 from django.utils.translation import ugettext_lazy as _
 
@@ -137,6 +139,15 @@ class LeaseAgreementForm(forms.ModelForm):
             'end': _('W formacie RRRR-MM-DD'),
             'value': _('Wpisz umówioną kwotę czynszu')
         }
+
+        def clean(self, request):
+            cleaned_data = super().clean()
+            start_date = cleaned_data.get('start')
+            end_date = cleaned_data.get('end')
+            if end_date < start_date:
+                # raise forms.ValidationError("Data końca umowy nie może być wcześniejsza od daty początkowej")
+                messages.error(request, 'Błąd. Operacja nieudana.')
+
         # error_messages = {
         #     'type': {
         #         'max_length': _("Zbyt duża ilość znaków."),
