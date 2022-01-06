@@ -52,11 +52,8 @@ def housingassociation_form_edit(request, pk):
 def housingassociation_delete(request, pk):
     ha = HousingAssociation.objects.get(id=pk)
     ha.delete()
-    return housingassociation_success(request)
-
-
-def housingassociation_success(request):
-    return render(request, 'registration/ha/success.html', {'ha_success': housingassociation_success})
+    messages.success(request, 'Operacja wykonana pomyślnie')
+    return redirect('ha_list')
 
 
 #################
@@ -105,11 +102,8 @@ def tenant_form_edit(request, pk):
 def tenant_delete(request, pk):
     tenant = Tenants.objects.get(id=pk)
     tenant.delete()
-    return tenant_success(request)
-
-
-def tenant_success(request):
-    return render(request, 'registration/tenants/success.html', {'tenant_success': tenant_success})
+    messages.success(request, 'Operacja wykonana pomyślnie')
+    return redirect('tenant_all')
 
 
 ##################
@@ -158,11 +152,8 @@ def landlord_form_edit(request, pk):
 def landlord_delete(request, pk):
     landlord = Landlords.objects.get(id=pk)
     landlord.delete()
-    return landlord_success(request)
-
-
-def landlord_success(request):
-    return render(request, 'registration/landlords/success.html', {'landlord_success': landlord_success})
+    messages.success(request, 'Operacja wykonana pomyślnie')
+    return redirect('landlord_all')
 
 
 ##################
@@ -212,11 +203,8 @@ def property_form_edit(request, pk):
 def property_delete(request, pk):
     prop = Property.objects.get(id=pk)
     prop.delete()
-    return property_success(request)
-
-
-def property_success(request):
-    return render(request, 'registration/prop/success.html', {'property_success': property_success})
+    messages.success(request, 'Operacja wykonana pomyślnie')
+    return redirect('property_all')
 
 
 #########################
@@ -266,11 +254,8 @@ def leaseagreement_form_edit(request, pk):
 def leaseagreement_delete(request, pk):
     la = LeaseAgreement.objects.get(id=pk)
     la.delete()
-    return leaseagreement_success(request)
-
-
-def leaseagreement_success(request):
-    return render(request, 'registration/lease/success.html', {'la_success': leaseagreement_success})
+    messages.success(request, 'Operacja wykonana pomyślnie')
+    return redirect('leaseagreement_all')
 
 
 #####################
@@ -319,11 +304,8 @@ def billvendor_form_edit(request, pk):
 def billvendor_delete(request, pk):
     billven = BillVendors.objects.get(id=pk)
     billven.delete()
-    return billvendor_success(request)
-
-
-def billvendor_success(request):
-    return render(request, 'registration/vendor/success.html', {'billvendor_success': billvendor_success})
+    messages.success(request, 'Operacja wykonana pomyślnie')
+    return redirect('billvendor_all')
 
 
 ##############
@@ -373,9 +355,6 @@ def bill_form_edit(request, pk):
 def bill_delete(request, pk):
     bill = Bills.objects.get(id=pk)
     bill.delete()
-    return bill_success(request)
-
-
-def bill_success(request):
-    return render(request, 'registration/bill/success.html', {'bill_success': bill_success})
+    messages.success(request, 'Operacja wykonana pomyślnie')
+    return redirect('bill_all')
 
