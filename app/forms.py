@@ -9,7 +9,7 @@ from django.utils.translation import ugettext_lazy as _
 class HousingAssociationForm(forms.ModelForm):
     class Meta:
         model = HousingAssociation
-        fields = ('name', 'address', 'postalcode', 'city', 'phone', 'email', 'type', 'comments')
+        fields = ['name', 'address', 'postalcode', 'city', 'phone', 'email', 'type', 'comments']
         labels = {
             'name': _('Nazwa'),
             'address': _('Adres'),
@@ -36,7 +36,7 @@ class HousingAssociationForm(forms.ModelForm):
 class TenantsForm(forms.ModelForm):
     class Meta:
         model = Tenants
-        fields = ('name', 'surname', 'address', 'postalcode', 'city', 'phone', 'email', 'comments')
+        fields = ['name', 'surname', 'address', 'postalcode', 'city', 'phone', 'email', 'comments']
         labels = {
             'name': _('Imię'),
             'surname': _('Nazwisko'),
@@ -63,7 +63,7 @@ class TenantsForm(forms.ModelForm):
 class LandlordsForm(forms.ModelForm):
     class Meta:
         model = Landlords
-        fields = ('name', 'surname', 'phone', 'email')
+        fields = ['name', 'surname', 'phone', 'email']
         labels = {
             'name': _('Imię'),
             'surname': _('Nazwisko'),
@@ -86,7 +86,7 @@ class LandlordsForm(forms.ModelForm):
 class PropertyForm(forms.ModelForm):
     class Meta:
         model = Property
-        fields = ('name', 'address', 'postalcode', 'city', 'house_association', 'kw_number')
+        fields = ['name', 'address', 'postalcode', 'city', 'house_association', 'kw_number']
         labels = {
             'name': _('Nazwa'),
             'address': _('Adres'),
@@ -113,7 +113,7 @@ class LeaseAgreementForm(forms.ModelForm):
         model = LeaseAgreement
         fields = ['la_number', 'start', 'end', 'value', 'comments', 'type', 'property', 'landlords', 'tenants']
         labels = {
-            'la_number': ('Numer umowy'),
+            'la_number': _('Numer umowy'),
             'start': _('Data początkowa'),
             'end': _('Data końcowa'),
             'value': _('Czynsz'),
@@ -122,6 +122,25 @@ class LeaseAgreementForm(forms.ModelForm):
             'property': _('Nieruchomość'),
             'landlords': _('Właściciel'),
             'tenants': _('Najemca')
+        }
+        widgets = {
+            'start': DatePickerInput(
+                options={
+                    "format": "DD.MM.YYYY", # moment date-time format
+                    "showClose": False,
+                    "showClear": False,
+                    "showTodayButton": False,
+                    "locale": "PL",
+                }
+            ),  # default date-format %m/%d/%Y will be used
+            'end': DatePickerInput(
+                options={
+                    "format": "DD.MM.YYYY", # moment date-time format
+                    "showClose": False,
+                    "showClear": False,
+                    "showTodayButton": False,
+                    "locale": "PL",
+                }),  # specify date-frmat
         }
         help_texts = {
             'start': _('W formacie RRRR-MM-DD'),
@@ -148,7 +167,7 @@ class LeaseAgreementForm(forms.ModelForm):
 class BillVendorsForm(forms.ModelForm):
     class Meta:
         model = BillVendors
-        fields = ('name', 'address', 'postalcode', 'city', 'phone', 'email')
+        fields = ['name', 'address', 'postalcode', 'city', 'phone', 'email']
         labels = {
             'name': _('Nazwa'),
             'address': _('Adres'),
@@ -173,7 +192,7 @@ class BillVendorsForm(forms.ModelForm):
 class BillsForm(forms.ModelForm):
     class Meta:
         model = Bills
-        fields = ('name', 'agreement_number', 'bill_vendor', 'property', 'start', 'duration', 'end')
+        fields = ['name', 'agreement_number', 'bill_vendor', 'property', 'start', 'duration', 'end']
         labels = {
             'start': _('Data początkowa'),
             'end': _('Data końcowa'),
