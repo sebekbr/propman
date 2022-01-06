@@ -5,16 +5,11 @@
   <h1 class="h2">Umowy najmu</h1>
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group me-2">
-
       <a href="{% url 'leaseagreement_all' %}" type="button" class="btn btn-sm btn-outline-secondary">Anuluj</a>
     </div>
-    <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-      <span data-feather="calendar"></span>
-      This week
-    </button> -->
   </div>
 </div>
-
+{{ leaseagreement_new.media }}
 <div class="">
   <h2>Nowa umowa</h2>
 
@@ -33,6 +28,7 @@
         <tr>
           <td>Data końcowa:</td>
           <td>{{ leaseagreement_new.end }}</td>
+
         </tr>
         <tr>
           <td>Czynsz:</td>
@@ -62,22 +58,5 @@
     </table>
     <button type="submit" class="btn btn-sm btn-outline-success">Zapisz</button>
   </form>
-  <script type="text/javascript">
-    $('#id_start').datepicker({
-      format: 'dd.mm.yyyy',
-      // locale: 'pl-pl',
-      uiLibrary: 'bootstrap4',
-      iconsLibrary: 'fontawesome',
-      width: 220
-    });
-
-    $('#id_end').datepicker({
-      format: 'dd.mm.yyyy',
-      // locale: 'pl-pl',
-      uiLibrary: 'bootstrap4',
-      iconsLibrary: 'fontawesome',
-      width: 220
-    });
-  </script>
 </div>
 {% endblock %}

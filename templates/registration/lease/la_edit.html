@@ -5,15 +5,11 @@
   <h1 class="h2">Umowy najmu</h1>
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group me-2">
-      <!-- <a type="button" class="btn btn-sm btn-outline-light">Usuń</a> -->
       <a href="{% url 'leaseagreement_all' %}" type="button" class="btn btn-sm btn-outline-secondary">Anuluj</a>
     </div>
-    <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-      <span data-feather="calendar"></span>
-      This week
-    </button> -->
   </div>
 </div>
+{{ leaseagreement_edit.media }}
 <div class="">
   <h2>Edycja</h2>
   <form method="POST" class="post-form">
