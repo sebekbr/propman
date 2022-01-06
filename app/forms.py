@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib import messages
-
+from bootstrap_datepicker_plus.widgets import DatePickerInput
 from app.models import *
 from django.utils.translation import ugettext_lazy as _
 
@@ -111,18 +111,7 @@ class PropertyForm(forms.ModelForm):
 class LeaseAgreementForm(forms.ModelForm):
     class Meta:
         model = LeaseAgreement
-
-        fields = (
-            'la_number',
-            'start',
-            'end',
-            'value',
-            'comments',
-            'type',
-            'property',
-            'landlords',
-            'tenants'
-        )
+        fields = ['la_number', 'start', 'end', 'value', 'comments', 'type', 'property', 'landlords', 'tenants']
         labels = {
             'la_number': ('Numer umowy'),
             'start': _('Data początkowa'),
