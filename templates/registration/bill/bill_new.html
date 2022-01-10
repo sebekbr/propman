@@ -17,9 +17,39 @@
 
 <div class="">
   <h2>Nowy rachunek</h2>
-  <form method="POST" class="post-form">
-    {% csrf_token %}
-    {{ bill_new.as_p }}
+  {% csrf_token %}
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <td>Nazwa:</td>
+        <td>{{ bill_new.name }}</td>
+      </tr>
+      <tr>
+        <td>Numer umowy:</td>
+        <td>{{ bill_new.agreement_number }}</td>
+      </tr>
+      <tr>
+        <td>Dostawca:</td>
+        <td>{{ bill_new.bill_vendor }}</td>
+      </tr>
+      <tr>
+        <td>Nieruchomość:</td>
+        <td>{{ bill_new.property }}</td>
+      </tr>
+      <tr>
+        <td>Data początkowa:</td>
+        <td>{{ bill_new.start }}</td>
+      </tr>
+      <tr>
+        <td>Czas trwania:</td>
+        <td>{{ bill_new.duration }}</td>
+      </tr>
+      <tr>
+        <td>Data końcowa:</td>
+        <td>{{ bill_new.end }}</td>
+      </tr>
+    </tbody>    
+  </table>
     <button type="submit" class="btn btn-sm btn-outline-success">Zapisz</button>
   </form>
 </div>

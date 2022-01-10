@@ -19,7 +19,34 @@
   <h2>Nowy dostawca</h2>
   <form method="POST" class="post-form">
     {% csrf_token %}
-    {{ billvendor_new.as_p }}
+    <table class="table table-striped">
+      <tbody>
+        <tr>
+          <td>Nazwa:</td>
+          <td>{{ billvendor_new.name }}</td>
+        </tr>
+        <tr>
+          <td>Adres:</td>
+          <td>{{ billvendor_new.address }}</td>
+        </tr>
+        <tr>
+          <td>Kod pocztowy:</td>
+          <td>{{ billvendor_new.postalcode }}</td>
+        </tr>
+        <tr>
+          <td>Miasto:</td>
+          <td>{{ billvendor_new.city }}</td>
+        </tr>
+        <tr>
+          <td>Numer telefonu:</td>
+          <td>{{ billvendor_new.phone }}</td>
+        </tr>
+        <tr>
+          <td>E-mail:</td>
+          <td>{{ billvendor_new.email }}</td>
+        </tr>
+      </tbody>
+    </table>
 
     <button type="submit" class="btn btn-sm btn-outline-success">Zapisz</button>
   </form>

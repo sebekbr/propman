@@ -17,10 +17,39 @@
 
 <div class="">
   <h2>Edycja</h2>
-  <form method="POST" class="post-form">
-      {% csrf_token %}
-      {{ bill_edit.as_p }}
+   {% csrf_token %}
+    <table class="table table-striped">
+      <tbody>
+        <tr>
+          <td>Nazwa:</td>
+          <td>{{ bill_edit.name }}</td>
+        </tr>
+        <tr>
+          <td>Numer umowy:</td>
+          <td>{{ bill_edit.agreement_number }}</td>
+        </tr>
+        <tr>
+          <td>Dostawca:</td>
+          <td>{{ bill_edit.bill_vendor }}</td>
+        </tr>
+        <tr>
+          <td>Nieruchomość:</td>
+          <td>{{ bill_edit.property }}</td>
+        </tr>
+        <tr>
+          <td>Data początkowa:</td>
+          <td>{{ bill_edit.start }}</td>
+        </tr>
+        <tr>
+          <td>Czas trwania:</td>
+          <td>{{ bill_edit.duration }}</td>
+        </tr>
+        <tr>
+          <td>Data końcowa:</td>
+          <td>{{ bill_edit.end }}</td>
+        </tr>
+      </tbody>
+    </table>
       <button type="submit" class="btn btn-sm btn-outline-success">Zapisz</button>
-  </form>
 </div>
 {% endblock %}
