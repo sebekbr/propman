@@ -27,7 +27,6 @@ def housingassociation_form_new(request):
             messages.success(request, 'Operacja wykonana pomyślnie')
             return redirect('ha_list')
         messages.error(request, 'Błąd. Operacja nieudana.')
-            # return render(request, 'registration/ha/success.html')
     else:
         form = HousingAssociationForm()
     return render(request, 'registration/ha/ha_new.html', {'housingassociation_new': form})
@@ -74,7 +73,6 @@ def tenant_form_new(request):
         form = TenantsForm(request.POST)
         if form.is_valid():
             form.save()
-            # return render(request, 'registration/tenants/success.html')
             messages.success(request, 'Operacja wykonana pomyślnie')
             return redirect('tenant_all')
         messages.error(request, 'Błąd. Operacja nieudana.')
@@ -175,7 +173,6 @@ def property_form_new(request):
         form = PropertyForm(request.POST)
         if form.is_valid():
             form.save()
-            # return render(request, 'registration/prop/success.html')
             messages.success(request, 'Operacja wykonana pomyślnie')
             return redirect('property_all')
         messages.error(request, 'Błąd. Operacja nieudana.')
@@ -226,7 +223,6 @@ def leaseagreement_form_new(request):
         form = LeaseAgreementForm(request.POST)
         if form.is_valid():
             form.save()
-            # return render(request, 'registration/lease/success.html')
             messages.success(request, 'Operacja wykonana pomyślnie')
             return redirect('leaseagreement_all')
         messages.error(request, 'Błąd. Operacja nieudana.')
@@ -357,4 +353,13 @@ def bill_delete(request, pk):
     bill.delete()
     messages.success(request, 'Operacja wykonana pomyślnie')
     return redirect('bill_all')
+
+
+def summary_counter(request):
+    ha_counter = ha_list(request).ha_count
+    la_counter = LeaseAgreement.objects.count()
+    property_counter = Property.objects.count()
+    return render(request, 'registration/home.html', {'ha_counter': ha_counter,
+                                                      'la_counter': la_counter,
+                                                      'property_counter': property_counter})
 
