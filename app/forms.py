@@ -202,6 +202,25 @@ class BillsForm(forms.ModelForm):
             'property': _('Nieruchomość'),
             'duration': _('Czas trwania')
         }
+        widgets = {
+            'start': DatePickerInput(
+                options={
+                    "format": "DD.MM.YYYY",  # moment date-time format
+                    "showClose": False,
+                    "showClear": False,
+                    "showTodayButton": False,
+                    "locale": "PL",
+                }
+            ),  # default date-format %m/%d/%Y will be used
+            'end': DatePickerInput(
+                options={
+                    "format": "DD.MM.YYYY",  # moment date-time format
+                    "showClose": False,
+                    "showClear": False,
+                    "showTodayButton": False,
+                    "locale": "PL",
+                }),  # specify date-frmat
+        }
         help_texts = {
             'start': _('W formacie RRRR-MM-DD'),
             'end': _('W formacie RRRR-MM-DD'),
