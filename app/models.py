@@ -1,30 +1,5 @@
 from django.db import models
 
-
-# # Użytkownicy systemu
-# class Users(models.Model):
-#     # Fields
-#     id = models.AutoField(primary_key=True)
-#     login = models.CharField(max_length=45, help_text='User login')
-#     password = models.CharField(max_length=198, help_text='User password')
-#     name = models.CharField(max_length=45, help_text='User first name')
-#     surname = models.CharField(max_length=45, help_text='User last name')
-#     type = models.CharField(max_length=1, help_text='Account type: 0 - user, 1 - admin')
-#
-#     # Metadata
-#     class Meta:
-#         ordering = ['id']
-#
-#     # Methods
-#     # def get_absolute_url(self):
-#     #    """Returns the url to access a particular instance of MyModelName."""
-#     #    return reverse('model-detail-view', args=[str(self.id)])
-#
-#     def __str__(self):
-#         """String for representing the MyModelName object (in Admin site etc.)."""
-#         return self.id, self.login, self.password, self.name, self.surname, self.type
-#
-
 # Spółdzielnie/Wspólnoty mieszkaniowe
 class HousingAssociation_type(models.Model):
     id = models.AutoField(primary_key=True)
@@ -47,7 +22,6 @@ class HousingAssociation(models.Model):
     phone = models.CharField(max_length=12, blank=True) # HA phone number
     email = models.EmailField(max_length=254, blank=True)
     comments = models.TextField(max_length=1000, blank=True) # Comments
-
     type = models.ForeignKey(HousingAssociation_type, default=1, on_delete=models.PROTECT)
 
     # Metadata
@@ -55,12 +29,7 @@ class HousingAssociation(models.Model):
         ordering = ['id']
 
     # Methods
-    def add(self):
-        self.save()
-
     def __str__(self):
-        """String for representing the MyModelName object (in Admin site etc.)."""
-        # return self.name, self.address, self.postalcode, self.city, self.phone, self.email, self.comments
         return self.name
 
 
@@ -82,13 +51,8 @@ class Tenants(models.Model):
         ordering = ['id']
 
     # Methods
-    def add(self):
-        self.save()
 
     def __str__(self):
-        """String for representing the MyModelName object (in Admin site etc.)."""
-        # return self.id, self.name, self.surname, self.address, self.postalcode, \
-        #        self.city, self.phone, self.email, self.comments
         return " ".join((self.name, self.surname))
 
 
@@ -110,8 +74,6 @@ class Landlords(models.Model):
         self.save()
 
     def __str__(self):
-        """String for representing the MyModelName object (in Admin site etc.)."""
-        # return self.id, self.name, self.surname, self.phone, self.email
         return " ".join((self.name, self.surname))
 
 
@@ -133,11 +95,7 @@ class Property(models.Model):
         ordering = ['id']
 
     # Methods
-
-
     def __str__(self):
-        """String for representing the MyModelName object (in Admin site etc.)."""
-        # return self.id, self.name, self.address, self.postalcode, self.city, self.kw_number
         return self.name
 
 
@@ -151,8 +109,6 @@ class LeaseAgreement_type(models.Model):
 
     # Methods
     def __str__(self):
-        """String for representing the MyModelName object (in Admin site etc.)."""
-        # return self.id, self.name, self.address, self.postalcode, self.city, self.kw_number
         return self.type
 
 
@@ -176,8 +132,7 @@ class LeaseAgreement(models.Model):
         ordering = ['id']
 
     def __str__(self):
-        """String for representing the MyModelName object (in Admin site etc.)."""
-        return self.la_number #, self.start, self.end, self.value, self.comments, self.type
+        return self.la_number  # self.start, self.end, self.value, self.comments, self.type
 
 
 # Dostawcy rachunków
@@ -226,7 +181,4 @@ class Bills(models.Model):
         self.save()
 
     def __str__(self):
-        """String for representing the MyModelName object (in Admin site etc.)."""
-        # return self.id, self.name, self.agreement_number, self.start, \
-               # self.duration, self.end
         return self.name
