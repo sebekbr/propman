@@ -112,3 +112,7 @@ bd-placeholder-img {
     font-size: 3.5rem;
   }
 }
+
+.required-field {
+  color: #700;
+}
