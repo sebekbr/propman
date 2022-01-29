@@ -23,19 +23,19 @@
         <tbody>
           <tr>
             <td>Nazwa:</td>
-            <td>{{ housingassociation_new.name}}</td>
+            <td>{{ housingassociation_new.name}}<span class="required-field">*</span></td>
           </tr>
           <tr>
             <td>Ulica:</td>
-            <td>{{ housingassociation_new.address }}</td>
+            <td>{{ housingassociation_new.address }}<span class="required-field">*</span></td>
           </tr>
           <tr>
             <td>Kod pocztowy:</td>
-            <td>{{ housingassociation_new.postalcode }}</td>
+            <td>{{ housingassociation_new.postalcode }}<span class="required-field">*</span></td>
           </tr>
           <tr>
             <td>Miejscowość:</td>
-            <td>{{ housingassociation_new.city }}</td>
+            <td>{{ housingassociation_new.city }}<span class="required-field">*</span></td>
           </tr>
           <tr>
              <td>Telefon:</td>
@@ -51,6 +51,7 @@
           </tr>
         </tbody>
       </table>
+      <p style="font-style: italic;">Pola oznaczone <span class="required-field">*</span> są wymagane.</p>
       <button type="submit" class="btn btn-sm btn-outline-success">Zapisz</button>
     </form>
   </div>

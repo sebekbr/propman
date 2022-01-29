@@ -23,23 +23,23 @@
       <tbody>
         <tr>
           <td>Imię:</td>
-          <td>{{ tenant_new.name}}</td>
+          <td>{{ tenant_new.name}}<span class="required-field">*</span></td>
         </tr>
         <tr>
           <td>Nazwisko:</td>
-          <td>{{ tenant_new.surname}}</td>
+          <td>{{ tenant_new.surname}}<span class="required-field">*</span></td>
         </tr>
         <tr>
           <td>Adres:</td>
-          <td>{{ tenant_new.address }}</td>
+          <td>{{ tenant_new.address }}<span class="required-field">*</span></td>
         </tr>
         <tr>
           <td>Kod pocztowy:</td>
-          <td>{{ tenant_new.postalcode }}</td>
+          <td>{{ tenant_new.postalcode }}<span class="required-field">*</span></td>
         </tr>
         <tr>
           <td>Miejscowość:</td>
-          <td>{{ tenant_new.city }}</td>
+          <td>{{ tenant_new.city }}<span class="required-field">*</span></td>
         </tr>
         <tr>
           <td>Telefon:</td>
@@ -55,6 +55,7 @@
         </tr>
       </tbody>
     </table>
+    <p style="font-style: italic;">Pola oznaczone <span class="required-field">*</span> są wymagane.</p>
     <button type="submit" class="btn btn-sm btn-outline-success">Zapisz</button>
   </form>
 </div>

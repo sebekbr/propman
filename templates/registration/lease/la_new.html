@@ -19,20 +19,20 @@
       <tbody>
         <tr>
           <td>Numer umowy:</td>
-          <td>{{ leaseagreement_new.la_number }}</td>
+          <td>{{ leaseagreement_new.la_number }}<span class="required-field">*</span></td>
         </tr>
         <tr>
           <td>Data początkowa:</td>
-          <td>{{ leaseagreement_new.start }}</td>
+          <td>{{ leaseagreement_new.start }}<span class="required-field">*</span></td>
         </tr>
         <tr>
           <td>Data końcowa:</td>
-          <td>{{ leaseagreement_new.end }}</td>
+          <td>{{ leaseagreement_new.end }}<span class="required-field">*</span></td>
 
         </tr>
         <tr>
           <td>Czynsz:</td>
-          <td>{{ leaseagreement_new.value }}</td>
+          <td>{{ leaseagreement_new.value }}<span class="required-field">*</span></td>
         </tr>
         <tr>
           <td>Uwagi:</td>
@@ -56,6 +56,7 @@
         </tr>
       </tbody>
     </table>
+    <p style="font-style: italic;">Pola oznaczone <span class="required-field">*</span> są wymagane.</p>
     <button type="submit" class="btn btn-sm btn-outline-success">Zapisz</button>
   </form>
 </div>

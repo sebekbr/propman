@@ -22,34 +22,35 @@
     <tbody>
       <tr>
         <td>Nazwa:</td>
-        <td>{{ bill_new.name }}</td>
+        <td>{{ bill_new.name }}<span class="required-field">*</span></td>
       </tr>
       <tr>
         <td>Numer umowy:</td>
-        <td>{{ bill_new.agreement_number }}</td>
+        <td>{{ bill_new.agreement_number }}<span class="required-field">*</span></td>
       </tr>
       <tr>
         <td>Dostawca:</td>
-        <td>{{ bill_new.bill_vendor }}</td>
+        <td>{{ bill_new.bill_vendor }}<span class="required-field">*</span></td>
       </tr>
       <tr>
         <td>Nieruchomość:</td>
-        <td>{{ bill_new.property }}</td>
+        <td>{{ bill_new.property }}<span class="required-field">*</span></td>
       </tr>
       <tr>
         <td>Data początkowa:</td>
-        <td>{{ bill_new.start }}</td>
+        <td>{{ bill_new.start }}<span class="required-field">*</span></td>
       </tr>
       <tr>
         <td>Czas trwania:</td>
-        <td>{{ bill_new.duration }}</td>
+        <td>{{ bill_new.duration }}<span class="required-field">*</span></td>
       </tr>
       <tr>
         <td>Data końcowa:</td>
-        <td>{{ bill_new.end }}</td>
+        <td>{{ bill_new.end }}<span class="required-field">*</span></td>
       </tr>
-    </tbody>    
+    </tbody>
   </table>
+  <p style="font-style: italic;">Pola oznaczone <span class="required-field">*</span> są wymagane.</p>
     <button type="submit" class="btn btn-sm btn-outline-success">Zapisz</button>
   </form>
 </div>

@@ -22,21 +22,21 @@
     <table class="table table-striped">
       <tbody>
         <tr>
-          <td>Nazwa nieruchomości:</td>
-          <td>{{ property_new.name }}</td>
+          <td>Nazwa nieruchomości: </td>
+          <td>{{ property_new.name }}<span class="required-field">*</span></td>
         </tr>
         <tr>
           <td>Adres:</td>
-          <td>{{ property_new.address }}</td>
+          <td>{{ property_new.address }}<span class="required-field">*</span></td>
         </tr>
         <tr>
           <!--TO DO-->
           <td>Kod pocztowy:</td>
-          <td>{{ property_new.postalcode }}</td>
+          <td>{{ property_new.postalcode }}<span class="required-field">*</span></td>
         </tr>
         <tr>
           <td>Miejscowość:</td>
-          <td>{{ property_new.city }}</td>
+          <td>{{ property_new.city }}<span class="required-field">*</span></td>
         </tr>
         <tr>
           <td>Spółdzielnia:</td>
@@ -48,6 +48,7 @@
         </tr>
       </tbody>
     </table>
+    <p style="font-style: italic;">Pola oznaczone <span class="required-field">*</span> są wymagane.</p>
     <button type="submit" class="btn btn-sm btn-outline-success">Zapisz</button>
   </form>
 </div>
