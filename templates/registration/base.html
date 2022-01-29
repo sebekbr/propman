@@ -10,7 +10,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
     <!-- Favicons -->
     <link rel="icon" href="">
@@ -32,14 +31,19 @@
         {% if user.is_authenticated %}
         {% include 'registration/menu.html' %}
 
-      <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler position-absolute d-md-none collapsed"
+              type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu"
+              aria-controls="sidebarMenu" aria-expanded="false"
+              aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="navbar-nav">
         <div class="nav-item text-nowrap">
 
           <span class="d-inline align-middle text-white">{{ user.username }}</span>
-          <a class="d-inline nav-link align-middle px-3" href="{% url 'logout' %}"><i class="bi bi-door-open"></i>Wyloguj</a>
+          <a class="d-inline nav-link align-middle px-3" href="{% url 'logout' %}">
+            <i class="bi bi-door-open"></i>Wyloguj
+          </a>
         </div>
       </div>
     </header>
@@ -89,14 +93,6 @@
             <p>Nieprawidłowy login lub hasło. Spróbuj ponownie.</p>
           {% endif %}
 
-            <!-- {% if next %}
-              {% if user.is_authenticated %}
-                <p>Nie masz dostępu do tej strony. Zaloguj się.</p>
-              {% else %}
-                <p>Zaloguj się aby uzyskać dostęp.</p>
-              {% endif %}
-            {% endif %} -->
-
             <form method="post" action="{% url 'login' %}">
               {% csrf_token %}
               <p>{{ form.username.label_tag }}</p>
@@ -104,7 +100,6 @@
               <p>{{ form.password.label_tag }}</p>
               <p>{{ form.password }}</p>
               <button type="submit" class="btn btn-primary">Zaloguj</button>
-              <!-- <input type="hidden" name="next" value="{{ next }}" /> -->
             </form>
 
             {# Assumes you setup the password_reset view in your URLconf #}
