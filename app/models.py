@@ -88,7 +88,7 @@ class Property(models.Model):
     kw_number = models.CharField(max_length=15, blank=True) # Numer KW
     # Foreign Keys
 
-    house_association = models.ForeignKey(HousingAssociation, on_delete=models.PROTECT)
+    house_association = models.ForeignKey(HousingAssociation, on_delete=models.PROTECT, blank=True, null=True)
 
     # Metadata
     class Meta:
