@@ -22,6 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')), # Moduł autentykacji do logowania użytkownika
     path('', TemplateView.as_view(template_name='registration/home.html'), name='home'),
-    # path('accounts/', include('django.contrib.auth.urls')),
     # path('accounts/', include('accounts.urls')),
 ]

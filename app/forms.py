@@ -148,20 +148,6 @@ class LeaseAgreementForm(forms.ModelForm):
             'value': _('Wpisz umówioną kwotę czynszu')
         }
 
-        def clean(self, request):
-            cleaned_data = super().clean()
-            start_date = cleaned_data.get('start')
-            end_date = cleaned_data.get('end')
-            if end_date < start_date:
-                # raise forms.ValidationError("Data końca umowy nie może być wcześniejsza od daty początkowej")
-                messages.error(request, 'Błąd. Operacja nieudana.')
-
-        # error_messages = {
-        #     'type': {
-        #         'max_length': _("Zbyt duża ilość znaków."),
-        #     },
-        # }
-
 
 # Dostawcy rachunków
 class BillVendorsForm(forms.ModelForm):
@@ -194,13 +180,13 @@ class BillsForm(forms.ModelForm):
         model = Bills
         fields = ['name', 'agreement_number', 'bill_vendor', 'property', 'start', 'duration', 'end']
         labels = {
-            'start': _('Data początkowa'),
-            'end': _('Data końcowa'),
-            'agreement_number': _('Numer mowy'),
             'name': _('Nazwa'),
+            'agreement_number': _('Numer umowy'),
             'bill_vendor': _('Dostawca'),
             'property': _('Nieruchomość'),
-            'duration': _('Czas trwania')
+            'start': _('Data początkowa'),
+            'duration': _('Czas trwania'),
+            'end': _('Data końcowa'),
         }
         widgets = {
             'start': DatePickerInput(
@@ -210,8 +196,7 @@ class BillsForm(forms.ModelForm):
                     "showClear": False,
                     "showTodayButton": False,
                     "locale": "PL",
-                }
-            ),  # default date-format %m/%d/%Y will be used
+                }),
             'end': DatePickerInput(
                 options={
                     "format": "DD.MM.YYYY",  # moment date-time format
@@ -219,7 +204,7 @@ class BillsForm(forms.ModelForm):
                     "showClear": False,
                     "showTodayButton": False,
                     "locale": "PL",
-                }),  # specify date-frmat
+                }),
         }
         help_texts = {
             'start': _('W formacie RRRR-MM-DD'),
