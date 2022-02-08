@@ -1,5 +1,4 @@
 from django import forms
-from django.contrib import messages
 from bootstrap_datepicker_plus.widgets import DatePickerInput
 from app.models import *
 from django.utils.translation import ugettext_lazy as _
@@ -215,4 +214,12 @@ class BillsForm(forms.ModelForm):
         #         'max_length': _("Zbyt duża ilość znaków."),
         #     },
         # }
+
+    def clean(self):
+        start_date = self.cleaned_data['start']
+        end_date = self.cleaned_data['end']
+
+        if end_date <= start_date:
+            raise forms.ValidationError("Data końcowa nie może być wczesniejsza niż początkowa.")
+            return end_date
 
