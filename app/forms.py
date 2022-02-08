@@ -147,6 +147,13 @@ class LeaseAgreementForm(forms.ModelForm):
             'value': _('Wpisz umówioną kwotę czynszu')
         }
 
+    def clean(self):
+        start_date = self.cleaned_data['start']
+        end_date = self.cleaned_data['end']
+
+        if end_date <= start_date:
+            raise forms.ValidationError("Data końcowa nie może być wczesniejsza niż początkowa.")
+
 
 # Dostawcy rachunków
 class BillVendorsForm(forms.ModelForm):
@@ -221,5 +228,4 @@ class BillsForm(forms.ModelForm):
 
         if end_date <= start_date:
             raise forms.ValidationError("Data końcowa nie może być wczesniejsza niż początkowa.")
-            return end_date
 
