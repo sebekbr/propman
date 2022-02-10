@@ -152,7 +152,7 @@ class LeaseAgreementForm(forms.ModelForm):
         end_date = self.cleaned_data['end']
 
         if end_date <= start_date:
-            raise forms.ValidationError("Data końcowa nie może być wczesniejsza niż początkowa.")
+            raise forms.ValidationError({'end': 'Data końcowa nie może być wczesniejsza niż początkowa.'})
 
 
 # Dostawcy rachunków
@@ -227,5 +227,5 @@ class BillsForm(forms.ModelForm):
         end_date = self.cleaned_data['end']
 
         if end_date <= start_date:
-            raise forms.ValidationError("Data końcowa nie może być wczesniejsza niż początkowa.")
+            raise forms.ValidationError({'end': 'Data końcowa nie może być wcześniejsza niż początkowa.'})
 
