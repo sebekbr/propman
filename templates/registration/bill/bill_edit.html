@@ -6,7 +6,7 @@
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group me-2">
       <!-- <a type="button" class="btn btn-sm btn-outline-light">Usuń</a> -->
-      <a href="{% url 'bill' %}" type="button" class="btn btn-sm btn-outline-secondary">Anuluj</a>
+      <a href="{% url 'bill_all' %}" type="button" class="btn btn-sm btn-outline-secondary">Anuluj</a>
     </div>
     <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
       <span data-feather="calendar"></span>
@@ -14,7 +14,8 @@
     </button> -->
   </div>
 </div>
-
+{{ bill_edit.media }}
+{{ bill_edit.errors }}
 <div class="">
   <h2>Edycja</h2>
    {% csrf_token %}
@@ -46,7 +47,8 @@
         </tr>
         <tr>
           <td>Data końcowa:</td>
-          <td>{{ bill_edit.end }}</td>
+          <td>{{ bill_edit.end }}<span class="required-field">*{{ bill_edit.end.errors|striptags}}</span>
+          </td>
         </tr>
       </tbody>
     </table>

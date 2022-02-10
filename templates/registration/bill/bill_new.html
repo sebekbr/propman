@@ -10,7 +10,7 @@
   </div>
 </div>
 {{ bill_new.media }}
-{{ bill.errors }}
+
 <div class="">
   <h2>Nowy rachunek</h2>
 
@@ -44,10 +44,7 @@
       </tr>
       <tr>
         <td>Data końcowa:</td>
-        <td>{{ bill_new.end }}<span class="required-field">*</span>
-          <p class="errorlist required-field" style="font-weight: bold;">
-            Data końcowa nie może być wcześniejsza niż początkowa!
-          </p>
+        <td>{{ bill_new.end }}<span class="required-field">*{{ bill_new.end.errors|striptags}}</span>
         </td>
       </tr>
     </tbody>

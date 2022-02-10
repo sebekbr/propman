@@ -27,8 +27,9 @@
         </tr>
         <tr>
           <td>Data końcowa:</td>
-          <td>{{ leaseagreement_new.end }}<span class="required-field">*</span></td>
-
+          <td>{{ leaseagreement_new.end }}
+            <span class="required-field">*{{ leaseagreement_new.end.errors|striptags}}</span>
+          </td>
         </tr>
         <tr>
           <td>Czynsz:</td>
