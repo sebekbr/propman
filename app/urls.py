@@ -1,6 +1,13 @@
 from django.urls import path
 from . import views
 
+
+handler404 = 'app.views.error_404'
+handler500 = 'app.views.error_500'
+handler403 = 'app.views.error_403'
+handler400 = 'app.views.error_400'
+
+
 urlpatterns = [
     path('', views.index, name='index'),
     path('', views.summary_counter, name='home'),
@@ -94,3 +101,4 @@ urlpatterns = [
     # path('join/', views.SignupView.as_view(), name='join'),
     # path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 ]
+

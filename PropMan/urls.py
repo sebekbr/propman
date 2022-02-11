@@ -24,3 +24,4 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='registration/home.html'), name='home'),
     # path('accounts/', include('accounts.urls')),
 ]
+
