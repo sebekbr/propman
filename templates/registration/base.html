@@ -28,7 +28,7 @@
       </a>
 
         {% if user.is_authenticated %}
-        {% include 'registration/menu.html' %}
+
 
       <button class="navbar-toggler position-absolute d-md-none collapsed"
               type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu"
@@ -55,7 +55,7 @@
       <div class="row">
 
         <!-- MENU START -->
-
+{% include 'registration/menu.html' %}
         <!-- MAIN CONTENT -->
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
           <div class="">
