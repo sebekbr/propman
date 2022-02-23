@@ -10,7 +10,7 @@ handler400 = 'app.views.error_400'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('', views.summary_counter, name='home'),
+    path('', views.summary_counters, name='summary_counters'),
 
     # Housing Association
     path('forms/housingassociation/list', views.ha_list, name='ha_list'),

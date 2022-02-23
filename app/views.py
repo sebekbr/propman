@@ -178,8 +178,12 @@ def landlord_delete(request, pk):
 # Property methods
 def property_list(request):
     form = Property.objects.all()
-    prop_count = Property.objects.count()  # Zliczanie ilości obiektów w tablicy
-    return render(request, 'registration/prop/prop_list.html', {'property_all': form, 'property_count': prop_count})
+    property_count = form.count()  # Zliczanie ilości obiektów w tablicy
+    context = {
+        'property_all': form,
+        'property_count': property_count
+    }
+    return render(request, 'registration/prop/prop_list.html', context)
 
 
 def property_detail(request, pk):
@@ -375,10 +379,10 @@ def bill_delete(request, pk):
     return redirect('bill_all')
 
 
-def summary_counter(request):
-    ha_counter = ha_list(request).ha_count
-    la_counter = LeaseAgreement.objects.count()
-    property_counter = Property.objects.count()
+def summary_counters(request):
+    ha_counter = HousingAssociation.objects.all().count()
+    la_counter = LeaseAgreement.objects.all().count()
+    property_counter = Property.objects.all().count()
     return render(request, 'registration/home.html', {'ha_counter': ha_counter,
                                                       'la_counter': la_counter,
                                                       'property_counter': property_counter})
