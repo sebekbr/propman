@@ -202,7 +202,8 @@ class BillsForm(forms.ModelForm):
                     "showClear": False,
                     "showTodayButton": False,
                     "locale": "PL",
-                }),
+                }
+            ),
             'end': DatePickerInput(
                 options={
                     "format": "DD.MM.YYYY",  # moment date-time format
