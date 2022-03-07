@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'bootstrap_datepicker_plus'
 ]
@@ -121,12 +122,17 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-STATIC_URL = '/media/s3b0/Misc/Studia/sem 7/Praca dyplomowa/app/propman/static/'
-STATIC_ROOT = '/media/s3b0/Misc/Studia/sem 7/Praca dyplomowa/app/propman/static/'
+# WhiteNoise
+# STATICFILES_STORAGE = 'spa.storage.SPAStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 # STATICFILES_DIRS = [
 #     BASE_DIR / "static"
 # ]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
