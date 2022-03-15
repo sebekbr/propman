@@ -387,3 +387,15 @@ def summary_counters(request):
                                                       'la_counter': la_counter,
                                                       'property_counter': property_counter})
 
+
+def token(request):
+    if request.META.get("HTTP_HX_REQUEST") != 'true':
+        return render(request, 'backoffice/token_full.html', {'token': api_token})
+
+    return render(request, 'backoffice/token.html', {'token': api_token})
+
+def support(request):
+    if request.META.get("HTTP_HX_REQUEST") != 'true':
+        return render(request, 'backoffice/support_full.html')
+
+    return render(request, 'backoffice/support.html')
