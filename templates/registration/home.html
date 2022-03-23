@@ -1,0 +1,40 @@
+<!-- templates/registration/home.html -->
+{% extends 'registration/base.html' %}
+
+{% block title %}Panel główny - PropMan{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Panel główny</h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+  </div>
+</div>
+
+<h2>Statystyki</h2>
+<h5>Podsumowanie</h5>
+<div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Nazwa</th>
+        <th scope="col">Ilość</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Ilość nieruchomości:</td>
+        <td>{{ property_counter }}</td>
+      </tr>
+      <tr>
+        <td>Ilość umów najmu:</td>
+        <td>{{ la_count }}</td>
+      </tr>
+      <tr>
+        <td>Suma przychodów:</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

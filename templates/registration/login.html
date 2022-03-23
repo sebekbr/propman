@@ -1,0 +1,38 @@
+{% extends "registration/base.html" %}
+
+{% block content %}
+  <!-- <div class="position absolute top-0 end-0 text-center">
+    {% if form.errors %}
+      <p>Nieprawidłowy login lub hasło. Spróbuj ponownie.</p>
+    {% endif %}
+
+    {% if next %}
+      {% if user.is_authenticated %}
+        <p>Nie masz dostępu do tej strony. Zaloguj się.</p>
+      {% else %}
+        <p>Zaloguj się aby uzyskać dostęp.</p>
+      {% endif %}
+    {% endif %}
+
+    <form method="post" action="{% url 'login' %}">
+      {% csrf_token %}
+      <!-- <table style="margin:0 auto; text-align: center;">
+        <tr>
+          <td>{{ form.username.label_tag }}</td>
+          <td>{{ form.username }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.password.label_tag }}</td>
+          <td>{{ form.password }}</td>
+        </tr>
+      </table> -->
+      <!--<span>{{ form.username.label_tag }}</span> <span>{{ form.username }}</span>
+      <span>{{ form.password.label_tag }}</span> <span>{{ form.password }}</span>
+      <input type="submit" value="Zaloguj" />
+      <input type="hidden" name="next" value="{{ next }}" />
+    </form>
+
+    {# Assumes you setup the password_reset view in your URLconf #}
+    <p><a href="{% url 'password_reset' %}">Nie pamiętasz hasła?</a></p>
+  </div> -->
+{% endblock %}

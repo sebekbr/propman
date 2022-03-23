@@ -1,0 +1,59 @@
+{% extends 'registration/base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Spółdzielnie/wspólnoty</h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group me-2">
+      <a href="{% url 'ha_edit' pk=ha_detail.pk %}" type="button" class="btn btn-sm btn-outline-primary">Edytuj</a>
+      <a href="{% url 'ha_delete' pk=ha_detail.id %}" type="button"
+      class="btn btn-sm btn-danger" onclick="return confirm('Czy usunąć?');">Usuń</a>
+      <a href="{% url 'ha_list' %}" type="button" class="btn btn-sm btn-outline-secondary">Anuluj</a>
+    </div>
+    <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+      <span data-feather="calendar"></span>
+      This week
+    </button> -->
+  </div>
+</div>
+
+<div class="">
+  <h2>Szczegóły</h2>
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <td>Nazwa:</td>
+        <td>{{ ha_detail.name}}</td>
+      </tr>
+      <tr>
+        <td>Ulica:</td>
+        <td>{{ ha_detail.address }}</td>
+      </tr>
+      <tr>
+        <td>Kod pocztowy:</td>
+        <td>{{ ha_detail.postalcode }}</td>
+      </tr>
+      <tr>
+        <td>Miejscowość:</td>
+        <td>{{ ha_detail.city }}</td>
+      </tr>
+      <tr>
+         <td>Telefon:</td>
+        <td>{{ ha_detail.phone }}</td>
+      </tr>
+      <tr>
+        <td>E-mail:</td>
+        <td>{{ ha_detail.email }}</td>
+      </tr>
+      <tr>
+        <td>Rodzaj:</td>
+        <td>{{ ha_detail.type }}</td>
+      </tr>
+      <tr>
+        <td>Uwagi:</td>
+        <td>{{ ha_detail.comments }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock %}

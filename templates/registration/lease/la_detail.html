@@ -1,0 +1,64 @@
+{% extends 'registration/base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Umowy najmu</h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group me-2">
+      <a href="{% url 'leaseagreement_edit' pk=leaseagreement_detail.id %}"
+        type="button" class="btn btn-sm btn-outline-primary">Edytuj</a>
+      <a href="{% url 'leaseagreement_delete' pk=leaseagreement_detail.id %}"
+        type="button" class="btn btn-sm btn-danger" onclick="return confirm('Czy usunąć?');">Usuń</a>
+      <a href="{% url 'leaseagreement_all' %}" type="button" class="btn btn-sm btn-outline-secondary">Anuluj</a>
+    </div>
+    <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+      <span data-feather="calendar"></span>
+      This week
+    </button> -->
+  </div>
+</div>
+
+<div class="">
+  <h2>Szczegóły</h2>
+    <table class="table table-striped">
+      <tbody>
+        <tr>
+          <td>Numer umowy:</td>
+          <td>{{ leaseagreement_detail.la_number }}</td>
+        </tr>
+        <tr>
+          <td>Początek umowy:</td>
+          <td>{{ leaseagreement_detail.start }}</td>
+        </tr>
+        <tr>
+          <td>Koniec umowy:</td>
+          <td>{{ leaseagreement_detail.end }}</td>
+        </tr>
+        <tr>
+          <td>Czynsz:</td>
+          <td>{{ leaseagreement_detail.value }}</td>
+        </tr>
+        <tr>
+          <td>Uwagi:</td>
+          <td>{{ leaseagreement_detail.comments }}</td>
+        </tr>
+        <tr>
+          <td>Rodzaj umowy:</td>
+          <td>{{ leaseagreement_detail.type }}</td>
+        </tr>
+        <tr>
+          <td>Nieruchomość:</td>
+          <td>{{ leaseagreement_detail.property }}</td>
+        </tr>
+        <tr>
+          <td>Właściciel:</td>
+          <td>{{ leaseagreement_detail.landlords }}</td>
+        </tr>
+        <tr>
+          <td>Najemca:</td>
+          <td>{{ leaseagreement_detail.tenants }}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+{% endblock %}

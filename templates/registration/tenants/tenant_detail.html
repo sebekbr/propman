@@ -1,0 +1,59 @@
+{% extends 'registration/base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Najemcy</h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group me-2">
+      <a href="{% url 'tenant_edit' pk=tenant_detail.pk %}" type="button" class="btn btn-sm btn-outline-primary">Edytuj</a>
+      <a href="{% url 'tenant_delete' pk=tenant_detail.pk %}" type="button"
+      class="btn btn-sm btn-danger" onclick="return confirm('Czy usunąć?');">Usuń</a>
+      <a href="{% url 'tenant_all' %}" type="button" class="btn btn-sm btn-outline-secondary">Anuluj</a>
+    </div>
+    <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+      <span data-feather="calendar"></span>
+      This week
+    </button> -->
+  </div>
+</div>
+
+<div class="">
+  <h2>Szczegóły</h2>
+    <table class="table table-striped">
+      <tbody>
+        <tr>
+          <td>Imię:</td>
+          <td>{{ tenant_detail.name}}</td>
+        </tr>
+        <tr>
+          <td>Nazwisko:</td>
+          <td>{{ tenant_detail.surname}}</td>
+        </tr>
+        <tr>
+          <td>Adres:</td>
+          <td>{{ tenant_detail.address }}</td>
+        </tr>
+        <tr>
+          <td>Kod pocztowy:</td>
+          <td>{{ tenant_detail.postalcode }}</td>
+        </tr>
+        <tr>
+          <td>Miejscowość:</td>
+          <td>{{ tenant_detail.city }}</td>
+        </tr>
+        <tr>
+          <td>Telefon:</td>
+          <td>{{ tenant_detail.phone }}</td>
+        </tr>
+        <tr>
+          <td>E-mail:</td>
+          <td>{{ tenant_detail.email }}</td>
+        </tr>
+        <tr>
+          <td>Uwagi:</td>
+          <td>{{ tenant_detail.comments }}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+{% endblock %}

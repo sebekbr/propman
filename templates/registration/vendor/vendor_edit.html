@@ -1,0 +1,51 @@
+{% extends 'registration/base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Dostawcy mediów</h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group me-2">
+      <!-- <a type="button" class="btn btn-sm btn-outline-light">Usuń</a> -->
+      <a href="{% url 'leaseagreement_all' %}" type="button" class="btn btn-sm btn-outline-secondary">Anuluj</a>
+    </div>
+    <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+      <span data-feather="calendar"></span>
+      This week
+    </button> -->
+  </div>
+</div>
+<div class="">
+  <h2>Edycja</h2>
+    {% csrf_token %}
+    <table class="table table-striped">
+      <tbody>
+        <tr>
+          <td>Nazwa:</td>
+          <td>{{ billvendor_edit.name }}</td>
+        </tr>
+        <tr>
+          <td>Adres:</td>
+          <td>{{ billvendor_edit.address }}</td>
+        </tr>
+        <tr>
+          <td>Kod pocztowy:</td>
+          <td>{{ billvendor_edit.postalcode }}</td>
+        </tr>
+        <tr>
+          <td>Miasto:</td>
+          <td>{{ billvendor_edit.city }}</td>
+        </tr>
+        <tr>
+          <td>Numer telefonu:</td>
+          <td>{{ billvendor_edit.phone }}</td>
+        </tr>
+        <tr>
+          <td>E-mail:</td>
+          <td>{{ billvendor_edit.email }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-sm btn-outline-success">Zapisz</button>
+</div>
+{% endblock %}

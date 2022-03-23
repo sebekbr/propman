@@ -1,0 +1,43 @@
+{% extends 'registration/base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Nieruchomości</h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group me-2">
+      <a href="{% url 'property_new' %}" type="button" class="btn btn-sm btn-outline-primary">Nowa</a>
+      <!-- <a type="button" class="btn btn-sm btn-outline-disable">Usuń</a> -->
+    </div>
+    <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+      <span data-feather="calendar"></span>
+      This week
+    </button> -->
+  </div>
+</div>
+
+<div class="">
+  <table class="table table-striped">
+    <tbody>
+      <thead>
+        <th>Nazwa</th>
+        <th>Adres</th>
+        <th>Kod pocztowy</th>
+        <th>Miejscowość</th>
+      </thead>
+    {% for prop in property_all %}
+      <tr>
+        <td><a href="/app/forms/property/item/{{ prop.id }}">{{ prop.name }}</a></td>
+        <td>{{ prop.address }}</td>
+        <td>{{ prop.postalcode }}</td>
+        <td>{{ prop.city }}</td>
+      </tr>
+    {% empty %}
+      <li>Brak wpisów</li>
+    {% endfor %}
+    </tbody>
+  </table>
+
+  <p>Ilość nieruchomości:</p>
+  <p>{{ property_count }}</p>
+</div>
+{% endblock %}

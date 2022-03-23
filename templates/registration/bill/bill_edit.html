@@ -1,0 +1,52 @@
+{% extends 'registration/base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Rachunki</h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group me-2">
+      <a href="{% url 'bill_all' %}" type="button" class="btn btn-sm btn-outline-secondary">Anuluj</a>
+    </div>
+  </div>
+</div>
+{{ bill_edit.media }}
+{{ bill_edit.errors }}
+<div class="">
+  <h2>Edycja</h2>
+   {% csrf_token %}
+    <table class="table table-striped">
+      <tbody>
+        <tr>
+          <td>Nazwa:</td>
+          <td>{{ bill_edit.name }}</td>
+        </tr>
+        <tr>
+          <td>Numer umowy:</td>
+          <td>{{ bill_edit.agreement_number }}</td>
+        </tr>
+        <tr>
+          <td>Dostawca:</td>
+          <td>{{ bill_edit.bill_vendor }}</td>
+        </tr>
+        <tr>
+          <td>Nieruchomość:</td>
+          <td>{{ bill_edit.property }}</td>
+        </tr>
+        <tr>
+          <td>Data początkowa:</td>
+          <td>{{ bill_edit.start }}</td>
+        </tr>
+        <tr>
+          <td>Czas trwania:</td>
+          <td>{{ bill_edit.duration }}</td>
+        </tr>
+        <tr>
+          <td>Data końcowa:</td>
+          <td>{{ bill_edit.end }}<span class="required-field">*{{ bill_edit.end.errors|striptags}}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+      <button type="submit" class="btn btn-sm btn-outline-success">Zapisz</button>
+</div>
+{% endblock %}

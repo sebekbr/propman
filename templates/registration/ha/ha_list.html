@@ -1,0 +1,44 @@
+{% extends 'registration/base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Spółdzielnie/wspólnoty</h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group me-2">
+      <a href="{% url 'housingassociation_new' %}" type="button" class="btn btn-sm btn-outline-primary">Nowa</a>
+      <!-- <a type="button" class="btn btn-sm btn-outline-disable">Usuń</a> -->
+    </div>
+    <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+      <span data-feather="calendar"></span>
+      This week
+    </button> -->
+  </div>
+</div>
+
+<div class="">
+  <p>Lista spółdzielni:</p>
+  <table class="table table-striped">
+    <tbody>
+      <thead>
+        <th>Nazwa</th>
+        <th>Adres</th>
+        <th>Kod pocztowy</th>
+        <th>Miejscowość</th>
+        <th>Typ</th>
+      </thead>
+    {% for ha in ha_all %}
+      <tr>
+        <td><a href="/app/forms/housingassociation/item/{{ ha.id }}">{{ ha.name }}</a></td>
+        <td>{{ ha.address }}</td>
+        <td>{{ ha.postalcode }}</td>
+        <td>{{ ha.city }}</td>
+        <td>{{ ha.type }}</td>
+      </tr>
+    {% empty %}
+      <li>Brak wpisów</li>
+    {% endfor %}
+    </tbody>
+  </table>
+  <p>Liczba spółdzielni: {{ ha_count }}</p>
+</div>
+{% endblock %}

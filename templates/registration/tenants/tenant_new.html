@@ -1,0 +1,62 @@
+{% extends 'registration/base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Najemcy</h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group me-2">
+
+      <a href="{% url 'tenant_all' %}" type="button" class="btn btn-sm btn-outline-secondary">Anuluj</a>
+    </div>
+    <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+      <span data-feather="calendar"></span>
+      This week
+    </button> -->
+  </div>
+</div>
+
+<div class="">
+  <h2>Nowy najemca</h2>
+  <form method="POST" class="post-form">
+    {% csrf_token %}
+    <table class="table table-striped">
+      <tbody>
+        <tr>
+          <td>Imię:</td>
+          <td>{{ tenant_new.name}}<span class="required-field">*</span></td>
+        </tr>
+        <tr>
+          <td>Nazwisko:</td>
+          <td>{{ tenant_new.surname}}<span class="required-field">*</span></td>
+        </tr>
+        <tr>
+          <td>Adres:</td>
+          <td>{{ tenant_new.address }}<span class="required-field">*</span></td>
+        </tr>
+        <tr>
+          <td>Kod pocztowy:</td>
+          <td>{{ tenant_new.postalcode }}<span class="required-field">*</span></td>
+        </tr>
+        <tr>
+          <td>Miejscowość:</td>
+          <td>{{ tenant_new.city }}<span class="required-field">*</span></td>
+        </tr>
+        <tr>
+          <td>Telefon:</td>
+          <td>{{ tenant_new.phone }}</td>
+        </tr>
+        <tr>
+          <td>E-mail:</td>
+          <td>{{ tenant_new.email }}</td>
+        </tr>
+        <tr>
+          <td>Uwagi:</td>
+          <td>{{ tenant_new.comments }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-style: italic;">Pola oznaczone <span class="required-field">*</span> są wymagane.</p>
+    <button type="submit" class="btn btn-sm btn-outline-success">Zapisz</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'registration/base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Umowy najmu</h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group me-2">
+      <a href="{% url 'leaseagreement_all' %}" type="button" class="btn btn-sm btn-outline-secondary">Anuluj</a>
+    </div>
+  </div>
+</div>
+{{ leaseagreement_new.media }}
+<div class="">
+  <h2>Nowa umowa</h2>
+
+  <form method="POST" class="post-form">
+    {% csrf_token %}
+    <table class="table table-striped">
+      <tbody>
+        <tr>
+          <td>Numer umowy:</td>
+          <td>{{ leaseagreement_new.la_number }}<span class="required-field">*</span></td>
+        </tr>
+        <tr>
+          <td>Data początkowa:</td>
+          <td>{{ leaseagreement_new.start }}<span class="required-field">*</span></td>
+        </tr>
+        <tr>
+          <td>Data końcowa:</td>
+          <td>{{ leaseagreement_new.end }}
+            <span class="required-field">*{{ leaseagreement_new.end.errors|striptags}}</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Czynsz:</td>
+          <td>{{ leaseagreement_new.value }}<span class="required-field">*</span></td>
+        </tr>
+        <tr>
+          <td>Uwagi:</td>
+          <td>{{ leaseagreement_new.comments }}</td>
+        </tr>
+        <tr>
+          <td>Nieruchomość:</td>
+          <td>{{ leaseagreement_new.property }}</td>
+        </tr>
+        <tr>
+          <td>Właściciel:</td>
+          <td>{{ leaseagreement_new.landlords }}</td>
+        </tr>
+        <tr>
+          <td>Najemca:</td>
+          <td>{{ leaseagreement_new.tenants }}</td>
+        </tr>
+        <tr>
+          <td>Typ umowy:</td>
+          <td>{{ leaseagreement_new.type }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-style: italic;">Pola oznaczone <span class="required-field">*</span> są wymagane.</p>
+    <button type="submit" class="btn btn-sm btn-outline-success">Zapisz</button>
+  </form>
+</div>
+{% endblock %}
