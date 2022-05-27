@@ -16,7 +16,8 @@ SECRET_KEY = 'django-insecure-iwdexum#)yqlktpwwf^l0dn=n7kdmcr7btew5=p5jakvcp4#ni
 DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
-
+CSRF_COOKIE_SECURE = True;
+SESSION_COOKIE_SECURE = True;
 
 # Application definition
 
@@ -30,7 +31,7 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'bootstrap_datepicker_plus',
-    'django_htmx',
+    # 'django_htmx'
 ]
 
 MIDDLEWARE = [
@@ -43,7 +44,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django_htmx.middleware.HtmxMiddleware',
+    # 'django_htmx.middleware.HtmxMiddleware',
 ]
 
 ROOT_URLCONF = 'PropMan.urls'
@@ -157,4 +158,3 @@ MESSAGE_TAGS = {
         constants.WARNING: 'alert-warning',
         constants.ERROR: 'alert-danger',
 }
-
