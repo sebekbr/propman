@@ -8,9 +8,15 @@ https://docs.djangoproject.com/en/3.2/howto/deployment/wsgi/
 """
 
 import os
+import sys
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'PropMan.settings')
+path = "/home/sbrodziak/propman"
+
+if path not in sys.path:
+    sys.path.insert(0, path)
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'propman.settings')
 
 application = get_wsgi_application()

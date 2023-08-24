@@ -13,9 +13,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-iwdexum#)yqlktpwwf^l0dn=n7kdmcr7btew5=p5jakvcp4#ni'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'sbrodziak.pythonanywhere.com']
 
 
 # Application definition
@@ -30,7 +30,7 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'bootstrap_datepicker_plus',
-    'django_htmx',
+    #'django_htmx',
 ]
 
 MIDDLEWARE = [
@@ -43,7 +43,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django_htmx.middleware.HtmxMiddleware',
+    #'django_htmx.middleware.HtmxMiddleware',
 ]
 
 ROOT_URLCONF = 'PropMan.urls'
@@ -81,11 +81,10 @@ WSGI_APPLICATION = 'PropMan.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'propman',
-        'USER': 'propman_admin',
+        'NAME': 'sbrodziak$propman',
+        'USER': 'sbrodziak',
         'PASSWORD': 'PropMan1!',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'HOST': 'sbrodziak.mysql.pythonanywhere-services.com',
     }
 }
 
