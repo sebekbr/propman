@@ -37,10 +37,10 @@
       </button>
       <div class="navbar-nav">
         <div class="nav-item text-nowrap">
+          <span class="d-inline align-middle text-white">{{ user.username }}</span>
           {% if request.user.is_superuser %}
             <a type="button" class="btn btn-warning btn-secondary btn-sm btn-block" href="/admin">Panel admina</a>
           {% endif %}
-          <span class="d-inline align-middle text-white">{{ user.username }}</span>
           <a class="d-inline nav-link align-middle px-3" href="{% url 'logout' %}">
             <i class="bi bi-door-open"></i>Wyloguj
           </a>
