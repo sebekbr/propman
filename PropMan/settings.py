@@ -13,9 +13,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-iwdexum#)yqlktpwwf^l0dn=n7kdmcr7btew5=p5jakvcp4#ni'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-<<<<<<< HEAD
+
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'sbrodziak.pythonanywhere.com']
 
 
@@ -31,11 +31,7 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'bootstrap_datepicker_plus',
-<<<<<<< HEAD
     #'django_htmx',
-=======
-    # 'django_htmx'
->>>>>>> c55e1423758ca6f8d2bae3b8c744613e676cea0c
 ]
 
 MIDDLEWARE = [
@@ -48,11 +44,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-<<<<<<< HEAD
     #'django_htmx.middleware.HtmxMiddleware',
-=======
-    # 'django_htmx.middleware.HtmxMiddleware',
->>>>>>> c55e1423758ca6f8d2bae3b8c744613e676cea0c
 ]
 
 ROOT_URLCONF = 'PropMan.urls'
