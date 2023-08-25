@@ -1,8 +1,7 @@
 # propman
 # Property Manager
 
-This is my first important (bigger than earlier) project to get my Engineer degree. Still in progress.
-
+This is my first important (bigger than earlier) project to get my Engineer degree. Free for most people to manage their properties.
 
 Stack:
 
