@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib import messages
 from .forms import *
+from django.http import JsonResponse
 
 
 def index(request):
@@ -267,6 +268,9 @@ def leaseagreement_form_edit(request, pk):
         messages.error(request, 'Błąd. Operacja nieudana.')
     else:
         form = LeaseAgreementForm(instance=detail)
+
+    # if request.htmx:
+    #     return render(request, 'registration/lease/forms.html', {'leaseagreement_edit': form})
     return render(request, 'registration/lease/la_edit.html', {'leaseagreement_edit': form})
 
 
@@ -332,7 +336,6 @@ def billvendor_delete(request, pk):
 # Bill methods
 def bill_list(request):
     form = Bills.objects.all()
-
     return render(request, 'registration/bill/bill_list.html', {'bills_all': form})
 
 
@@ -388,14 +391,52 @@ def summary_counters(request):
                                                       'property_counter': property_counter})
 
 
-def token(request):
-    if request.META.get("HTTP_HX_REQUEST") != 'true':
-        return render(request, 'backoffice/token_full.html', {'token': api_token})
+# def token(request):
+#     if request.META.get("HTTP_HX_REQUEST") != 'true':
+#         return render(request, 'backoffice/token_full.html', {'token': api_token})
+#
+#     return render(request, 'backoffice/token.html', {'token': api_token})
+#
+# def support(request):
+#     if request.META.get("HTTP_HX_REQUEST") != 'true':
+#         return render(request, 'backoffice/support_full.html')
+#
+#     return render(request, 'backoffice/support.html')
 
-    return render(request, 'backoffice/token.html', {'token': api_token})
 
-def support(request):
-    if request.META.get("HTTP_HX_REQUEST") != 'true':
-        return render(request, 'backoffice/support_full.html')
 
-    return render(request, 'backoffice/support.html')
+
+def api_json(request):
+    bills = Bills.objects.all()
+    lease_agreements = LeaseAgreement.objects.all()
+    data = {
+        'bills': [],
+        'lease_agreements': []
+    }
+    for bill in bills:
+        data['bills'].append({
+            'id': bill.id,
+            'name': bill.name,
+            'agreement_number': bill.agreement_number,
+            'start': bill.start,
+            'duration': bill.duration,
+            'end': bill.end,
+            # 'bill_vendor': bill.bill_vendor,
+            # 'property': bill.property
+        })
+
+    for la in lease_agreements:
+        data['lease_agreements'].append({
+            'id': la.id,
+            'la_number': la.la_number,
+            'start': la.start,
+            'end': la.end,
+            'value': la.value,
+            'comments': la.comments,
+            # # Foreign Keys
+            # 'property': la.property,
+            # 'landlords': la.landlords,
+            # 'tenants': la.tenants,
+            # 'type': la.type
+        })
+    return JsonResponse(data)

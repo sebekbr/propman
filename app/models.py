@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Spółdzielnie/Wspólnoty mieszkaniowe
 class HousingAssociation_type(models.Model):
     id = models.AutoField(primary_key=True)
