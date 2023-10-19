@@ -80,13 +80,23 @@ WSGI_APPLICATION = 'PropMan.wsgi.application'
 # }
 
 DATABASES = {
+    # BAZA na pythonanywhere
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'sbrodziak$propman',
+    #     'USER': 'sbrodziak',
+    #     'PASSWORD': 'PropMan1!',
+    #     'HOST': 'sbrodziak.mysql.pythonanywhere-services.com',
+    # }
+
+    # Baza lokalna
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sbrodziak$propman',
-        'USER': 'sbrodziak',
-        'PASSWORD': 'PropMan1!',
-        'HOST': 'sbrodziak.mysql.pythonanywhere-services.com',
-    }
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'propman',
+            'USER': 'propman_admin',
+            'PASSWORD': 'PropMan1!',
+            'HOST': 'localhost',
+        }
 }
 
 
