@@ -37,7 +37,8 @@
         </tr>
         <tr>
           <td>Data płatności:</td>
-          <td>{{ leaseagreement_new.payment_day }}<span class="required-field">*</span></td>
+          <td>{{ leaseagreement_new.payment_day }}<span class="required-field">
+            *{{ leaseagreement_new.payment_day.errors|striptags}}</span></td>
         </tr>
         <tr>
           <td>Uwagi:</td>

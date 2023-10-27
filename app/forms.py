@@ -142,6 +142,14 @@ class LeaseAgreementForm(forms.ModelForm):
                     "showTodayButton": False,
                     "locale": "PL",
                 }),  # specify date-frmat
+            'payment_day': DatePickerInput(
+                options={
+                    "format": "DD.MM.YYYY",  # moment date-time format
+                    "showClose": False,
+                    "showClear": False,
+                    "showTodayButton": False,
+                    "locale": "PL",
+                }),  # specify date-frmat
         }
         help_texts = {
             'start': _('W formacie RRRR-MM-DD'),
