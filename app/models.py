@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 
 # Spółdzielnie/Wspólnoty mieszkaniowe
@@ -121,6 +122,7 @@ class LeaseAgreement(models.Model):
     start = models.DateField(auto_now=False, auto_now_add=False, blank=False)  # Lease agreement beginning date
     end = models.DateField(auto_now=False, auto_now_add=False, blank=False)  # Lease agreement ending date
     value = models.DecimalField(max_digits=19, decimal_places=2, blank=False)  # Lease agreement value
+    payment_day = models.DateField(auto_now=False, auto_now_add=False, default=datetime.date.today(), blank=True)
     comments = models.TextField(max_length=1000, blank=True)  # Comments
     # Foreign Keys
     property = models.ForeignKey(Property, on_delete=models.PROTECT)

@@ -110,12 +110,14 @@ class PropertyForm(forms.ModelForm):
 class LeaseAgreementForm(forms.ModelForm):
     class Meta:
         model = LeaseAgreement
-        fields = ['la_number', 'start', 'end', 'value', 'comments', 'type', 'property', 'landlords', 'tenants']
+        fields = ['la_number', 'start', 'end', 'value', 'payment_day',
+                  'comments', 'type', 'property', 'landlords', 'tenants']
         labels = {
             'la_number': _('Numer umowy'),
             'start': _('Data początkowa'),
             'end': _('Data końcowa'),
             'value': _('Czynsz'),
+            'payment_day': _('Data płatności'),
             'comments': _('Uwagi'),
             'type': _('Typ'),
             'property': _('Nieruchomość'),
