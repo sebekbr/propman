@@ -117,7 +117,7 @@ class LeaseAgreementForm(forms.ModelForm):
             'start': _('Data początkowa'),
             'end': _('Data końcowa'),
             'value': _('Czynsz'),
-            'payment_day': _('Data płatności'),
+            'payment_day': _('Dzień płatności'),
             'comments': _('Uwagi'),
             'type': _('Typ'),
             'property': _('Nieruchomość'),
@@ -137,14 +137,6 @@ class LeaseAgreementForm(forms.ModelForm):
             'end': DatePickerInput(
                 options={
                     "format": "DD.MM.YYYY", # moment date-time format
-                    "showClose": False,
-                    "showClear": False,
-                    "showTodayButton": False,
-                    "locale": "PL",
-                }),  # specify date-frmat
-            'payment_day': DatePickerInput(
-                options={
-                    "format": "DD.MM.YYYY",  # moment date-time format
                     "showClose": False,
                     "showClear": False,
                     "showTodayButton": False,
