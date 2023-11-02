@@ -10,7 +10,7 @@ handler400 = 'app.views.error_400'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    # path('', views.summary_counters, name='summary_counters'),
+    path('', views.summary_counters, name='summary_counters'),
     path('api', views.api_json, name='api'),
     path('api/', views.api_json, name='api'),
 
