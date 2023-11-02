@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib import messages
 from .forms import *
 from django.http import JsonResponse
+from .models import *
 
 
 def index(request):
@@ -383,12 +384,15 @@ def bill_delete(request, pk):
 
 
 def summary_counters(request):
-    ha_counter = HousingAssociation.objects.all().count()
-    la_counter = LeaseAgreement.objects.all().count()
-    property_counter = Property.objects.all().count()
-    return render(request, 'registration/home.html', {'ha_counter': ha_counter,
-                                                      'la_counter': la_counter,
-                                                      'property_counter': property_counter})
+    # la = LeaseAgreement.objects.all()
+    # la_counter = la.count()
+    prop = Property.objects.all()
+    property_counter = prop.count()
+    context = {
+        # 'la_counter': la_counter,
+        'property_counter': property_counter
+    }
+    return render(request, 'registration/home.html', context)
 
 
 # def token(request):
